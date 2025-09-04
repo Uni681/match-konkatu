@@ -1,4 +1,4 @@
-import { html } from 'hono/html';
+import { html, raw } from 'hono/html';
 
 interface Plan {
   name: string;
@@ -26,9 +26,9 @@ export const PriceTable = ({ title, plans }: PriceTableProps) => {
     </div>
     
     <div class="grid grid-cols-1 lg:grid-cols-${plans.length} gap-8 max-w-5xl mx-auto">
-      ${plans.map((plan, index) => html`
+      ${raw(plans.map((plan, index) => `
         <div class="relative">
-          ${plan.recommended ? html`
+          ${plan.recommended ? `
             <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
               <div class="bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
                 おすすめ
@@ -53,12 +53,12 @@ export const PriceTable = ({ title, plans }: PriceTableProps) => {
               
               <!-- Features List -->
               <ul class="space-y-4 mb-8">
-                ${plan.features.map(feature => html`
+                ${raw(plan.features.map(feature => `
                   <li class="flex items-start">
                     <i class="fas fa-check text-primary-500 mt-1 mr-3 flex-shrink-0"></i>
                     <span class="text-gray-700">${feature}</span>
                   </li>
-                `).join('')}
+                `).join(''))}
               </ul>
               
               <!-- CTA Button -->
@@ -72,7 +72,7 @@ export const PriceTable = ({ title, plans }: PriceTableProps) => {
             </div>
           </div>
         </div>
-      `).join('')}
+      `).join(''))}
     </div>
     
     <!-- Additional Pricing Info -->

@@ -1,4 +1,4 @@
-import { html } from 'hono/html';
+import { html, raw } from 'hono/html';
 
 interface FAQItem {
   question: string;
@@ -23,7 +23,7 @@ export const FAQ = ({ faq }: FAQProps) => {
     </div>
     
     <div class="max-w-4xl mx-auto">
-      ${faq.map((item, index) => html`
+      ${raw(faq.map((item, index) => `
         <div class="faq-item mb-4 animate-on-scroll" style="animation-delay: ${index * 100}ms">
           <button 
             class="faq-question w-full text-left bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow focus:outline-none focus:ring-2 focus:ring-primary-500"
@@ -54,7 +54,7 @@ export const FAQ = ({ faq }: FAQProps) => {
             </div>
           </div>
         </div>
-      `).join('')}
+      `).join(''))}
     </div>
     
     <!-- Additional Help Section -->

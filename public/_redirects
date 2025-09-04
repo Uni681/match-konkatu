@@ -1,0 +1,103 @@
+# Cloudflare Pages Redirect Rules
+# Format: from_path to_path status_code
+
+# Legacy blog posts redirect
+/posts/* /blog/:splat 301
+/post/* /blog/:splat 301
+/articles/* /blog/:splat 301
+
+# Old page structure redirects  
+/services /service 301
+/services/* /service 301
+/pricing /price 301
+/prices /price 301
+/about-us /about 301
+/aboutus /about 301
+/company /about 301
+
+# Contact page variations
+/contact-us /contact 301
+/inquiry /contact 301
+/consultation /contact 301
+
+# Blog-related redirects
+/blog/feed /blog 301
+/blog/rss /blog 301
+/news/* /blog/:splat 301
+/updates/* /blog/:splat 301
+
+# Category redirects
+/category/* /blog 301
+/categories/* /blog 301
+/tag/* /blog 301
+/tags/* /blog 301
+
+# Japanese variations
+/サービス /service 301
+/料金 /price 301
+/会社概要 /about 301
+/お問い合わせ /contact 301
+/ブログ /blog 301
+
+# Legacy admin redirects
+/wp-admin/* /admin/:splat 301
+/wp-login.php /admin 301
+/admin.php /admin 301
+
+# Common misspellings
+/servise /service 301
+/servis /service 301
+/kontact /contact 301
+/contat /contact 301
+
+# HTTP to HTTPS redirect (handled by Cloudflare by default)
+# Old domain redirects (if migrating from another domain)
+# https://old-domain.com/* https://match-konkatu.pages.dev/:splat 301
+
+# Temporary redirects for maintenance
+# /maintenance-mode /contact 302
+
+# API redirects
+/api/v1/* /api/:splat 301
+
+# Social media redirects (to external sites)
+/facebook https://www.facebook.com/match.konkatu 301
+/instagram https://www.instagram.com/match_konkatu 301
+/line https://line.me/R/ti/p/@match-konkatu 301
+/twitter https://twitter.com/match_konkatu 301
+
+# File extension redirects
+/*.php /404 301
+/*.asp /404 301
+/*.jsp /404 301
+
+# Common attack patterns (redirect to 404)
+/wp-content/* /404 301
+/wp-includes/* /404 301
+/phpMyAdmin/* /404 301
+/.env /404 301
+/.git/* /404 301
+
+# Sitemap redirects
+/sitemap /sitemap.xml 301
+/sitemaps.xml /sitemap.xml 301
+
+# Robots.txt redirect
+/robot.txt /robots.txt 301
+
+# Feed redirects
+/feed /blog 301
+/rss /blog 301
+/rss.xml /blog 301
+
+# Privacy policy variations
+/privacy-policy /policy 301
+/privacy /policy 301
+/プライバシーポリシー /policy 301
+
+# Terms of service redirect
+/terms-of-service /policy 301
+/terms /policy 301
+/利用規約 /policy 301
+
+# Add more redirects as needed based on analytics and user behavior

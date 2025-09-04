@@ -1,316 +1,377 @@
 # MATCH（マッチ）本気の婚活 - 結婚相談所Webサイト
 
-## プロジェクト概要
+横浜の結婚相談所「MATCH（マッチ）本気の婚活」の公式Webサイトです。Cloudflare Pages + Hono framework で構築された、高性能でSEO最適化されたWebアプリケーションです。
 
-親子2代で運営する結婚相談所「MATCH」のWebサイトです。IBJ正規加盟店として、温かく信頼できるサービスを提供する結婚相談所のブランドイメージを表現しています。
+## 🌟 プロジェクト概要
 
-- **目標**: 高速・安全・低コスト・ノーサーバー運用
-- **技術スタック**: Cloudflare Pages/Workers + Hono + TypeScript + TailwindCSS + Decap CMS
-- **特徴**: レスポンシブデザイン、SEO最適化、アクセシビリティ対応
+- **サイト名**: MATCH（マッチ）本気の婚活
+- **目的**: 結婚相談所の集客・ブランディング・顧客管理
+- **技術スタック**: Hono + TypeScript + Cloudflare Pages/Workers
+- **デプロイ**: Cloudflare Pages
+- **CMS**: Decap CMS (Git-based)
 
-## 🚀 ライブデモ
+## 🚀 ライブサイト
 
-- **開発サーバー**: https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev
-- **本番サイト**: 未デプロイ（Cloudflare Pages）
-- **CMS管理画面**: /admin（Decap CMS）
+- **本番サイト**: [https://match-konkatu.pages.dev](https://match-konkatu.pages.dev)
+- **管理画面**: [https://match-konkatu.pages.dev/admin](https://match-konkatu.pages.dev/admin)
+- **GitHub Pages**: [https://uni681.github.io/match-konkatu](https://uni681.github.io/match-konkatu)
 
 ## ✨ 主な機能
 
-### 👥 フロントエンド機能
+### 🎯 コア機能
+- **レスポンシブ対応**: 全デバイスで最適な表示
+- **高速パフォーマンス**: Core Web Vitals最適化済み
+- **SEO完全対応**: 構造化データ、サイトマップ、OGP
+- **アクセシビリティ**: WCAG 2.1 AA準拠
+- **セキュリティ**: CSRF、Honeypot、スパム対策
 
-- **ホームページ**: ヒーロー、特徴、料金、お客様の声、FAQ、CTA
-- **固定ページ**: サービス詳細、料金プラン、私たちについて
-- **ブログ機能**: カテゴリ「婚活ノウハウ」「イベント情報」
-- **お問い合わせフォーム**: バリデーション、スパム対策付き
-- **SEO対応**: 構造化データ、サイトマップ、OGP、パンくず
+### 📝 コンテンツ管理
+- **Decap CMS**: Git-based ヘッドレスCMS
+- **ブログ機能**: カテゴリー別記事管理
+- **固定ページ**: サービス、料金、会社情報
+- **お客様の声**: 成婚事例・評価管理
 
-### 🎨 デザイン特徴
+### 📞 顧客接点
+- **お問い合わせフォーム**: D1データベース保存
+- **メール通知**: 自動返信・管理者通知
+- **電話・LINE連携**: 複数チャンネル対応
 
-- **カラーパレット**: 白・ベージュ基調で温かみと信頼感
-- **レスポンシブ**: スマホ最優先のモバイルファースト
-- **アクセシビリティ**: WCAG基準準拠、キーボード操作対応
-- **フォント**: 日本語（Noto Sans JP、Shippori Mincho）+ 英語（Cormorant Garamond）
+### 🛡️ セキュリティ・品質
+- **スパム対策**: Honeypot + トークン認証
+- **パフォーマンス**: LCP < 1.8s、CLS < 0.1
+- **リダイレクト管理**: 旧URL対応
+- **エラーハンドリング**: 包括的なエラー処理
 
-### 🔧 バックエンド機能
-
-- **CMS**: Decap CMS（Git ベース、画像アップロード対応）
-- **データベース**: Cloudflare D1（お問い合わせフォーム）
-- **API**: REST API（お問い合わせ送信）
-- **セキュリティ**: Honeypot、バリデーション、CSRFトークン
-
-## 📁 プロジェクト構成
-
-```
-webapp/
-├── src/
-│   ├── index.tsx              # メインアプリケーション（Hono）
-│   ├── components/            # 再利用可能コンポーネント
-│   │   ├── Layout.tsx         # ベースレイアウト
-│   │   ├── Hero.tsx           # ヒーローセクション
-│   │   ├── Features.tsx       # 特徴セクション
-│   │   ├── PriceTable.tsx     # 料金表
-│   │   ├── Testimonials.tsx   # お客様の声
-│   │   ├── FAQ.tsx            # よくある質問
-│   │   ├── CTA.tsx            # 行動促進
-│   │   └── ContactForm.tsx    # お問い合わせフォーム
-│   ├── utils/
-│   │   ├── content.ts         # コンテンツ管理ユーティリティ
-│   │   └── build-content.ts   # ビルド時コンテンツ
-│   └── types/
-│       └── index.ts           # TypeScript型定義
-├── public/
-│   ├── admin/                 # Decap CMS管理画面
-│   ├── img/                   # 画像ファイル
-│   └── static/                # CSS・JavaScript
-├── content/                   # CMSコンテンツ（Markdown）
-│   ├── home.md               # ホームページ設定
-│   ├── posts/                # ブログ記事
-│   └── settings.yml          # サイト設定
-├── migrations/               # データベースマイグレーション
-└── ecosystem.config.cjs      # PM2設定（開発用）
-```
-
-## 🛠️ 技術スタック
+## 🏗️ 技術仕様
 
 ### フロントエンド
-- **Hono** v4.9+ - 軽量Webフレームワーク
-- **TypeScript** v5.3+ - 型安全性
-- **TailwindCSS** - ユーティリティファーストCSS
-- **Font Awesome** - アイコン
-- **Web標準API** - ファイルアクセス、Intersection Observer
+```
+- Framework: Hono + TypeScript
+- Styling: TailwindCSS + Custom CSS
+- Icons: Font Awesome 6
+- Fonts: Google Fonts (Noto Sans JP, Shippori Mincho)
+```
 
 ### バックエンド
-- **Cloudflare Pages** - ホスティング（ビルド・デプロイ）
-- **Cloudflare Workers** - エッジランタイム（API）
-- **Cloudflare D1** - SQLiteデータベース（お問い合わせ）
-- **Zod** - バリデーション
-
-### CMS・開発
-- **Decap CMS** - Gitベースヘッドレス CMS
-- **Vite** - ビルドツール
-- **Wrangler** - Cloudflare CLI
-- **PM2** - プロセス管理（開発用）
-
-## 🚀 セットアップ・開発手順
-
-### 1. 環境準備
-
-```bash
-# リポジトリのクローン
-git clone <repository-url>
-cd webapp
-
-# 依存関係のインストール
-npm install
-
-# 環境設定ファイルの作成
-cp .env.example .dev.vars  # ローカル開発用
+```
+- Runtime: Cloudflare Workers
+- Database: Cloudflare D1 (SQLite)
+- Email: Resend API (環境変数で設定)
+- Authentication: CSRF Token + Honeypot
 ```
 
-### 2. ローカル開発
+### 開発・デプロイ
+```
+- Build Tool: Vite
+- Package Manager: npm
+- CI/CD: GitHub + Cloudflare Pages
+- Process Manager: PM2 (開発時)
+```
+
+## 📋 初回セットアップ
+
+### 1. リポジトリのクローン
+```bash
+git clone https://github.com/Uni681/match-konkatu.git
+cd match-konkatu
+```
+
+### 2. 依存関係のインストール
+```bash
+npm install
+```
+
+### 3. 環境変数の設定
+`.dev.vars` ファイルを作成し、必要な環境変数を設定：
 
 ```bash
-# プロジェクトをビルド
+# .dev.vars (本番環境では wrangler secret put で設定)
+
+# フォーム関連
+FORM_SECRET=your-form-secret-key-here
+NOTIFICATION_EMAIL=admin@match-konkatu.com
+
+# メール送信 (Resend API)
+SMTP_HOST=smtp.resend.com
+SMTP_PORT=587
+SMTP_USER=resend
+SMTP_PASS=your-resend-api-key
+
+# その他
+NODE_ENV=development
+```
+
+### 4. データベースの初期化
+```bash
+# D1データベースの作成 (Cloudflare API Token必要)
+npx wrangler d1 create match-konkatu-production
+
+# ローカル開発用マイグレーション
+npx wrangler d1 migrations apply match-konkatu-production --local
+```
+
+### 5. プロジェクトのビルド
+```bash
+npm run build
+```
+
+## 🚀 開発環境の起動
+
+### 基本的な開発フロー
+```bash
+# 1. ビルド (初回または大幅な変更時)
 npm run build
 
-# 開発サーバー起動（PM2使用）
-npm run clean-port           # ポート3000をクリア
+# 2. 開発サーバー起動 (PM2使用)
 pm2 start ecosystem.config.cjs
 
-# サーバー確認
+# 3. 動作確認
 curl http://localhost:3000
+
+# 4. ログ確認
+pm2 logs --nostream
 ```
 
-### 3. CMS設定
-
-- **管理画面**: http://localhost:3000/admin
-- **認証**: Git Gateway（本番）または Local Backend（開発）
-- **コンテンツ編集**: ブログ記事、固定ページ、サイト設定
-
-### 4. D1データベース（本番用）
-
+### よく使うコマンド
 ```bash
-# Cloudflare APIキー設定
-export CLOUDFLARE_API_TOKEN="your-api-token"
+# 開発サーバー再起動
+npm run clean-port && npm run build && pm2 restart webapp
 
-# D1データベース作成
-npx wrangler d1 create match-konkatsu-db
+# データベースリセット
+npm run db:reset
 
-# マイグレーション実行
-npm run db:migrate:prod
+# ローカルデータベース確認
+npm run db:console:local
 
-# wrangler.jsonc に database_id を設定
+# スタイル変更の反映
+# CSSファイル編集後は自動的に反映されます
 ```
 
-## 📋 本番デプロイ手順
+## 📝 コンテンツ編集フロー
 
-### 1. Cloudflare Pages設定
+### 1. 管理画面でのコンテンツ編集
+1. **アクセス**: [http://localhost:3000/admin](http://localhost:3000/admin)
+2. **ログイン**: GitHub認証またはローカル認証
+3. **編集**: 直感的なエディターでコンテンツ編集
+4. **プレビュー**: 編集内容をリアルタイムプレビュー
+5. **保存**: Draft → Review → Publish の承認フロー
 
+### 2. ブログ記事の作成
+1. 「ブログ記事」→「新規作成」
+2. 必須項目の入力：
+   - タイトル・SEOタイトル
+   - メタディスクリプション
+   - カテゴリー・タグ
+   - アイキャッチ画像
+   - 本文（Markdown形式）
+3. 「公開状態」で公開設定
+4. 「保存」→「公開」
+
+### 3. 固定ページの編集
+1. 「ページ管理」から対象ページを選択
+2. SEO設定・コンテンツを編集
+3. プレビューで確認
+4. 公開
+
+### 4. サイト設定の変更
+1. 「サイト設定」→「基本設定」
+2. 連絡先・営業時間・SNS情報を編集
+3. SEO・フォーム設定を調整
+
+## 🖼️ 画像最適化ルール
+
+### アップロード時の最適化
+```
+推奨サイズ・フォーマット：
+- ヒーロー画像: 1920x1080px, WebP/JPEG, 200KB以下
+- ブログアイキャッチ: 1200x630px, WebP/JPEG, 150KB以下
+- プロフィール画像: 400x400px, WebP/JPEG, 100KB以下
+- アイコン: 64x64px, SVG/PNG, 10KB以下
+```
+
+### 画像の配置
+```
+public/img/
+├── hero-bg.jpg          # ヒーローセクション背景
+├── og-default.jpg       # デフォルトOGP画像
+├── blog/               # ブログ用画像
+├── testimonials/       # お客様の声
+└── services/          # サービス説明画像
+```
+
+### 自動最適化
+- **遅延読み込み**: Intersection Observer使用
+- **WebP対応**: モダンブラウザで自動切り替え
+- **レスポンシブ画像**: デバイスに最適なサイズ配信
+
+## 🌐 デプロイメント
+
+### Cloudflare Pages への本番デプロイ
 ```bash
-# APIキー設定
-export CLOUDFLARE_API_TOKEN="your-cloudflare-api-token"
+# 1. Cloudflare API Token設定
+export CLOUDFLARE_API_TOKEN=your-api-token
 
-# 認証確認
-npx wrangler whoami
-
-# プロジェクト作成
-npx wrangler pages project create match-konkatsu \
+# 2. プロジェクト作成
+npx wrangler pages project create match-konkatu \
   --production-branch main \
-  --compatibility-date 2024-01-01
+  --compatibility-date 2024-09-04
+
+# 3. D1データベース作成・マイグレーション
+npx wrangler d1 create match-konkatu-production
+npx wrangler d1 migrations apply match-konkatu-production
+
+# 4. 環境変数設定
+npx wrangler pages secret put FORM_SECRET --project-name match-konkatu
+npx wrangler pages secret put NOTIFICATION_EMAIL --project-name match-konkatu
+npx wrangler pages secret put SMTP_PASS --project-name match-konkatu
+
+# 5. デプロイ実行
+npm run build
+npx wrangler pages deploy dist --project-name match-konkatu
 ```
 
-### 2. D1データベース設定
+### 継続的デプロイ (推奨)
+1. **GitHub連携**: Cloudflare Pagesでリポジトリを連携
+2. **自動ビルド**: mainブランチへのpush時に自動デプロイ
+3. **プレビュー**: プルリクエスト時の自動プレビュー生成
 
-```bash
-# 本番データベース作成
-npx wrangler d1 create match-konkatsu-db
+## 🔧 カスタマイズ
 
-# wrangler.jsonc を更新（database_id追加）
-# マイグレーション実行
-npx wrangler d1 migrations apply match-konkatsu-db
+### デザイン・スタイリング
+```css
+/* public/static/styles.css */
+:root {
+  --color-primary: #8b5a3c;    /* メインブランドカラー */
+  --color-secondary: #d4a574;   /* セカンダリカラー */
+  /* 他のデザイントークン */
+}
 ```
 
-### 3. デプロイ実行
-
-```bash
-# ビルド＆デプロイ
-npm run deploy:prod
-
-# カスタムドメイン設定（オプション）
-npx wrangler pages domain add match-konkatsu.com --project-name match-konkatsu
-
-# 環境変数設定（必要に応じて）
-npx wrangler pages secret put API_KEY --project-name match-konkatsu
+### 機能追加
+```typescript
+// src/index.tsx に新しいルートを追加
+app.get('/new-page', (c) => {
+  return c.html(Layout({
+    title: 'New Page',
+    description: 'Description',
+    children: '<h1>New Content</h1>'
+  }))
+})
 ```
 
-## 🎯 SEO・パフォーマンス対応
-
-### SEO最適化
-- **構造化データ**: LocalBusiness、BreadcrumbList、BlogPosting
-- **メタタグ**: title、description、OGP、Twitter Card
-- **サイトマップ**: 自動生成（/sitemap.xml）
-- **robots.txt**: 自動生成
-- **パンくずリスト**: 全ページ対応
-
-### パフォーマンス
-- **Core Web Vitals**: LCP < 1.5s、CLS < 0.1目標
-- **画像最適化**: WebP、遅延読み込み、サイズ指定
-- **CSS/JS最小化**: Viteによる自動最適化
-- **CDN配信**: Cloudflare Edge Network
-
-### アクセシビリティ
-- **キーボード操作**: Tab、Enter、Escapeキー対応
-- **スクリーンリーダー**: aria属性、ラベル設定
-- **コントラスト**: WCAG AA基準準拠
-- **フォーカス表示**: 明確なフォーカスインジケーター
-
-## 🔒 セキュリティ対策
-
-### フォームセキュリティ
-- **Honeypot**: 隠しフィールドによるBot対策
-- **バリデーション**: クライアント＋サーバー二重チェック
-- **CORS設定**: API エンドポイント保護
-- **入力サニタイゼーション**: XSS攻撃防止
-
-### データベース
-- **D1 Database**: SQLite、Cloudflare管理下
-- **個人情報保護**: 暗号化、アクセス制限
-- **ログ管理**: エラー監視、不正アクセス検出
-
-## 📱 コンテンツ管理（Decap CMS）
-
-### 管理できるコンテンツ
-1. **ホームページ**: ヒーロー、特徴、料金、お客様の声、FAQ
-2. **固定ページ**: サービス、料金、私たちについて
-3. **ブログ記事**: カテゴリ別、タグ付け、アイキャッチ画像
-4. **サイト設定**: 連絡先情報、SNSリンク、GTM ID
-
-### CMS操作手順
-1. `/admin` にアクセス
-2. GitHub認証でログイン
-3. コンテンツを編集・追加
-4. プレビューで確認
-5. 保存（自動的にGitコミット）
+### CMS設定の拡張
+```yaml
+# public/admin/config.yml
+collections:
+  - name: "new-collection"
+    label: "新しいコンテンツタイプ"
+    folder: "content/new"
+    # 設定を追加
+```
 
 ## 🐛 トラブルシューティング
 
-### よくある問題
+### よくある問題と解決法
 
-**1. ビルドエラー**
+#### 1. 開発サーバーが起動しない
 ```bash
-# 依存関係を再インストール
-rm -rf node_modules package-lock.json
-npm install
-
-# TypeScriptエラー確認
-npx tsc --noEmit
-```
-
-**2. PM2サーバー起動失敗**
-```bash
-# ポート確認・解放
-fuser -k 3000/tcp
+# ポートが使用中の場合
+npm run clean-port
 pm2 delete all
 
-# ログ確認
-pm2 logs match-konkatsu --nostream
+# 依存関係の問題
+rm -rf node_modules package-lock.json
+npm install
 ```
 
-**3. D1データベース接続エラー**
+#### 2. ビルドエラー
 ```bash
-# マイグレーション状態確認
-npx wrangler d1 migrations list match-konkatsu-db --local
+# TypeScriptエラーの確認
+npm run build 2>&1 | grep error
 
-# データベース再作成
+# 依存関係の確認
+npm audit fix
+```
+
+#### 3. データベース接続エラー
+```bash
+# ローカルD1の状態確認
+ls -la .wrangler/state/v3/d1/
+
+# マイグレーションの再実行
 npm run db:reset
 ```
 
-**4. CMS画面アクセス不可**
-- `/admin/config.yml` の設定確認
-- Git Gateway設定の確認
-- ブラウザキャッシュクリア
+#### 4. CMS管理画面にアクセスできない
+```bash
+# 管理画面ファイルの確認
+ls -la public/admin/
 
-## 📊 監視・保守
+# 認証設定の確認
+cat public/admin/config.yml | grep -A5 backend
+```
 
-### 定期メンテナンス
-- **依存関係更新**: 月1回
-- **セキュリティパッチ**: 緊急時
-- **画像最適化**: 新規追加時
-- **パフォーマンス測定**: Core Web Vitals監視
+## 📊 パフォーマンス監視
 
-### ログ・分析
-- **Cloudflare Analytics**: トラフィック、エラー率
-- **D1 Database**: クエリパフォーマンス
-- **Console Logs**: エラー監視
+### Core Web Vitals目標値
+- **LCP (Largest Contentful Paint)**: < 1.8秒
+- **FID (First Input Delay)**: < 100ミリ秒  
+- **CLS (Cumulative Layout Shift)**: < 0.1
+
+### 監視方法
+```javascript
+// 開発環境でのWebVitals計測
+// ブラウザのコンソールで確認可能
+console.log('WebVitals measurement active')
+```
+
+### 最適化チェックリスト
+- [ ] 画像の最適化・遅延読み込み
+- [ ] CSSの最小化・クリティカルパス
+- [ ] JavaScriptの最小化・分割
+- [ ] フォントの最適化
+- [ ] CDNの活用
 
 ## 🤝 コントリビューション
 
-### 開発フロー
-1. Issueを作成（機能要求、バグ報告）
-2. featureブランチを作成
-3. 実装・テスト
-4. Pull Requestを作成
-5. コードレビュー
-6. mainブランチにマージ
+### 開発に参加する場合
+1. **Issues**: バグ報告・機能要望
+2. **Pull Requests**: コード改善・新機能
+3. **コードレビュー**: 品質維持
+4. **ドキュメント**: README・コメント改善
 
-### コーディング規約
-- **TypeScript**: strict モード
-- **ESLint**: 推奨ルール
-- **Prettier**: 自動フォーマット
-- **コメント**: JSDoc形式
+### 開発ルール
+- **コミット**: [Conventional Commits](https://conventionalcommits.org/)形式
+- **ブランチ**: `feature/xxx`, `fix/xxx`, `docs/xxx`
+- **テスト**: 主要機能の動作確認必須
+- **リファクタリング**: 機能改善時は既存機能を破壊しない
+
+## 📞 サポート・お問い合わせ
+
+### 技術サポート
+- **GitHub Issues**: バグ報告・機能要望
+- **Discord**: リアルタイム質問・相談
+- **Email**: tech-support@match-konkatu.com
+
+### ビジネス関連
+- **電話**: 045-XXX-XXXX
+- **Email**: info@match-konkatu.com  
+- **LINE**: [@match-konkatu](https://line.me/R/ti/p/@match-konkatu)
 
 ## 📄 ライセンス
 
-このプロジェクトは MIT License の下で公開されています。
+```
+Copyright (c) 2024 MATCH（マッチ）本気の婚活
+All rights reserved.
 
-## 📞 サポート
-
-- **技術的な質問**: GitHub Issues
-- **緊急時**: developer@match-konkatsu.com
-- **ドキュメント**: 本READMEファイル
+This project is proprietary software.
+Unauthorized copying, modification, distribution, or use is strictly prohibited.
+```
 
 ---
 
-**最終更新**: 2024年9月4日  
-**バージョン**: v1.0.0  
-**作成者**: MATCH Development Team
+**最終更新**: 2024年12月01日  
+**バージョン**: 1.0.0  
+**メンテナー**: MATCH開発チーム
+
+このドキュメントは、プロジェクトの機能追加・変更に伴い定期的に更新されます。

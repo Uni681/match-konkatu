@@ -1,4 +1,4 @@
-import { html } from 'hono/html';
+import { html, raw } from 'hono/html';
 
 interface CTAProps {
   title?: string;
@@ -25,9 +25,9 @@ export const CTA = ({
       case 'minimal':
         return 'bg-white border-t border-gray-200 py-12';
       case 'gradient':
-        return 'bg-gradient-to-r from-primary-500 to-secondary-500 text-white py-16';
+        return 'bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white py-20 relative overflow-hidden';
       default:
-        return 'bg-gradient-to-r from-primary-50 to-secondary-50 py-16';
+        return 'section-bg-gradient-light py-20';
     }
   };
 
@@ -40,52 +40,47 @@ export const CTA = ({
   };
 
   return html`
-<section class="${getVariantClasses()}">
-  <div class="container mx-auto px-4 text-center">
-    <div class="max-w-3xl mx-auto">
-      ${variant !== 'minimal' ? html`
-        <i class="fas fa-heart text-4xl ${variant === 'gradient' ? 'text-white' : 'text-primary-500'} mb-6"></i>
-      ` : ''}
+<section class="elegant-section elegant-section-light">
+  <div class="container mx-auto px-6 text-center max-w-4xl">
+    <!-- Minimal Header -->
+    <div class="w-20 h-px bg-primary-600 mx-auto mb-8"></div>
+    
+    <h2 class="elegant-heading mb-6">
+      ${title}
+    </h2>
+    
+    <p class="elegant-subheading mb-12 max-w-2xl mx-auto">
+      ${subtitle}
+    </p>
+    
+    <!-- Simple Buttons -->
+    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+      <a href="${primaryLink}" class="minimal-cta-primary group">
+        ${primaryText}
+        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+      </a>
       
-      <h2 class="font-mincho text-2xl md:text-3xl font-bold ${getTextClasses()} mb-4">
-        ${title}
-      </h2>
-      
-      <p class="text-lg ${getSubtextClasses()} mb-8 leading-relaxed">
-        ${subtitle}
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="${primaryLink}" class="btn ${variant === 'gradient' ? 'bg-white text-primary-600 hover:bg-gray-50' : 'btn-primary'} btn-lg group">
-          <i class="fas fa-comments mr-2"></i>
-          ${primaryText}
-          <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+      ${secondaryText ? raw(`
+        <a href="${secondaryLink}" class="minimal-cta-secondary group">
+          <i class="fab fa-line mr-3 text-green-600"></i>
+          ${secondaryText}
         </a>
-        
-        ${secondaryText ? html`
-          <a href="${secondaryLink}" class="btn ${variant === 'gradient' ? 'border-white text-white hover:bg-white hover:text-primary-600' : 'btn-outline'} btn-lg">
-            <i class="fab fa-line mr-2"></i>
-            ${secondaryText}
-          </a>
-        ` : ''}
+      `) : ''}
+    </div>
+    
+    <!-- Simple Contact Info -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-600">
+      <div class="text-center">
+        <div class="text-lg font-light mb-2">お電話</div>
+        <div class="text-primary-600">045-XXX-XXXX</div>
       </div>
-      
-      <!-- Contact Info -->
-      <div class="mt-8 pt-8 border-t ${variant === 'gradient' ? 'border-white/20' : 'border-gray-200'}">
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm ${getSubtextClasses()}">
-          <div class="flex items-center">
-            <i class="fas fa-phone mr-2"></i>
-            <span>お電話: 045-XXX-XXXX</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-clock mr-2"></i>
-            <span>平日10:00-19:00 / 土10:00-17:00</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-envelope mr-2"></i>
-            <span>info@match-konkatsu.com</span>
-          </div>
-        </div>
+      <div class="text-center">
+        <div class="text-lg font-light mb-2">営業時間</div>
+        <div class="text-primary-600">平日10:00-19:00</div>
+      </div>
+      <div class="text-center">
+        <div class="text-lg font-light mb-2">メール</div>
+        <div class="text-primary-600">info@match-konkatsu.com</div>
       </div>
     </div>
   </div>

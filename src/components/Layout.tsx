@@ -1,4 +1,4 @@
-import { html } from 'hono/html';
+import { html, raw } from 'hono/html';
 
 interface LayoutProps {
   title: string;
@@ -6,7 +6,13 @@ interface LayoutProps {
   children: string;
   ogImage?: string;
   canonicalUrl?: string;
-  structuredData?: object;
+  structuredData?: object | object[];
+  breadcrumbs?: Array<{name: string, href: string}>;
+  pageType?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  keywords?: string[];
 }
 
 export const Layout = ({
@@ -15,10 +21,20 @@ export const Layout = ({
   children,
   ogImage = '/img/og-default.jpg',
   canonicalUrl,
-  structuredData
+  structuredData,
+  breadcrumbs = [],
+  pageType = 'website',
+  publishedTime,
+  modifiedTime,
+  author,
+  keywords = []
 }: LayoutProps) => {
   const siteTitle = 'MATCH（マッチ）本気の婚活';
   const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
+  const currentUrl = canonicalUrl || '';
+
+  // キーワードの文字列化
+  const keywordString = keywords.length > 0 ? keywords.join(', ') : '結婚相談所, 婚活, マッチング, 横浜, 神奈川';
 
   return html`
 <!DOCTYPE html>
@@ -30,20 +46,44 @@ export const Layout = ({
   <!-- SEO Meta Tags -->
   <title>${fullTitle}</title>
   <meta name="description" content="${description}">
+  <meta name="keywords" content="${keywordString}">
+  <meta name="author" content="${author || 'MATCH（マッチ）本気の婚活'}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   ${canonicalUrl ? `<link rel="canonical" href="${canonicalUrl}">` : ''}
+  
+  <!-- Language and Region -->
+  <meta name="language" content="ja-JP">
+  <link rel="alternate" hreflang="ja" href="${currentUrl}">
   
   <!-- Open Graph -->
   <meta property="og:title" content="${fullTitle}">
   <meta property="og:description" content="${description}">
   <meta property="og:image" content="${ogImage}">
-  <meta property="og:type" content="website">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${title}のイメージ">
+  <meta property="og:type" content="${pageType}">
+  <meta property="og:url" content="${currentUrl}">
   <meta property="og:site_name" content="MATCH（マッチ）本気の婚活">
+  <meta property="og:locale" content="ja_JP">
+  ${publishedTime ? `<meta property="article:published_time" content="${publishedTime}">` : ''}
+  ${modifiedTime ? `<meta property="article:modified_time" content="${modifiedTime}">` : ''}
+  ${author ? `<meta property="article:author" content="${author}">` : ''}
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@match_konkatu">
+  <meta name="twitter:creator" content="@match_konkatu">
   <meta name="twitter:title" content="${fullTitle}">
   <meta name="twitter:description" content="${description}">
   <meta name="twitter:image" content="${ogImage}">
+  <meta name="twitter:image:alt" content="${title}のイメージ">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#8B4513">
+  <meta name="msapplication-TileColor" content="#8B4513">
+  <meta name="msapplication-config" content="/browserconfig.xml">
   
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -103,38 +143,52 @@ export const Layout = ({
   <!-- Custom Styles -->
   <link rel="stylesheet" href="/static/styles.css">
   
-  ${structuredData ? `<script type="application/ld+json">${JSON.stringify(structuredData)}</script>` : ''}
+  <!-- Structured Data (JSON-LD) -->
+  ${structuredData ? 
+    Array.isArray(structuredData) 
+      ? raw(structuredData.map(schema => `<script type="application/ld+json">${JSON.stringify(schema)}</script>`).join('\n  '))
+      : raw(`<script type="application/ld+json">${JSON.stringify(structuredData)}</script>`)
+    : ''}
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="/static/styles.css" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
+  
+  <!-- DNS Prefetch for External Resources -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
 </head>
 <body class="font-sans text-gray-800 bg-white">
-  <!-- Header -->
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between py-4">
+  <!-- Minimal Header -->
+  <header class="absolute top-0 left-0 right-0 z-[100] header-transparent">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between py-6">
         <!-- Logo -->
         <div class="flex items-center">
-          <a href="/" class="flex items-center space-x-2">
-            <i class="fas fa-heart text-primary-500 text-2xl"></i>
-            <div>
-              <div class="font-mincho text-xl font-semibold text-gray-900">MATCH</div>
-              <div class="text-xs text-gray-600">本気の婚活</div>
-            </div>
+          <a href="/" class="flex items-center">
+            <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="h-14 w-auto opacity-95 md:h-16">
           </a>
         </div>
         
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex space-x-8">
-          <a href="/" class="text-gray-700 hover:text-primary-500 transition-colors">ホーム</a>
-          <a href="/service" class="text-gray-700 hover:text-primary-500 transition-colors">サービス</a>
-          <a href="/price" class="text-gray-700 hover:text-primary-500 transition-colors">料金</a>
-          <a href="/about" class="text-gray-700 hover:text-primary-500 transition-colors">私たちについて</a>
-          <a href="/blog" class="text-gray-700 hover:text-primary-500 transition-colors">ブログ</a>
+        <!-- Minimal Navigation -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="/" class="text-gray-800 hover:text-primary-600 transition-colors text-sm font-medium">ホーム</a>
+          <a href="/about" class="text-gray-800 hover:text-primary-600 transition-colors text-sm font-medium">当結婚相談所について</a>
+          <a href="/service" class="text-gray-800 hover:text-primary-600 transition-colors text-sm font-medium">サービス・料金</a>
+          <a href="/flow" class="text-gray-800 hover:text-primary-600 transition-colors text-sm font-medium">ご成婚までのながれ</a>
+          <a href="/faq" class="text-gray-800 hover:text-primary-600 transition-colors text-sm font-medium">よくあるご質問</a>
+          <a href="/contact" class="text-gray-800 hover:text-primary-600 transition-colors text-sm font-medium">お問い合わせ</a>
         </nav>
         
-        <!-- CTA Button -->
-        <div class="hidden md:block">
-          <a href="/contact" class="btn btn-primary">
-            <i class="fas fa-comments mr-2"></i>
-            無料相談
+        <!-- Social Icons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="https://www.instagram.com/match_konkatu" class="text-gray-600 hover:text-primary-600 transition-colors">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a href="https://line.me/R/ti/p/@match-konkatu" class="text-gray-600 hover:text-primary-600 transition-colors">
+            <i class="fab fa-line text-xl"></i>
           </a>
         </div>
         
@@ -151,11 +205,11 @@ export const Layout = ({
       </div>
       
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="md:hidden hidden">
-        <nav class="py-4 space-y-4">
-          <a href="/" class="block py-2 text-gray-700 hover:text-primary-500 transition-colors">ホーム</a>
-          <a href="/service" class="block py-2 text-gray-700 hover:text-primary-500 transition-colors">サービス</a>
-          <a href="/price" class="block py-2 text-gray-700 hover:text-primary-500 transition-colors">料金</a>
+      <div id="mobile-menu" class="md:hidden hidden bg-white rounded-lg shadow-lg mt-2">
+        <nav class="p-4 space-y-2">
+          <a href="/" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">ホーム</a>
+          <a href="/about" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">当結婚相談所について</a>
+          <a href="/service" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">サービス・料金</a>
           <a href="/about" class="block py-2 text-gray-700 hover:text-primary-500 transition-colors">私たちについて</a>
           <a href="/blog" class="block py-2 text-gray-700 hover:text-primary-500 transition-colors">ブログ</a>
           <a href="/contact" class="block py-2 text-primary-500 font-semibold">無料相談</a>
@@ -164,9 +218,31 @@ export const Layout = ({
     </div>
   </header>
 
+  ${breadcrumbs.length > 0 ? raw(`
+  <!-- Breadcrumb -->
+  <nav class="bg-gray-50 border-b border-gray-200" aria-label="パンくず">
+    <div class="container mx-auto px-4 py-3">
+      <ol class="flex items-center space-x-2 text-sm">
+        ${breadcrumbs.map((crumb, index) => {
+          const isLast = index === breadcrumbs.length - 1;
+          return `
+            <li class="flex items-center">
+              ${index > 0 ? '<i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>' : ''}
+              ${isLast 
+                ? `<span class="text-gray-600 font-medium" aria-current="page">${crumb.name}</span>`
+                : `<a href="${crumb.href}" class="text-primary-600 hover:text-primary-800 transition-colors">${crumb.name}</a>`
+              }
+            </li>
+          `;
+        }).join('')}
+      </ol>
+    </div>
+  </nav>
+  `) : ''}
+
   <!-- Main Content -->
   <main>
-    ${children}
+    ${raw(children)}
   </main>
 
   <!-- Footer -->
@@ -175,12 +251,8 @@ export const Layout = ({
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Company Info -->
         <div>
-          <div class="flex items-center space-x-2 mb-4">
-            <i class="fas fa-heart text-primary-400 text-xl"></i>
-            <div>
-              <div class="font-mincho text-lg font-semibold">MATCH</div>
-              <div class="text-sm text-gray-400">本気の婚活</div>
-            </div>
+          <div class="mb-4">
+            <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="h-16 w-auto logo-hq" style="filter: invert(1) brightness(1.1);">
           </div>
           <p class="text-gray-400 text-sm leading-relaxed">
             神奈川県横浜市神奈川区にあるIBJ正規加盟店の結婚相談所。親子2代で運営し、温かいサポートで成婚まで導きます。
@@ -238,8 +310,51 @@ export const Layout = ({
     </div>
   </footer>
 
-  <!-- JavaScript -->
-  <script src="/static/app.js"></script>
+  <!-- Performance Optimization -->
+  <script>
+    // Critical performance optimizations (inline for faster execution)
+    (function() {
+      // Prevent layout shift for images
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img:not([width]):not([height])');
+        images.forEach(img => {
+          const aspectRatio = img.dataset.aspectRatio || '16/9';
+          img.style.aspectRatio = aspectRatio;
+          img.style.objectFit = 'cover';
+        });
+      });
+      
+      // Font loading optimization
+      if ('fonts' in document) {
+        document.fonts.ready.then(() => {
+          document.body.classList.add('fonts-loaded');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Performance and App Scripts -->
+  <script src="/static/performance.js" defer></script>
+  <script src="/static/app.js" defer></script>
+  
+  <!-- Web Vitals (for development/monitoring) -->
+  <script>
+    // Load Web Vitals library for monitoring (development only)
+    if (window.location.hostname === 'localhost' || window.location.hostname.includes('dev')) {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js';
+      script.onload = () => {
+        if (window.webVitals) {
+          webVitals.getCLS(console.log);
+          webVitals.getFID(console.log);  
+          webVitals.getFCP(console.log);
+          webVitals.getLCP(console.log);
+          webVitals.getTTFB(console.log);
+        }
+      };
+      document.head.appendChild(script);
+    }
+  </script>
 </body>
 </html>`;
 };

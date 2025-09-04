@@ -1,4 +1,4 @@
-import { html } from 'hono/html';
+import { html, raw } from 'hono/html';
 
 export const ContactForm = () => {
   return html`
@@ -66,6 +66,14 @@ export const ContactForm = () => {
         </h3>
         
         <form id="contact-form" class="space-y-6" action="/api/contact" method="POST">
+          <!-- CSRF Token (Hidden) -->
+          <input type="hidden" id="csrf_token" name="csrf_token" value="">
+          
+          <!-- Honeypot (Hidden spam trap) -->
+          <div style="position: absolute; left: -9999px; top: -9999px;">
+            <label for="website">Website (do not fill out)</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Name -->
             <div>
@@ -274,11 +282,55 @@ export const ContactForm = () => {
 </div>
 
 <script>
+// CSRFトークンの取得と設定
+async function setupCSRFToken() {
+  try {
+    const response = await fetch('/api/form-token');
+    const data = await response.json();
+    if (data.token) {
+      document.getElementById('csrf_token').value = data.token;
+    }
+  } catch (error) {
+    console.warn('CSRF token setup failed:', error);
+  }
+}
+
+// ページ読み込み時にCSRFトークンを設定
+document.addEventListener('DOMContentLoaded', setupCSRFToken);
+
+// フォーム送信の処理
 document.getElementById('contact-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   
   const submitButton = document.getElementById('submit-button');
   const originalText = submitButton.innerHTML;
+  
+  // CSRFトークンが未設定の場合は再取得
+  const csrfToken = document.getElementById('csrf_token').value;
+  if (!csrfToken) {
+    await setupCSRFToken();
+  }
+  
+  // 基本的なクライアントサイドバリデーション
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const privacyAgree = document.getElementById('privacy_agree').checked;
+  
+  if (!name || !email || !message) {
+    showErrorMessage('必須項目を入力してください。');
+    return;
+  }
+  
+  if (message.length < 10) {
+    showErrorMessage('メッセージは10文字以上で入力してください。');
+    return;
+  }
+  
+  if (!privacyAgree) {
+    showErrorMessage('プライバシーポリシーへの同意が必要です。');
+    return;
+  }
   
   // Loading state
   submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>送信中...';
@@ -286,30 +338,78 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
   
   try {
     const formData = new FormData(e.target);
+    
+    // レート制限の簡易チェック（LocalStorage使用）
+    const lastSubmission = localStorage.getItem('lastFormSubmission');
+    const now = Date.now();
+    if (lastSubmission && (now - parseInt(lastSubmission)) < 60000) { // 1分制限
+      throw new Error('送信間隔が短すぎます。しばらく待ってから再度お試しください。');
+    }
+    
     const response = await fetch('/api/contact', {
       method: 'POST',
-      body: formData
+      body: formData,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest' // AJAX判定用
+      }
     });
     
     const result = await response.json();
     
-    if (response.ok) {
+    if (response.ok && result.success) {
       // Success
+      localStorage.setItem('lastFormSubmission', now.toString());
       document.getElementById('success-modal').classList.remove('hidden');
       e.target.reset();
+      // CSRFトークンを再取得
+      setTimeout(setupCSRFToken, 1000);
     } else {
       // Error
-      alert(result.error || 'エラーが発生しました。もう一度お試しください。');
+      showErrorMessage(result.error || 'エラーが発生しました。もう一度お試しください。');
     }
   } catch (error) {
     console.error('Form submission error:', error);
-    alert('エラーが発生しました。もう一度お試しください。');
+    showErrorMessage(error.message || 'エラーが発生しました。もう一度お試しください。');
   } finally {
     // Reset button
     submitButton.innerHTML = originalText;
     submitButton.disabled = false;
   }
 });
+
+// エラーメッセージ表示関数
+function showErrorMessage(message) {
+  // 既存のエラーメッセージを削除
+  const existingError = document.getElementById('form-error-message');
+  if (existingError) {
+    existingError.remove();
+  }
+  
+  // エラーメッセージ要素を作成
+  const errorDiv = document.createElement('div');
+  errorDiv.id = 'form-error-message';
+  errorDiv.className = 'bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4';
+  errorDiv.innerHTML = \`
+    <div class="flex items-center">
+      <i class="fas fa-exclamation-circle mr-2"></i>
+      <span>\${message}</span>
+      <button onclick="this.parentElement.parentElement.remove()" class="ml-auto">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  \`;
+  
+  // フォームの先頭に挿入
+  const form = document.getElementById('contact-form');
+  form.insertBefore(errorDiv, form.firstChild);
+  
+  // 5秒後に自動削除
+  setTimeout(() => {
+    if (document.getElementById('form-error-message')) {
+      document.getElementById('form-error-message').remove();
+    }
+  }, 5000);
+}
 
 function closeSuccessModal() {
   document.getElementById('success-modal').classList.add('hidden');
@@ -320,6 +420,21 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeSuccessModal();
   }
+});
+
+// フォーカス可視化の改善（アクセシビリティ）
+document.addEventListener('DOMContentLoaded', () => {
+  const focusableElements = document.querySelectorAll('input, textarea, select, button, a');
+  focusableElements.forEach(element => {
+    element.addEventListener('focus', () => {
+      element.style.outline = '2px solid #8B4513';
+      element.style.outlineOffset = '2px';
+    });
+    element.addEventListener('blur', () => {
+      element.style.outline = '';
+      element.style.outlineOffset = '';
+    });
+  });
 });
 </script>
 `;

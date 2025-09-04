@@ -1,4 +1,4 @@
-import { html } from 'hono/html';
+import { html, raw } from 'hono/html';
 
 interface Testimonial {
   name: string;
@@ -15,7 +15,7 @@ interface TestimonialsProps {
 export const Testimonials = ({ testimonials }: TestimonialsProps) => {
   const renderStars = (rating: number = 5) => {
     return Array.from({ length: 5 }, (_, i) => 
-      html`<i class="fas fa-star ${i < rating ? 'text-yellow-400' : 'text-gray-300'}"></i>`
+      `<i class="fas fa-star ${i < rating ? 'text-yellow-400' : 'text-gray-300'}"></i>`
     ).join('');
   };
 
@@ -32,12 +32,12 @@ export const Testimonials = ({ testimonials }: TestimonialsProps) => {
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      ${testimonials.map((testimonial, index) => html`
+      ${raw(testimonials.map((testimonial, index) => `
         <div class="card group animate-on-scroll" style="animation-delay: ${index * 150}ms">
           <div class="card-body">
             <!-- Rating -->
             <div class="flex justify-center mb-4">
-              ${renderStars(testimonial.rating)}
+              ${raw(renderStars(testimonial.rating))}
             </div>
             
             <!-- Quote -->
@@ -58,7 +58,7 @@ export const Testimonials = ({ testimonials }: TestimonialsProps) => {
             </div>
           </div>
         </div>
-      `).join('')}
+      `).join(''))}
     </div>
     
     <!-- CTA Section -->

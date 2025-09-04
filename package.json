@@ -1,7 +1,7 @@
 {
-  "name": "match-konkatsu",
+  "name": "wasou-wedding-faq",
   "type": "module",
-  "description": "結婚相談所MATCHのWebサイト - Cloudflare Pages/Workers + Decap CMS",
+  "description": "和装結婚式FAQサイト - Cloudflare Pages/Workers + Hono",
   "scripts": {
     "dev": "vite",
     "dev:sandbox": "wrangler pages dev dist --ip 0.0.0.0 --port 3000",

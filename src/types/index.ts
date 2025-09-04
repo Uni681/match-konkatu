@@ -1,6 +1,13 @@
 // Cloudflare bindings
 export interface Bindings {
   DB: D1Database;
+  // Environment variables
+  NOTIFICATION_EMAIL?: string;
+  SMTP_HOST?: string;
+  SMTP_PORT?: string;
+  SMTP_USER?: string;
+  SMTP_PASS?: string;
+  FORM_SECRET?: string;
   // Add other bindings as needed (KV, R2, etc.)
 }
 
@@ -9,15 +16,22 @@ export interface ContactFormData {
   name: string;
   email: string;
   phone?: string;
+  inquiry_type?: string;
   message: string;
+  privacy_agree?: boolean;
+  website?: string; // Honeypot field
+  csrf_token?: string; // CSRF protection
 }
 
 export interface ContactRecord extends ContactFormData {
   id: number;
   created_at: string;
+  updated_at?: string;
   ip_address: string | null;
   user_agent: string | null;
-  status: 'new' | 'read' | 'replied';
+  referer?: string | null;
+  status: 'new' | 'read' | 'replied' | 'spam';
+  spam_score?: number;
 }
 
 // Blog post
@@ -80,4 +94,25 @@ export interface CMSContent {
 export interface Breadcrumb {
   name: string;
   href: string;
+}
+
+// Email templates
+export interface EmailTemplate {
+  subject: string;
+  html: string;
+  text: string;
+}
+
+// Form validation
+export interface FormValidationResult {
+  isValid: boolean;
+  errors: string[];
+  spamScore: number;
+}
+
+// Rate limiting
+export interface RateLimitInfo {
+  count: number;
+  resetTime: number;
+  isLimited: boolean;
 }
