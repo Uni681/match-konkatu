@@ -1,0 +1,38 @@
+{
+  "name": "match-konkatsu",
+  "type": "module",
+  "description": "結婚相談所MATCHのWebサイト - Cloudflare Pages/Workers + Decap CMS",
+  "scripts": {
+    "dev": "vite",
+    "dev:sandbox": "wrangler pages dev dist --ip 0.0.0.0 --port 3000",
+    "dev:d1": "wrangler pages dev dist --d1=match-konkatsu-db --local --ip 0.0.0.0 --port 3000",
+    "build": "vite build",
+    "preview": "wrangler pages dev dist",
+    "deploy": "npm run build && wrangler pages deploy dist",
+    "deploy:prod": "npm run build && wrangler pages deploy dist --project-name match-konkatsu",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "clean-port": "fuser -k 3000/tcp 2>/dev/null || true",
+    "test": "curl http://localhost:3000",
+    "db:migrate:local": "wrangler d1 migrations apply match-konkatsu-db --local",
+    "db:migrate:prod": "wrangler d1 migrations apply match-konkatsu-db",
+    "db:console:local": "wrangler d1 execute match-konkatsu-db --local",
+    "git:init": "git init && git add . && git commit -m 'Initial commit'",
+    "git:commit": "git add . && git commit -m",
+    "git:status": "git status"
+  },
+  "dependencies": {
+    "hono": "^4.9.6",
+    "gray-matter": "^4.0.3",
+    "marked": "^12.0.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241218.0",
+    "@hono/vite-build": "^1.2.0",
+    "@hono/vite-dev-server": "^0.18.2",
+    "@hono/vite-cloudflare-pages": "^0.4.2",
+    "typescript": "^5.3.3",
+    "vite": "^6.3.5",
+    "wrangler": "^4.4.0"
+  }
+}

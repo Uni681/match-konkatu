@@ -1,0 +1,22 @@
+site_name: "MATCH（マッチ）本気の婚活"
+site_url: "https://match-konkatsu.com"
+site_description: "神奈川県横浜市神奈川区にあるIBJ正規加盟店の結婚相談所です。男女のカウンセラーが在籍し、会員様のご成婚を全力でサポートいたします。"
+
+# 連絡先情報
+phone: "045-XXX-XXXX"
+email: "info@match-konkatsu.com"
+address: |
+  〒221-0000
+  神奈川県横浜市神奈川区○○町1-2-3
+  ○○ビル4F
+business_hours: |
+  平日: 10:00〜19:00
+  土曜: 10:00〜17:00
+  日祝: 定休日
+
+# SNS・外部サービス
+line_url: ""
+gtm_id: ""
+
+# SEO設定
+default_og_image: "/img/og-default.jpg"
