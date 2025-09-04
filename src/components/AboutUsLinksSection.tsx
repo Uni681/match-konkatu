@@ -18,7 +18,7 @@ export const AboutUsLinksSection = () => {
       title: 'よくある質問',
       subtitle: '皆様からよくいただくご質問にお答えしています',
       link: '/faq',
-      backgroundImage: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=1000&auto=format&fit=crop'
+      backgroundImage: 'https://page.gensparksite.com/v1/base64_upload/8fc938425ea1151f5524c33365139d08'
     }
   ];
 
