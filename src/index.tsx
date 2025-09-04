@@ -671,8 +671,8 @@ app.get('/blog/:slug', (c) => {
 // ご成婚までのながれページ
 app.get('/flow', (c) => {
   const pageContent = {
-    title: '和装結婚式 成婚までの流れ',
-    description: '和装結婚式での成婚までの流れをご案内いたします。伝統的な和の心を大切にした、美しい結婚への道のりをサポートします。'
+    title: 'ご成婚までのながれ',
+    description: 'MATCH（マッチ）本気の婚活でのご成婚までの流れをご案内いたします。出会いから成婚まで、一歩一歩丁寧にサポートします。'
   }
   
   const meta = generateSEOMeta({
@@ -709,84 +709,41 @@ app.get('/flow', (c) => {
       </nav>
       
       <div class="text-center mb-12">
-        <h1 class="font-mincho text-3xl md:text-4xl font-bold text-gray-900 mb-4">和装結婚式 成婚までの流れ</h1>
+        <h1 class="font-mincho text-3xl md:text-4xl font-bold text-gray-900 mb-4">ご成婚までのながれ</h1>
         <p class="text-lg text-gray-600">${pageContent.description}</p>
-      </div>
-      
-      <!-- 和装カップル画像ヒーロー -->
-      <div class="max-w-6xl mx-auto mb-16">
-        <div class="relative rounded-xl overflow-hidden shadow-2xl">
-          <img src="https://page.gensparksite.com/v1/base64_upload/89690625e4eb58ebd19c69812967065f" 
-               alt="日本庭園を歩く和装の新郎新婦" 
-               class="w-full h-96 md:h-[500px] object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-          <div class="absolute bottom-8 left-8 text-white">
-            <h2 class="font-mincho text-2xl md:text-3xl font-bold mb-2">伝統と美が織りなす特別な一日</h2>
-            <p class="text-lg opacity-90">和装結婚式で叶える、永遠の愛の誓い</p>
-          </div>
-        </div>
       </div>
       
       <div class="max-w-4xl mx-auto prose prose-lg prose-primary">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div class="step-card bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow">
-            <div class="step-number bg-gradient-to-br from-red-500 to-pink-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">1</div>
-            <h3 class="font-mincho text-xl font-bold text-gray-900 mb-3">和装婚活相談</h3>
-            <p class="text-gray-700 leading-relaxed">和装結婚式への想いをお聞かせください。白無垢・色打掛の選び方から、神社選び、和装フォトウェディングまで、和の結婚式に関するご相談を承ります。</p>
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>無料相談・カウンセリング</h3>
+            <p>まずはお気軽にご相談ください。あなたの婚活への想いや理想のパートナー像をお聞きし、最適なプランをご提案します。</p>
           </div>
           
-          <div class="step-card bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow">
-            <div class="step-number bg-gradient-to-br from-red-500 to-pink-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">2</div>
-            <h3 class="font-mincho text-xl font-bold text-gray-900 mb-3">和装プロフィール作成</h3>
-            <p class="text-gray-700 leading-relaxed">和装での前撮りや、着物姿でのお写真を含むプロフィール作成をサポート。和の心を大切にする方同士の出会いを演出します。</p>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>ご入会・プロフィール作成</h3>
+            <p>ご入会手続き後、魅力的なプロフィール作成をサポート。写真撮影のアドバイスや自己PR文の作成をお手伝いします。</p>
           </div>
           
-          <div class="step-card bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow">
-            <div class="step-number bg-gradient-to-br from-red-500 to-pink-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">3</div>
-            <h3 class="font-mincho text-xl font-bold text-gray-900 mb-3">お見合い・和装デート</h3>
-            <p class="text-gray-700 leading-relaxed">日本庭園や茶室でのお見合い、着物デートなど、和の雰囲気を大切にしたお引き合わせ。お互いの和装への想いを共有できる特別な時間をご提供します。</p>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>お相手探し・お見合い</h3>
+            <p>IBJシステムを活用してお相手を探し、お見合いをセッティング。カウンセラーが事前のアドバイスや当日のサポートを行います。</p>
           </div>
           
-          <div class="step-card bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow">
-            <div class="step-number bg-gradient-to-br from-red-500 to-pink-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">4</div>
-            <h3 class="font-mincho text-xl font-bold text-gray-900 mb-3">和装結婚式・成婚</h3>
-            <p class="text-gray-700 leading-relaxed">神前式での結婚式や和装フォトウェディングまで、トータルサポート。白無垢から色打掛への着替え、和装前撮りまで、理想の和装結婚式を実現します。</p>
-          </div>
-        </div>
-        
-        <!-- 和装結婚式の特徴 -->
-        <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-8 mb-12 border border-red-100">
-          <h3 class="font-mincho text-2xl font-bold text-center text-gray-900 mb-6">和装結婚式の魅力</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div class="feature-item">
-              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-torii-gate text-2xl text-red-600"></i>
-              </div>
-              <h4 class="font-semibold text-lg text-gray-900 mb-2">伝統美</h4>
-              <p class="text-gray-700">日本古来の美しさを纏う白無垢・色打掛での格式高い結婚式</p>
-            </div>
-            <div class="feature-item">
-              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-camera text-2xl text-red-600"></i>
-              </div>
-              <h4 class="font-semibold text-lg text-gray-900 mb-2">特別な記念</h4>
-              <p class="text-gray-700">日本庭園での前撮りから挙式まで、一生の思い出となる写真</p>
-            </div>
-            <div class="feature-item">
-              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-heart text-2xl text-red-600"></i>
-              </div>
-              <h4 class="font-semibold text-lg text-gray-900 mb-2">家族の絆</h4>
-              <p class="text-gray-700">神前式で家族同士の繋がりを深める厳粛で温かい挙式</p>
-            </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>交際・プロポーズ</h3>
+            <p>交際が順調に進んだら、プロポーズのタイミングや方法についてもアドバイス。お二人の幸せな結婚に向けてサポートします。</p>
           </div>
         </div>
         
         <div class="text-center">
-          <a href="/contact" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-pink-600 text-white font-semibold rounded-lg hover:from-red-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg">
-            <i class="fas fa-torii-gate mr-3"></i>
-            和装結婚式相談を申し込む
-            <i class="fas fa-arrow-right ml-3"></i>
+          <a href="/contact" class="inline-flex items-center px-8 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors">
+            無料相談を申し込む
+            <i class="fas fa-arrow-right ml-2"></i>
           </a>
         </div>
       </div>
@@ -804,8 +761,8 @@ app.get('/flow', (c) => {
 // よくある質問ページ
 app.get('/faq', (c) => {
   const pageContent = {
-    title: '和装結婚式 よくある質問',
-    description: '和装結婚式・和装フォトウェディング・神前式に関するよくある質問にお答えします。白無垢・色打掛についてのご質問もお気軽にどうぞ。'
+    title: 'よくある質問',
+    description: 'MATCH（マッチ）本気の婚活に寄せられるよくある質問にお答えします。ご不明な点がございましたらお気軽にお問い合わせください。'
   }
   
   const meta = generateSEOMeta({
@@ -827,36 +784,28 @@ app.get('/faq', (c) => {
 
   const faqs = [
     {
-      question: "和装結婚式にはどのような種類がありますか？",
-      answer: "神前式（神社での挙式）、仏前式、人前式があります。白無垢での神前式が最も人気で、色打掛でのお色直しも可能です。また、和装フォトウェディングのみのプランもご用意しています。"
+      question: "入会にはどのような条件がありますか？",
+      answer: "男性は22歳以上で安定した収入のある方、女性は20歳以上の方が入会いただけます。詳細な条件については無料相談でご説明いたします。"
     },
     {
-      question: "白無垢と色打掛の違いを教えてください",
-      answer: "白無垢は純白の和装で神前式で着用する正式な花嫁衣装です。色打掛は披露宴でのお色直しで着用する華やかな和装で、赤や金など色とりどりの美しい柄が特徴です。"
+      question: "料金の支払い方法はどうなっていますか？",
+      answer: "入会金は銀行振込またはクレジットカード決済が可能です。月会費は口座振替での自動引き落としとなります。"
     },
     {
-      question: "和装での前撮りはできますか？",
-      answer: "はい。日本庭園や神社での和装前撮りを承っております。季節の花々との撮影や、紅葉・桜の季節には特に美しいお写真をお撮りできます。ヘアメイクから着付けまでトータルサポートいたします。"
+      question: "お見合いはどこで行われますか？",
+      answer: "横浜・みなとみらいエリアのホテルラウンジが中心です。お相手の居住地域によっては、都内や他地域での調整も可能です。"
     },
     {
-      question: "神社はどのように選べばよいですか？",
-      answer: "お二人の居住地や思い出の場所、神社の雰囲気などを考慮してお選びいただけます。明治神宮、神田明神、湯島天神など都内の有名神社から、地元の氏神様まで幅広くご対応可能です。"
+      question: "オンライン相談は可能ですか？",
+      answer: "はい、ZoomやLINEビデオ通話でのオンライン相談も承っております。遠方の方や忙しい方もお気軽にご利用ください。"
     },
     {
-      question: "和装結婚式の費用はどのくらいかかりますか？",
-      answer: "神前式のみの場合は30万円～、披露宴も含める場合は100万円～が目安です。和装レンタル（白無垢・色打掛）、着付け、ヘアメイク、写真撮影、神社への奉納料などが含まれます。詳細はお見積りいたします。"
+      question: "成婚までの平均期間はどのくらいですか？",
+      answer: "会員様によって異なりますが、平均的には8〜12ヶ月程度です。真剣に活動していただくことで、より短期間での成婚も可能です。"
     },
     {
-      question: "家族が和装結婚式に反対している場合はどうしたらよいですか？",
-      answer: "和装結婚式の格式や伝統的な意味をご説明し、ご家族にもご理解いただけるよう丁寧にご相談に乗ります。神前式の意味や、家族の絆を深める儀式であることをお伝えできます。"
-    },
-    {
-      question: "着物を持参することはできますか？",
-      answer: "はい、お母様やおばあ様から受け継いだ着物をお持ち込みいただくことも可能です。サイズ直しや着付けの準備も承ります。思い出の着物での結婚式は特別な意味を持ちます。"
-    },
-    {
-      question: "雨天時の対応はどうなりますか？",
-      answer: "神社での挙式は屋内で行われるため雨天でも問題ございません。前撮りの場合は延期または屋内撮影に変更いたします。雨に濡れた日本庭園も趣があり、美しいお写真が撮れることもあります。"
+      question: "退会はいつでもできますか？",
+      answer: "はい、退会はいつでも可能です。退会希望日の1ヶ月前までにご連絡いただければ、手続きを行います。"
     }
   ]
 
@@ -877,34 +826,17 @@ app.get('/faq', (c) => {
       </nav>
       
       <div class="text-center mb-12">
-        <h1 class="font-mincho text-3xl md:text-4xl font-bold text-gray-900 mb-4">和装結婚式 よくある質問</h1>
+        <h1 class="font-mincho text-3xl md:text-4xl font-bold text-gray-900 mb-4">よくある質問</h1>
         <p class="text-lg text-gray-600">${pageContent.description}</p>
-      </div>
-      
-      <!-- 和装アイテム画像ヘッダー -->
-      <div class="max-w-5xl mx-auto mb-12">
-        <div class="relative rounded-xl overflow-hidden shadow-xl">
-          <img src="https://page.gensparksite.com/v1/base64_upload/8fc938425ea1151f5524c33365139d08" 
-               alt="和装結婚式のアイテム - 折り鶴、扇子、指輪、ブーケ" 
-               class="w-full h-64 md:h-80 object-cover">
-          <div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
-          <div class="absolute bottom-6 left-6 text-white">
-            <h2 class="font-mincho text-xl md:text-2xl font-bold mb-2">和装結婚式への想いをお聞かせください</h2>
-            <p class="text-sm md:text-base opacity-90">伝統の美しさを纏う特別な一日のために</p>
-          </div>
-        </div>
       </div>
       
       <div class="max-w-4xl mx-auto">
         <div class="space-y-6">
           ${faqs.map((faq, index) => `
-            <div class="faq-item bg-white rounded-lg shadow-sm border border-red-100 p-6 hover:shadow-md transition-shadow">
+            <div class="faq-item bg-white rounded-lg shadow-sm border border-gray-200 p-6">
               <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-start">
-                <span class="bg-gradient-to-r from-red-100 to-pink-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium mr-3 mt-0.5 flex items-center">
-                  <i class="fas fa-torii-gate mr-1 text-xs"></i>
-                  Q${index + 1}
-                </span>
-                <span class="font-mincho">${faq.question}</span>
+                <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium mr-3 mt-0.5">Q${index + 1}</span>
+                ${faq.question}
               </h3>
               <div class="ml-12 text-gray-700 leading-relaxed">
                 ${faq.answer}
@@ -913,55 +845,11 @@ app.get('/faq', (c) => {
           `).join('')}
         </div>
         
-        <!-- 和装結婚式の特典セクション -->
-        <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-8 my-12 border border-red-100">
-          <h3 class="font-mincho text-xl font-bold text-center text-gray-900 mb-6">和装結婚式の特典</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="benefit-item flex items-start space-x-4">
-              <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-gift text-red-600"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900 mb-1">前撮り特別プラン</h4>
-                <p class="text-gray-700 text-sm">日本庭園での和装前撮りを特別価格でご提供</p>
-              </div>
-            </div>
-            <div class="benefit-item flex items-start space-x-4">
-              <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-kimono text-red-600"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900 mb-1">衣装レンタル割引</h4>
-                <p class="text-gray-700 text-sm">白無垢・色打掛のレンタルを優待価格で</p>
-              </div>
-            </div>
-            <div class="benefit-item flex items-start space-x-4">
-              <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-camera text-red-600"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900 mb-1">アルバム制作サービス</h4>
-                <p class="text-gray-700 text-sm">プロカメラマンによる和装フォトアルバム作成</p>
-              </div>
-            </div>
-            <div class="benefit-item flex items-start space-x-4">
-              <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <i class="fas fa-users text-red-600"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold text-gray-900 mb-1">家族着付けサービス</h4>
-                <p class="text-gray-700 text-sm">ご両親・ご親族の着物着付けもサポート</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
         <div class="text-center mt-12">
-          <p class="text-gray-600 mb-6 font-mincho">和装結婚式に関するご質問・ご相談はお気軽にどうぞ</p>
-          <a href="/contact" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-pink-600 text-white font-semibold rounded-lg hover:from-red-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg">
-            <i class="fas fa-torii-gate mr-3"></i>
-            和装結婚式のご相談はこちら
-            <i class="fas fa-arrow-right ml-3"></i>
+          <p class="text-gray-600 mb-6">その他ご質問がございましたら、お気軽にお問い合わせください。</p>
+          <a href="/contact" class="inline-flex items-center px-8 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors">
+            お問い合わせはこちら
+            <i class="fas fa-arrow-right ml-2"></i>
           </a>
         </div>
       </div>
