@@ -12,7 +12,7 @@ export const AboutUsLinksSection = () => {
       title: 'ご成婚までのながれ',
       subtitle: '出会いから成婚まで、一歩一歩丁寧にサポートいたします',
       link: '/flow',
-      backgroundImage: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1000&auto=format&fit=crop'
+      backgroundImage: 'https://page.gensparksite.com/v1/base64_upload/89690625e4eb58ebd19c69812967065f'
     },
     {
       title: 'よくある質問',
