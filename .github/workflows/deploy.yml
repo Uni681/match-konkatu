@@ -1,0 +1,107 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build project
+      run: npm run build
+    
+    - name: Create static site structure
+      run: |
+        mkdir -p static-dist
+        cp -r dist/* static-dist/
+        cp -r public/static static-dist/
+        cp -r public/img static-dist/
+        cp public/admin/index.html static-dist/admin.html
+        
+        # Create simple index.html that loads the worker
+        cat > static-dist/index.html << 'EOF'
+        <!DOCTYPE html>
+        <html lang="ja">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>MATCH（マッチ）本気の婚活 - 結婚相談所</title>
+          <meta name="description" content="神奈川県横浜市神奈川区にあるIBJ正規加盟店の結婚相談所です。">
+          <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+            .container { max-width: 800px; margin: 50px auto; padding: 20px; text-align: center; }
+            .demo-links { margin: 30px 0; }
+            .demo-links a { display: inline-block; margin: 10px; padding: 12px 24px; background: #8b5a3c; color: white; text-decoration: none; border-radius: 8px; }
+            .demo-links a:hover { background: #6d452f; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h1>🏃‍♀️ MATCH（マッチ）本気の婚活</h1>
+            <p>結婚相談所Webサイト - Cloudflare Pages/Workers + Hono + TypeScript</p>
+            
+            <div class="demo-links">
+              <h2>🌐 ライブデモサイト</h2>
+              <p><strong>実際に動作するサイトは以下のURLでご確認ください：</strong></p>
+              <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/" target="_blank" rel="noopener">
+                📱 ライブデモを見る
+              </a>
+            </div>
+            
+            <div class="demo-links">
+              <h2>📋 主要機能</h2>
+              <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/service" target="_blank">サービス詳細</a>
+              <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/price" target="_blank">料金プラン</a>
+              <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/about" target="_blank">私たちについて</a>
+              <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/blog" target="_blank">ブログ</a>
+              <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/contact" target="_blank">お問い合わせ</a>
+              <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/admin" target="_blank">CMS管理</a>
+            </div>
+            
+            <div>
+              <h2>🛠️ 技術仕様</h2>
+              <p><strong>フロントエンド:</strong> Hono + TypeScript + TailwindCSS<br>
+              <strong>バックエンド:</strong> Cloudflare Workers + D1Database<br>
+              <strong>CMS:</strong> Decap CMS (Git-based)<br>
+              <strong>デプロイ:</strong> Cloudflare Pages</p>
+            </div>
+            
+            <div>
+              <h2>📚 ドキュメント</h2>
+              <a href="https://github.com/Uni681/match-konkatu/blob/main/README.md" target="_blank">README.md</a>
+              <a href="https://github.com/Uni681/match-konkatu" target="_blank">GitHubリポジトリ</a>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 20px; background: #f5f5f4; border-radius: 8px;">
+              <h3>📝 ノート</h3>
+              <p>このサイトはCloudflare Pages/Workersで動作するように設計されています。<br>
+              完全な機能を体験するには、上記のライブデモリンクをご利用ください。</p>
+            </div>
+          </div>
+        </body>
+        </html>
+        EOF
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./static-dist
+        force_orphan: true
