@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MATCH（マッチ）本気の婚活 - 結婚相談所Webサイト</title>
+  <meta name="description" content="神奈川県横浜市神奈川区にあるIBJ正規加盟店の結婚相談所です。親子2代で運営する温かい結婚相談所のWebサイトデモ。">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans JP', sans-serif; 
+      line-height: 1.6; 
+      background: linear-gradient(135deg, #faf7f4 0%, #f5f0ea 100%);
+      min-height: 100vh;
+    }
+    .container { 
+      max-width: 900px; 
+      margin: 0 auto; 
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin: 40px 0 60px 0;
+      padding: 40px 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .header h1 {
+      font-size: 2.5rem;
+      color: #8b5a3c;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .header .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .demo-button {
+      display: inline-block;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #8b5a3c 0%, #d4a574 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(139, 90, 60, 0.3);
+      transition: all 0.3s ease;
+      margin: 10px;
+    }
+    .demo-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 90, 60, 0.4);
+    }
+    .demo-button i {
+      margin-right: 8px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    .feature-card .icon {
+      font-size: 2.5rem;
+      color: #8b5a3c;
+      margin-bottom: 15px;
+    }
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .feature-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .link-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .link-card a {
+      display: block;
+      color: #8b5a3c;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .link-card a:hover {
+      color: #6d452f;
+    }
+    .link-card .description {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+    .tech-stack {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin: 40px 0;
+    }
+    .tech-stack h2 {
+      color: #8b5a3c;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .tech-item {
+      text-align: center;
+    }
+    .tech-item strong {
+      color: #333;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .note {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 4px solid #8b5a3c;
+      margin: 40px 0;
+    }
+    .note h3 {
+      color: #8b5a3c;
+      margin-bottom: 10px;
+    }
+    .note p {
+      color: #666;
+    }
+    @media (max-width: 768px) {
+      .header h1 { font-size: 2rem; }
+      .container { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><i class="fas fa-heart"></i> MATCH（マッチ）本気の婚活</h1>
+      <p class="subtitle">結婚相談所Webサイト - 高速・安全・低コストなCloudflare Pages/Workers構成</p>
+      <div>
+        <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/" class="demo-button" target="_blank" rel="noopener">
+          <i class="fas fa-external-link-alt"></i>ライブデモを見る
+        </a>
+        <a href="https://github.com/Uni681/match-konkatu" class="demo-button" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>GitHubリポジトリ
+        </a>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="icon"><i class="fas fa-rocket"></i></div>
+        <h3>高速・軽量</h3>
+        <p>Cloudflare Edgeネットワークによる世界最速配信。Core Web Vitalsを最適化し、LCP < 1.5s を実現。</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>セキュリティ</h3>
+        <p>Cloudflare Workersのセキュアな実行環境。Honeypot、バリデーション、CORS設定による多層防御。</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+        <h3>レスポンシブ</h3>
+        <p>スマホファースト設計。全デバイス対応で、温かみのある白・ベージュ基調のデザイン。</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="icon"><i class="fas fa-edit"></i></div>
+        <h3>CMS対応</h3>
+        <p>Decap CMS（Git-based）で簡単コンテンツ管理。ブログ記事・固定ページを管理画面から編集可能。</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="icon"><i class="fas fa-search"></i></div>
+        <h3>SEO最適化</h3>
+        <p>構造化データ、サイトマップ、OGP完全対応。LocalBusiness schema で検索エンジン最適化。</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="icon"><i class="fas fa-universal-access"></i></div>
+        <h3>アクセシビリティ</h3>
+        <p>WCAG準拠設計。キーボード操作、スクリーンリーダー対応で、すべての方に使いやすいサイト。</p>
+      </div>
+    </div>
+
+    <div class="links">
+      <div class="link-card">
+        <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/service" target="_blank">
+          <i class="fas fa-concierge-bell"></i> サービス詳細
+        </a>
+        <div class="description">結婚相談所のサービス内容・特徴</div>
+      </div>
+      
+      <div class="link-card">
+        <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/price" target="_blank">
+          <i class="fas fa-tags"></i> 料金プラン
+        </a>
+        <div class="description">明朗会計の料金体系・比較表</div>
+      </div>
+      
+      <div class="link-card">
+        <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/about" target="_blank">
+          <i class="fas fa-users"></i> 私たちについて
+        </a>
+        <div class="description">親子経営のストーリー・プロフィール</div>
+      </div>
+      
+      <div class="link-card">
+        <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/blog" target="_blank">
+          <i class="fas fa-blog"></i> ブログ
+        </a>
+        <div class="description">婚活ノウハウ・イベント情報</div>
+      </div>
+      
+      <div class="link-card">
+        <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/contact" target="_blank">
+          <i class="fas fa-envelope"></i> お問い合わせ
+        </a>
+        <div class="description">バリデーション付きフォーム・D1連携</div>
+      </div>
+      
+      <div class="link-card">
+        <a href="https://3000-ipzuvjg8iqqi5f2tdtgbq-6532622b.e2b.dev/admin" target="_blank">
+          <i class="fas fa-cogs"></i> CMS管理
+        </a>
+        <div class="description">Decap CMS管理画面</div>
+      </div>
+    </div>
+
+    <div class="tech-stack">
+      <h2><i class="fas fa-code"></i> 技術スタック</h2>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <strong>フロントエンド</strong>
+          Hono + TypeScript<br>
+          TailwindCSS
+        </div>
+        <div class="tech-item">
+          <strong>バックエンド</strong>
+          Cloudflare Workers<br>
+          D1 Database (SQLite)
+        </div>
+        <div class="tech-item">
+          <strong>CMS</strong>
+          Decap CMS<br>
+          Git-based管理
+        </div>
+        <div class="tech-item">
+          <strong>デプロイ</strong>
+          Cloudflare Pages<br>
+          GitHub連携
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <h3><i class="fas fa-info-circle"></i> 実装について</h3>
+      <p>
+        このサイトは<strong>Cloudflare Pages/Workers</strong>で動作するように設計されています。
+        完全な機能（お問い合わせフォーム、CMS、D1データベース）を体験するには、
+        上記の<strong>「ライブデモを見る」</strong>リンクをクリックしてください。
+      </p>
+      <br>
+      <p>
+        <strong>📋 主な特徴:</strong><br>
+        ✅ レスポンシブデザイン（スマホ・タブレット・デスクトップ対応）<br>
+        ✅ SEO完全対応（構造化データ・サイトマップ・OGP）<br>
+        ✅ アクセシビリティ準拠（WCAG基準）<br>
+        ✅ 高速配信（Core Web Vitals最適化）<br>
+        ✅ セキュアなフォーム送信（D1Database保存）
+      </p>
+    </div>
+
+    <div style="text-align: center; margin: 40px 0; color: #666; border-top: 1px solid #eee; padding-top: 20px;">
+      <p>© 2024 MATCH（マッチ）本気の婚活 - Demo Site</p>
+      <p><small>Built with <i class="fas fa-heart" style="color: #8b5a3c;"></i> using Cloudflare Pages/Workers + Hono + TypeScript</small></p>
+    </div>
+  </div>
+</body>
+</html>
