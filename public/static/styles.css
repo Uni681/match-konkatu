@@ -1829,6 +1829,7 @@ label[required]::after {
   background: white;
   border-top: 1px solid #EEE;
   border-bottom: 1px solid #EEE;
+  padding: 3rem 0;
 }
 
 .badge-item img {
@@ -1839,6 +1840,12 @@ label[required]::after {
 .badge-item img:hover {
   filter: grayscale(0%);
   transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .badges-section {
+    padding: 2rem 0;
+  }
 }
 
 /* SNSセクション */

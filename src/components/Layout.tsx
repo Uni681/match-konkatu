@@ -182,8 +182,20 @@ export const Layout = ({
           <a href="/contact" class="text-gray-800 hover:text-primary-600 transition-colors text-sm font-medium">お問い合わせ</a>
         </nav>
         
-        <!-- Social Icons -->
+        <!-- Social Icons and IBJ Banner -->
         <div class="hidden md:flex items-center space-x-4">
+          <!-- IBJ正規加盟店バナー -->
+          <a href="https://www.ibjapan.com/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+            <img 
+              src="https://page.gensparksite.com/v1/base64_upload/42a2aca30693b587e5ba48d1b3c96794" 
+              alt="IBJ正規加盟店" 
+              class="h-8 w-auto"
+              width="120"
+              height="32"
+              loading="lazy"
+            >
+          </a>
+          
           <a href="https://www.instagram.com/match_konkatu" class="text-gray-600 hover:text-primary-600 transition-colors">
             <i class="fab fa-instagram text-xl"></i>
           </a>
