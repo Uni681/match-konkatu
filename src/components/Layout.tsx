@@ -207,7 +207,7 @@ export const Layout = ({
         <!-- Mobile Menu Toggle -->
         <button 
           id="mobile-menu-toggle" 
-          class="md:hidden p-2 text-gray-700 hover:text-primary-500"
+          class="md:hidden p-2 text-gray-700 hover:text-gray-900"
           aria-expanded="false"
           aria-controls="mobile-menu"
           aria-label="メニューを開く"
@@ -222,9 +222,9 @@ export const Layout = ({
           <a href="/" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">ホーム</a>
           <a href="/about" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">当結婚相談所について</a>
           <a href="/service" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">サービス・料金</a>
-          <a href="/about" class="block py-2 text-gray-700 hover:text-primary-500 transition-colors">私たちについて</a>
-          <a href="/blog" class="block py-2 text-gray-700 hover:text-primary-500 transition-colors">ブログ</a>
-          <a href="/contact" class="block py-2 text-primary-500 font-semibold">無料相談</a>
+          <a href="/about" class="block py-2 text-gray-700 hover:text-gray-900 transition-colors">私たちについて</a>
+          <a href="/blog" class="block py-2 text-gray-700 hover:text-gray-900 transition-colors">ブログ</a>
+          <a href="/contact" class="block py-2 text-gray-800 font-semibold">無料相談</a>
         </nav>
       </div>
     </div>
