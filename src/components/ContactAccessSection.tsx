@@ -7,41 +7,41 @@ export function ContactAccessSection() {
         
         <!-- CONTACTブロック -->
         <div class="contact-block relative mb-16 overflow-hidden rounded-2xl">
-          <!-- 背景画像 - 和装婚（ボケ強め） -->
+          <!-- 背景画像 - 和装婚（暗めのぼかし強め） -->
           <div class="absolute inset-0 z-0">
             <img 
               src="https://page.gensparksite.com/v1/base64_upload/971eb324e80dbcd26a94751513768cbb" 
-              alt="和装結婚式の明るい写真" 
-              class="w-full h-full object-cover object-center blur-sm brightness-115 saturate-110"
+              alt="和装結婚式の写真" 
+              class="w-full h-full object-cover object-center blur-md brightness-75 saturate-90"
               width="1920"
               height="600"
               loading="lazy"
             >
           </div>
           
-          <!-- 白→透明の薄い縦グラデーション -->
-          <div class="absolute inset-0 z-10 bg-gradient-to-r from-white/60 via-white/30 to-transparent"></div>
+          <!-- 暗めのオーバーレイ -->
+          <div class="absolute inset-0 z-10 bg-gradient-to-r from-black/40 via-black/30 to-black/20"></div>
           
           <div class="relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 lg:p-16">
             
             <!-- 左側テキスト -->
             <div class="contact-text-content">
-              <h2 class="contact-section-title mb-6">
+              <h2 class="contact-section-title mb-6 text-white">
                 CONTACT US
               </h2>
-              <p class="contact-section-description">
+              <p class="contact-section-description text-white">
                 相談は無料です。皆様からのお問い合わせをお待ちしております。
               </p>
             </div>
             
             <!-- 右側：大きなCTAボタンを縦並び -->
             <div class="contact-buttons-container">
-              <a href="tel:045-534-8922" class="contact-cta-btn phone-btn">
+              <a href="tel:045-534-8922" class="contact-cta-btn phone-btn bg-white text-gray-900 border-white hover:bg-gray-100">
                 <i class="fas fa-phone mr-3"></i>
                 045-534-8922
               </a>
               
-              <a href="/contact" class="contact-cta-btn form-btn">
+              <a href="/contact" class="contact-cta-btn form-btn bg-white text-gray-900 border-white hover:bg-gray-100">
                 <i class="fas fa-envelope mr-3"></i>
                 お問い合わせフォーム
               </a>

@@ -1990,14 +1990,12 @@ label[required]::after {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #3D271B;
   letter-spacing: 0.05em;
   margin-bottom: 1.5rem;
 }
 
 .contact-section-description {
   font-size: 1.125rem;
-  color: #5A3926;
   line-height: 1.6;
 }
 

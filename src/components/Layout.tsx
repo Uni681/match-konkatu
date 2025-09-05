@@ -258,65 +258,82 @@ export const Layout = ({
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white">
-    <div class="container mx-auto px-4 py-12">
+  <footer class="bg-white border-t border-gray-200">
+    <div class="container mx-auto px-6 py-12">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Company Info -->
         <div>
           <div class="mb-4">
-            <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="h-16 w-auto logo-hq" style="filter: invert(1) brightness(1.1);">
+            <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="h-14 w-auto">
           </div>
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-gray-600 text-sm leading-relaxed">
             神奈川県横浜市神奈川区にあるIBJ正規加盟店の結婚相談所。親子2代で運営し、温かいサポートで成婚まで導きます。
           </p>
         </div>
         
         <!-- Quick Links -->
         <div>
-          <h3 class="font-semibold mb-4">サイトマップ</h3>
+          <h3 class="font-semibold mb-4 text-gray-800">サイトマップ</h3>
           <ul class="space-y-2 text-sm">
-            <li><a href="/service" class="text-gray-400 hover:text-white transition-colors">サービス</a></li>
-            <li><a href="/price" class="text-gray-400 hover:text-white transition-colors">料金プラン</a></li>
-            <li><a href="/about" class="text-gray-400 hover:text-white transition-colors">私たちについて</a></li>
-            <li><a href="/blog" class="text-gray-400 hover:text-white transition-colors">ブログ</a></li>
-            <li><a href="/contact" class="text-gray-400 hover:text-white transition-colors">お問い合わせ</a></li>
-            <li><a href="/policy" class="text-gray-400 hover:text-white transition-colors">プライバシーポリシー</a></li>
+            <li><a href="/" class="text-gray-600 hover:text-primary-600 transition-colors">ホーム</a></li>
+            <li><a href="/about" class="text-gray-600 hover:text-primary-600 transition-colors">当結婚相談所について</a></li>
+            <li><a href="/service" class="text-gray-600 hover:text-primary-600 transition-colors">サービス・料金</a></li>
+            <li><a href="/flow" class="text-gray-600 hover:text-primary-600 transition-colors">ご成婚までのながれ</a></li>
+            <li><a href="/faq" class="text-gray-600 hover:text-primary-600 transition-colors">よくあるご質問</a></li>
+            <li><a href="/blog" class="text-gray-600 hover:text-primary-600 transition-colors">ブログ</a></li>
+            <li><a href="/contact" class="text-gray-600 hover:text-primary-600 transition-colors">お問い合わせ</a></li>
+            <li><a href="/policy" class="text-gray-600 hover:text-primary-600 transition-colors">プライバシーポリシー</a></li>
           </ul>
         </div>
         
-        <!-- Contact Info -->
+        <!-- Contact Info & Social -->
         <div>
-          <h3 class="font-semibold mb-4">お問い合わせ</h3>
-          <div class="space-y-2 text-sm text-gray-400">
+          <h3 class="font-semibold mb-4 text-gray-800">お問い合わせ</h3>
+          <div class="space-y-3 text-sm text-gray-600 mb-6">
             <div class="flex items-center">
-              <i class="fas fa-phone w-4 mr-2"></i>
-              <span>045-XXX-XXXX</span>
+              <i class="fas fa-phone w-4 mr-3 text-primary-600"></i>
+              <a href="tel:045-534-8922" class="hover:text-primary-600 transition-colors">045-534-8922</a>
             </div>
             <div class="flex items-center">
-              <i class="fas fa-envelope w-4 mr-2"></i>
-              <span>info@match-konkatsu.com</span>
+              <i class="fas fa-envelope w-4 mr-3 text-primary-600"></i>
+              <a href="mailto:info@match-konkatsu.com" class="hover:text-primary-600 transition-colors">info@match-konkatsu.com</a>
             </div>
             <div class="flex items-start">
-              <i class="fas fa-map-marker-alt w-4 mr-2 mt-1"></i>
+              <i class="fas fa-map-marker-alt w-4 mr-3 mt-1 text-primary-600"></i>
               <div>
-                <div>〒221-0000</div>
-                <div>神奈川県横浜市神奈川区</div>
-                <div>○○町1-2-3 ○○ビル4F</div>
+                <div>〒221-0834</div>
+                <div>神奈川県横浜市神奈川区台町5-14 412</div>
               </div>
             </div>
             <div class="flex items-start">
-              <i class="fas fa-clock w-4 mr-2 mt-1"></i>
+              <i class="fas fa-clock w-4 mr-3 mt-1 text-primary-600"></i>
               <div>
                 <div>平日: 10:00〜19:00</div>
-                <div>土曜: 10:00〜17:00</div>
-                <div>日祝: 定休日</div>
+                <div>土曜: 10:00〜17:00 / 日祝: 定休日</div>
               </div>
             </div>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="flex items-center space-x-4">
+            <a href="https://www.ibjapan.com/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+              <img 
+                src="https://page.gensparksite.com/v1/base64_upload/42a2aca30693b587e5ba48d1b3c96794" 
+                alt="IBJ正規加盟店" 
+                class="h-6 w-auto"
+              >
+            </a>
+            <a href="https://www.instagram.com/match_konkatu" class="text-gray-600 hover:text-primary-600 transition-colors">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="https://line.me/R/ti/p/@match-konkatu" class="text-gray-600 hover:text-primary-600 transition-colors">
+              <i class="fab fa-line text-xl"></i>
+            </a>
           </div>
         </div>
       </div>
       
-      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+      <div class="border-t border-gray-200 mt-8 pt-6 text-center text-sm text-gray-500">
         <p>&copy; 2024 MATCH（マッチ）本気の婚活. All rights reserved.</p>
       </div>
     </div>

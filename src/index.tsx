@@ -236,10 +236,6 @@ app.get('/', (c) => {
   
   const contactAccessHtml = ContactAccessSection()
   
-  const ctaHtml = CTA({
-    variant: 'gradient'
-  })
-  
   const mobileCtaHtml = MobileFixedCTA()
   
   const content = `
@@ -253,7 +249,6 @@ app.get('/', (c) => {
     ${badgesHtml}
     ${snsHtml}
     ${contactAccessHtml}
-    ${ctaHtml}
     ${mobileCtaHtml}
   `
   
