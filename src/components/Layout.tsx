@@ -258,56 +258,68 @@ export const Layout = ({
   </main>
 
   <!-- Footer -->
-  <footer class="bg-white border-t border-gray-200">
-    <div class="container mx-auto px-6 py-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Company Info -->
-        <div>
+  <footer class="bg-white border-t border-gray-300 py-8">
+    <div class="container mx-auto px-6">
+      <!-- PC Layout: 3分割 -->
+      <div class="hidden md:grid md:grid-cols-3 gap-8 items-start">
+        <!-- 左寄せ（ロゴ＋住所） -->
+        <div class="flex flex-col">
           <div class="mb-3">
-            <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="h-10 w-auto">
+            <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="h-12 w-auto">
           </div>
-          <p class="text-gray-600 text-xs leading-relaxed">
-            神奈川県横浜市神奈川区にあるIBJ正規加盟店の結婚相談所。親子2代で運営し、温かいサポートで成婚まで導きます。
-          </p>
+          <div class="footer-address">
+            <div>〒221-0834 神奈川県横浜市神奈川区台町5-14 412</div>
+            <div>TEL：045-534-8922</div>
+          </div>
         </div>
         
-        <!-- Navigation Links & Social -->
-        <div class="flex justify-between items-start">
-          <!-- Quick Links -->
-          <div>
-            <ul class="space-y-1 text-xs">
-              <li><a href="/" class="text-gray-500 hover:text-primary-600 transition-colors">ホーム</a></li>
-              <li><a href="/about" class="text-gray-500 hover:text-primary-600 transition-colors">当結婚相談所について</a></li>
-              <li><a href="/service" class="text-gray-500 hover:text-primary-600 transition-colors">サービス・料金</a></li>
-              <li><a href="/flow" class="text-gray-500 hover:text-primary-600 transition-colors">ご成婚までのながれ</a></li>
-              <li><a href="/faq" class="text-gray-500 hover:text-primary-600 transition-colors">よくあるご質問</a></li>
-              <li><a href="/blog" class="text-gray-500 hover:text-primary-600 transition-colors">ブログ</a></li>
-              <li><a href="/contact" class="text-gray-500 hover:text-primary-600 transition-colors">お問い合わせ</a></li>
-              <li><a href="/policy" class="text-gray-500 hover:text-primary-600 transition-colors">プライバシーポリシー</a></li>
-            </ul>
-          </div>
-          
-          <!-- Social Links -->
-          <div class="flex items-center space-x-3">
-            <a href="https://www.ibjapan.com/" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
-              <img 
-                src="https://page.gensparksite.com/v1/base64_upload/42a2aca30693b587e5ba48d1b3c96794" 
-                alt="IBJ正規加盟店" 
-                class="h-5 w-auto"
-              >
-            </a>
-            <a href="https://www.instagram.com/match_konkatu" class="text-gray-500 hover:text-primary-600 transition-colors">
-              <i class="fab fa-instagram text-lg"></i>
-            </a>
-            <a href="https://line.me/R/ti/p/@match-konkatu" class="text-gray-500 hover:text-primary-600 transition-colors">
-              <i class="fab fa-line text-lg"></i>
-            </a>
+        <!-- 中央（ナビゲーションリンク） -->
+        <div class="flex justify-center">
+          <nav class="footer-nav">
+            <a href="/">ホーム</a>
+            <a href="/about">当結婚相談所について</a>
+            <a href="/service">サービス・料金</a>
+            <a href="/flow">ご成婚までのながれ</a>
+            <a href="/faq">よくあるご質問</a>
+            <a href="/contact">お問い合わせ</a>
+          </nav>
+        </div>
+        
+        <!-- 右寄せ（コピーライト） -->
+        <div class="flex justify-end">
+          <div class="footer-copyright">
+            ©2024 MATCH by Uni
           </div>
         </div>
       </div>
       
-      <div class="border-t border-gray-200 mt-4 pt-3 text-center text-xs text-gray-400">
-        <p>&copy; 2024 MATCH（マッチ）本気の婚活. All rights reserved.</p>
+      <!-- SP Layout: 縦並び -->
+      <div class="md:hidden flex flex-col items-center text-center space-y-6">
+        <!-- ロゴ -->
+        <div>
+          <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="h-10 w-auto mx-auto">
+        </div>
+        
+        <!-- 住所 -->
+        <div class="footer-address-sp">
+          <div>〒221-0834 神奈川県横浜市神奈川区台町5-14 412</div>
+          <div>TEL：045-534-8922</div>
+        </div>
+        
+        <!-- ナビ -->
+        <nav class="footer-nav-sp">
+          <a href="/">ホーム</a>
+          <a href="/about">当結婚相談所について</a>
+          <a href="/service">サービス・料金</a>
+          <a href="/flow">ご成婚までのながれ</a>
+          <a href="/faq">よくあるご質問</a>
+          <a href="/contact">お問い合わせ</a>
+        </nav>
+        
+        <!-- コピーライト -->
+        <div class="footer-copyright">
+          ©2024 MATCH by Uni
+        </div>
       </div>
     </div>
   </footer>

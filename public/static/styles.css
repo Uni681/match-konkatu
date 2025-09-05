@@ -2090,6 +2090,84 @@ label[required]::after {
     height: 280px;
   }
 }
+
+/* ===============================
+   フッターのスタイル
+   =============================== */
+
+/* 住所・電話番号 */
+.footer-address {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 12px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.footer-address-sp {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 11px;
+  line-height: 18px;
+  color: #000000;
+}
+
+/* ナビゲーションリンク（PC） */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-nav a {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #BFA45A;
+}
+
+/* ナビゲーションリンク（SP） */
+.footer-nav-sp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav-sp a {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-sp a:hover {
+  color: #BFA45A;
+}
+
+/* コピーライト */
+.footer-copyright {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 12px;
+  color: #666666;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .footer-nav a {
+    font-size: 13px;
+  }
+}
   }
   
   .about-us-card-arrow i {
