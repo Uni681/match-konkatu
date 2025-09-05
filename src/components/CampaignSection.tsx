@@ -3,20 +3,20 @@ import { html } from 'hono/html'
 export function CampaignSection() {
   return html`
     <section class="campaign-section relative py-20 overflow-hidden">
-      <!-- 背景画像 - 和装婚アイテム（明るくぼやかし効果） -->
+      <!-- 背景画像 - 和装婚アイテム（自然なぼかし効果） -->
       <div class="absolute inset-0 z-0">
         <img 
           src="https://page.gensparksite.com/v1/base64_upload/7e08822a4beb2fc8bbcce7d5580f6407" 
           alt="和装結婚式のアイテム 白無垢・扇子・結婚指輪・松・梅の花" 
-          class="w-full h-full object-cover object-center brightness-125 saturate-110 blur-sm"
+          class="w-full h-full object-cover object-center brightness-110 saturate-105 blur-sm"
           width="1920"
           height="1080"
           loading="lazy"
         >
       </div>
       
-      <!-- 薄い白→透明の縦グラデーション（明るめ調整） -->
-      <div class="absolute inset-0 z-10 bg-gradient-to-b from-white/40 via-white/20 to-white/5"></div>
+      <!-- 薄い白→透明の縦グラデーション -->
+      <div class="absolute inset-0 z-10 bg-gradient-to-b from-white/35 via-white/15 to-transparent"></div>
       
       <div class="relative z-20 container mx-auto px-6 text-center">
         <!-- 見出し（英字）- 中央上部、文字間広め -->
