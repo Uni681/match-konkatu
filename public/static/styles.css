@@ -2012,8 +2012,8 @@ label[required]::after {
   padding: 1rem 2rem;
   height: 56px;
   border-radius: 12px;
-  border: 1px solid #28564A;
-  color: #28564A;
+  border: 1px solid white;
+  color: white !important;
   background: transparent;
   font-weight: 600;
   text-decoration: none;
@@ -2022,10 +2022,19 @@ label[required]::after {
 }
 
 .contact-cta-btn:hover {
-  background: #28564A;
-  color: white;
+  background: white;
+  color: #333333 !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(40, 86, 74, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* アイコンも白にする */
+.contact-cta-btn i {
+  color: white !important;
+}
+
+.contact-cta-btn:hover i {
+  color: #333333 !important;
 }
 
 .access-title {
