@@ -42,7 +42,7 @@ export function SNSSection() {
             <div class="sns-card-content">
               <div class="sns-card-text">
                 <h3 class="sns-card-title instagram-title">
-                  <i class="fab fa-instagram mr-3 text-pink-600"></i>
+                  <i class="fab fa-instagram mr-3 text-gray-700"></i>
                   Instagram
                 </h3>
                 <p class="sns-card-description">
