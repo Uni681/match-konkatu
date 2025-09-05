@@ -16,7 +16,7 @@ export const StorySection = () => {
 
     <!-- シンプルボタン -->
     <div class="mt-12">
-      <a href="/about" class="inline-flex items-center px-8 py-4 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl group">
+      <a href="/about" class="inline-flex items-center px-8 py-4 bg-gray-800 hover:bg-gray-900 text-white hover:text-white rounded-lg font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl group">
         当結婚相談所について
         <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
       </a>

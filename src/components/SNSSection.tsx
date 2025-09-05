@@ -2,7 +2,7 @@ import { html } from 'hono/html'
 
 export function SNSSection() {
   return html`
-    <section class="sns-section py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
+    <section class="sns-section py-20">
       <div class="container mx-auto px-6 max-w-6xl">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           
