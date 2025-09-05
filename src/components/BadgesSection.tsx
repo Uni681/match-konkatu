@@ -5,11 +5,11 @@ export function BadgesSection() {
     <section class="badges-section py-8 bg-white border-t border-b border-gray-200">
       <div class="container mx-auto px-6">
         <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
-          <!-- 受賞バッジ群 -->
+          <!-- 受賞バッジ（IBJ No.1） -->
           <div class="badge-item">
             <img 
-              src="/img/badge-award.png" 
-              alt="受賞バッジ" 
+              src="https://page.gensparksite.com/v1/base64_upload/23089dad40911affc5edf65c638b12bb" 
+              alt="IBJ 2024年お見合い数・会員数・成婚数 No.1受賞バッジ" 
               class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
               width="120"
               height="64"
@@ -17,11 +17,11 @@ export function BadgesSection() {
             >
           </div>
           
-          <!-- 男の婚活ロゴ -->
+          <!-- 森かすみ（IBJ婚活アンバサダー） -->
           <div class="badge-item">
             <img 
-              src="/img/logo-otoko-konkatsu.png" 
-              alt="男の婚活" 
+              src="https://page.gensparksite.com/v1/base64_upload/899725d1225da34105d925b9ea4db1c1" 
+              alt="IBJ婚活アンバサダー 森かすみ" 
               class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
               width="120"
               height="64"
@@ -29,12 +29,12 @@ export function BadgesSection() {
             >
           </div>
           
-          <!-- IBJ正規加盟店 -->
+          <!-- 成婚主義 -->
           <div class="badge-item">
             <a href="https://www.ibjapan.com/" target="_blank" rel="noopener noreferrer">
               <img 
-                src="/img/logo-ibj.png" 
-                alt="IBJ正規加盟店" 
+                src="https://page.gensparksite.com/v1/base64_upload/7f98388616ed01bfadbc8bbab090c47d" 
+                alt="成婚主義の相談所 IBJ加盟相談所" 
                 class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
                 width="120"
                 height="64"
@@ -43,11 +43,11 @@ export function BadgesSection() {
             </a>
           </div>
           
-          <!-- AI matching -->
+          <!-- AIマッチング -->
           <div class="badge-item">
             <img 
-              src="/img/logo-ai-matching.png" 
-              alt="AI matching" 
+              src="https://page.gensparksite.com/v1/base64_upload/2098246e9fc9a4a903dff6d0239463db" 
+              alt="AIマッチング IBJS4.0対応" 
               class="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
               width="120"
               height="64"
