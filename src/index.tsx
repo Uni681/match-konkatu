@@ -17,6 +17,10 @@ import MobileFixedCTA from './components/MobileFixedCTA'
 import ReasonsSection from './components/ReasonsSection'
 import IBJStatsSection from './components/IBJStatsSection'
 import AboutUsLinksSection from './components/AboutUsLinksSection'
+import { CampaignSection } from './components/CampaignSection'
+import { BadgesSection } from './components/BadgesSection'
+import { SNSSection } from './components/SNSSection'
+import { ContactAccessSection } from './components/ContactAccessSection'
 
 // Utils
 import { generateSEOMeta, generateBreadcrumbs } from './utils/content'
@@ -224,6 +228,14 @@ app.get('/', (c) => {
   
   const aboutUsLinksHtml = AboutUsLinksSection()
   
+  const campaignHtml = CampaignSection()
+  
+  const badgesHtml = BadgesSection()
+  
+  const snsHtml = SNSSection()
+  
+  const contactAccessHtml = ContactAccessSection()
+  
   const ctaHtml = CTA({
     variant: 'gradient'
   })
@@ -237,6 +249,10 @@ app.get('/', (c) => {
     ${reasonsHtml}
     ${ibjStatsHtml}
     ${aboutUsLinksHtml}
+    ${campaignHtml}
+    ${badgesHtml}
+    ${snsHtml}
+    ${contactAccessHtml}
     ${ctaHtml}
     ${mobileCtaHtml}
   `

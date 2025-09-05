@@ -1605,7 +1605,7 @@ label[required]::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size: 120%;
   background-position: center;
   background-repeat: no-repeat;
   transition: transform 0.4s ease;
@@ -1747,6 +1747,344 @@ label[required]::after {
     height: 35px;
     top: 1rem;
     right: 1rem;
+  }
+}
+
+/* ===============================
+   新しいセクションのスタイル
+   =============================== */
+
+/* OPEN CAMPAIGNセクション */
+.campaign-section {
+  position: relative;
+  background: linear-gradient(135deg, #FAF8F4 0%, #F5F1EA 100%);
+  min-height: 500px;
+}
+
+.campaign-title-english {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  color: #5D432F;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.campaign-main-copy {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #3D271B;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.campaign-highlight {
+  color: #8B5A3C;
+  font-weight: 700;
+}
+
+.campaign-notice {
+  font-size: 0.875rem;
+  color: #72533B;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+.campaign-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background: #BFA45A;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  height: 48px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.campaign-btn:hover {
+  background: #A67C5A;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(191, 164, 90, 0.3);
+}
+
+@media (max-width: 768px) {
+  .campaign-main-copy {
+    font-size: 1.5rem;
+  }
+  
+  .campaign-title-english {
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+  }
+}
+
+/* 実績バッジセクション */
+.badges-section {
+  background: white;
+  border-top: 1px solid #EEE;
+  border-bottom: 1px solid #EEE;
+}
+
+.badge-item img {
+  filter: grayscale(20%);
+  transition: all 0.3s ease;
+}
+
+.badge-item img:hover {
+  filter: grayscale(0%);
+  transform: translateY(-2px);
+}
+
+/* SNSセクション */
+.sns-section {
+  background: linear-gradient(135deg, #FAF7F4 0%, #F5F1EA 50%, #E8DDD0 100%);
+}
+
+.sns-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sns-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.line-card {
+  background: linear-gradient(135deg, #E6F9EE 0%, #F0FFF4 100%);
+}
+
+.instagram-card {
+  background: linear-gradient(135deg, #FFF0F4 0%, #F3F8FF 100%);
+}
+
+.sns-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.sns-card-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #3D271B;
+  display: flex;
+  align-items: center;
+}
+
+.sns-card-description {
+  color: #5A3926;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.sns-qr-container {
+  display: flex;
+  justify-content: center;
+}
+
+.sns-qr-placeholder {
+  width: 200px;
+  height: 200px;
+  background: #F5F5F5;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #D1D5DB;
+}
+
+.qr-placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6B7280;
+}
+
+.sns-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  height: 44px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.line-btn {
+  background: #28564A;
+  color: white;
+}
+
+.line-btn:hover {
+  background: #1E3F36;
+}
+
+.instagram-btn {
+  background: #BFA45A;
+  color: white;
+}
+
+.instagram-btn:hover {
+  background: #A67C5A;
+}
+
+@media (max-width: 1024px) {
+  .sns-card {
+    padding: 1.5rem;
+  }
+  
+  .sns-qr-placeholder {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sns-card {
+    padding: 1.25rem;
+  }
+  
+  .sns-qr-placeholder {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .sns-card-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* CONTACT & ACCESSセクション */
+.contact-access-section {
+  background: linear-gradient(135deg, #FAF8F4 0%, #F5F1EA 100%);
+}
+
+.contact-block {
+  background: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.contact-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3D271B;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.contact-section-description {
+  font-size: 1.125rem;
+  color: #5A3926;
+  line-height: 1.6;
+}
+
+.contact-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  height: 56px;
+  border-radius: 12px;
+  border: 1px solid #28564A;
+  color: #28564A;
+  background: transparent;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.contact-cta-btn:hover {
+  background: #28564A;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 86, 74, 0.3);
+}
+
+.access-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3D271B;
+  letter-spacing: 0.05em;
+}
+
+.access-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.access-info-item {
+  display: flex;
+  align-items: flex-start;
+  color: #5A3926;
+  line-height: 1.6;
+}
+
+.access-company-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3D271B;
+  margin-bottom: 0.5rem;
+}
+
+.access-map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .contact-access-section .grid {
+    gap: 2rem;
+  }
+  
+  .contact-section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-block .grid {
+    padding: 2rem;
+  }
+  
+  .contact-section-title {
+    font-size: 1.75rem;
+  }
+  
+  .contact-buttons-container {
+    margin-top: 1.5rem;
+  }
+  
+  .access-map-container iframe {
+    height: 280px;
+  }
+}
   }
   
   .about-us-card-arrow i {
