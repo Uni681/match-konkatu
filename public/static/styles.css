@@ -2580,25 +2580,52 @@ label[required]::after {
 .about-hero-background {
   width: 100%;
   height: 100%;
-  /* 和柄（麻の葉パターン） - 濃いめに調整 */
+  /* 中央は白、周辺に和柄装飾 */
+  background: 
+    /* 四隅の和柄装飾 */
+    radial-gradient(circle at 0% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 100% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 0% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 100% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    /* 中央は白 */
+    #FEFDFB;
+  position: relative;
+}
+
+.about-hero-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* 四隅に麻の葉パターン */
   background-image: 
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.12'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='40' cy='0' r='10'/%3E%3Ccircle cx='0' cy='40' r='10'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-size: 80px 80px, 60px 60px;
-  opacity: 0.9;
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.15'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  /* 四隅だけに表示 */
+  -webkit-mask-image: 
+    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
+  -webkit-mask-composite: source-over;
+  mask-image: 
+    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
+  mask-composite: add;
+  pointer-events: none;
 }
 
 .gold-foil-decoration {
   width: 100%;
   height: 100%;
+  /* 金箔効果を周辺だけに */
   background-image: 
-    radial-gradient(circle at 15% 25%, rgba(212, 175, 55, 0.4) 2px, transparent 2px),
-    radial-gradient(circle at 85% 75%, rgba(212, 175, 55, 0.3) 1.5px, transparent 1.5px),
-    radial-gradient(circle at 45% 60%, rgba(212, 175, 55, 0.35) 1px, transparent 1px),
-    radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.25) 1.5px, transparent 1.5px),
-    radial-gradient(circle at 25% 80%, rgba(212, 175, 55, 0.4) 2px, transparent 2px),
-    radial-gradient(circle at 60% 15%, rgba(212, 175, 55, 0.2) 1px, transparent 1px);
-  background-size: 180px 180px, 220px 220px, 160px 160px, 200px 200px, 140px 140px, 240px 240px;
+    radial-gradient(circle at 5% 15%, rgba(212, 175, 55, 0.3) 2px, transparent 2px),
+    radial-gradient(circle at 95% 85%, rgba(212, 175, 55, 0.25) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 10% 85%, rgba(212, 175, 55, 0.3) 2px, transparent 2px),
+    radial-gradient(circle at 90% 20%, rgba(212, 175, 55, 0.2) 1.5px, transparent 1.5px);
+  background-size: 200px 200px, 220px 220px, 180px 180px, 240px 240px;
   animation: goldFloating 12s ease-in-out infinite;
 }
 
@@ -3057,12 +3084,36 @@ label[required]::after {
 .service-hero-background {
   width: 100%;
   height: 100%;
-  /* 和柄（麻の葉パターン） - 濃いめに調整 */
+  /* 中央は白、周辺に和柄装飾 */
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 100% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 0% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 100% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    #FEFDFB;
+  position: relative;
+}
+
+.service-hero-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-image: 
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.12'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='40' cy='0' r='10'/%3E%3Ccircle cx='0' cy='40' r='10'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-size: 80px 80px, 60px 60px;
-  opacity: 0.9;
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.15'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  -webkit-mask-image: 
+    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
+  -webkit-mask-composite: source-over;
+  mask-image: 
+    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
+  mask-composite: add;
+  pointer-events: none;
 }
 
 .service-hero-english {
@@ -3500,12 +3551,35 @@ label[required]::after {
 .flow-hero-background {
   width: 100%;
   height: 100%;
-  /* 和柄（麻の葉パターン） - 濃いめに調整 */
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 100% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 0% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 100% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    #FEFDFB;
+  position: relative;
+}
+
+.flow-hero-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-image: 
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.12'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='40' cy='0' r='10'/%3E%3Ccircle cx='0' cy='40' r='10'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-size: 80px 80px, 60px 60px;
-  opacity: 0.9;
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.15'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  -webkit-mask-image: 
+    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
+  -webkit-mask-composite: source-over;
+  mask-image: 
+    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
+  mask-composite: add;
+  pointer-events: none;
 }
 
 .flow-hero-english {
@@ -3873,12 +3947,35 @@ label[required]::after {
 .faq-hero-background {
   width: 100%;
   height: 100%;
-  /* 和柄（麻の葉パターン） - 濃いめに調整 */
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 100% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 0% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 100% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    #FEFDFB;
+  position: relative;
+}
+
+.faq-hero-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-image: 
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.12'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='40' cy='0' r='10'/%3E%3Ccircle cx='0' cy='40' r='10'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-size: 80px 80px, 60px 60px;
-  opacity: 0.9;
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.15'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  -webkit-mask-image: 
+    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
+  -webkit-mask-composite: source-over;
+  mask-image: 
+    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
+  mask-composite: add;
+  pointer-events: none;
 }
 
 .faq-hero-english {
@@ -4189,12 +4286,35 @@ label[required]::after {
 .contact-hero-background {
   width: 100%;
   height: 100%;
-  /* 和柄（麻の葉パターン） - 濃いめに調整 */
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 100% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 0% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    radial-gradient(circle at 100% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
+    #FEFDFB;
+  position: relative;
+}
+
+.contact-hero-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-image: 
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.12'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='40' cy='0' r='10'/%3E%3Ccircle cx='0' cy='40' r='10'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-size: 80px 80px, 60px 60px;
-  opacity: 0.9;
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.15'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  -webkit-mask-image: 
+    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
+  -webkit-mask-composite: source-over;
+  mask-image: 
+    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
+    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
+  mask-composite: add;
+  pointer-events: none;
 }
 
 .contact-hero-english {
