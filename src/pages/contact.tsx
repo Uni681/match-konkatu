@@ -22,16 +22,18 @@ export function ContactPage() {
           <div class="gold-foil-decoration"></div>
         </div>
         
-        <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
-          <!-- 英字見出し（背景扱い） -->
-          <div class="contact-hero-english mb-6">
-            CONTACT US
+        <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl flex items-center justify-center h-full">
+          <div>
+            <!-- 英字見出し（背景扱い） -->
+            <div class="contact-hero-english mb-6">
+              CONTACT US
+            </div>
+            
+            <!-- メイン見出し -->
+            <h1 class="contact-hero-title">
+              お問い合わせ
+            </h1>
           </div>
-          
-          <!-- メイン見出し -->
-          <h1 class="contact-hero-title">
-            お問い合わせ
-          </h1>
         </div>
       </section>
 
