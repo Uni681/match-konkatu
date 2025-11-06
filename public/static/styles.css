@@ -4218,3 +4218,255 @@ label[required]::after {
     font-size: 1rem;
   }
 }
+
+/* ===============================
+   Blog（ブログ）ページ専用スタイル
+   =============================== */
+
+/* Hero Section */
+.blog-hero-section {
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f1ea 100%);
+  position: relative;
+}
+
+.blog-hero-background {
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.12'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='40' cy='0' r='10'/%3E%3Ccircle cx='0' cy='40' r='10'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px, 60px 60px;
+  opacity: 0.9;
+}
+
+.blog-hero-english {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 200;
+  letter-spacing: 0.3em;
+  color: rgba(191, 164, 90, 0.15);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: -1rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+.blog-hero-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #BFA45A;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.blog-hero-description {
+  font-size: 1.125rem;
+  color: #374151;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.blog-hero-description p {
+  margin-bottom: 0.5rem;
+}
+
+.blog-hero-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Blog List Section */
+.blog-list-section {
+  position: relative;
+}
+
+.blog-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(191, 164, 90, 0.1);
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(191, 164, 90, 0.15);
+  border-color: #BFA45A;
+}
+
+.blog-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-card-image img {
+  transform: scale(1.05);
+}
+
+.blog-card-content {
+  padding: 1.5rem;
+}
+
+.blog-card-category {
+  margin-bottom: 1rem;
+}
+
+.category-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #BFA45A 0%, #D4AF37 100%);
+  color: white;
+  padding: 0.375rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.blog-card-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2F4F4F;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.blog-card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.blog-card-title a:hover {
+  color: #BFA45A;
+}
+
+.blog-card-description {
+  color: #4B5563;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(191, 164, 90, 0.1);
+}
+
+.blog-card-date {
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+.blog-card-link {
+  color: #BFA45A;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.blog-card-link:hover {
+  color: #D4AF37;
+}
+
+/* Pagination */
+.blog-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.pagination-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pagination-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  border: 1px solid rgba(191, 164, 90, 0.2);
+  border-radius: 8px;
+  color: #4B5563;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.pagination-button:hover {
+  background: #faf9f7;
+  border-color: #BFA45A;
+  color: #BFA45A;
+}
+
+.pagination-button.active {
+  background: linear-gradient(135deg, #BFA45A 0%, #D4AF37 100%);
+  color: white;
+  border-color: #BFA45A;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .blog-hero-section {
+    padding: 6rem 0 3rem;
+  }
+  
+  .blog-hero-english {
+    font-size: 2rem;
+    margin-bottom: -0.5rem;
+  }
+  
+  .blog-hero-title {
+    font-size: 2.25rem;
+  }
+  
+  .blog-hero-description {
+    font-size: 1rem;
+  }
+  
+  .blog-card-image {
+    height: 180px;
+  }
+  
+  .blog-card-content {
+    padding: 1.25rem;
+  }
+  
+  .blog-card-title {
+    font-size: 1.125rem;
+  }
+  
+  .blog-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .pagination-button {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.9375rem;
+  }
+}

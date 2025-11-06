@@ -99,7 +99,7 @@ export function ServicePage() {
               </div>
 
               <div class="plan-cta">
-                <a href="#contact" class="plan-button">
+                <a href="/contact" class="plan-button">
                   詳細を見る
                   <i class="fas fa-arrow-right ml-2"></i>
                 </a>
@@ -227,7 +227,7 @@ export function ServicePage() {
               </div>
 
               <div class="plan-cta">
-                <a href="#contact" class="plan-button">
+                <a href="/contact" class="plan-button">
                   詳細を見る
                   <i class="fas fa-arrow-right ml-2"></i>
                 </a>

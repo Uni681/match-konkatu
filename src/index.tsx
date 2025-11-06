@@ -55,6 +55,7 @@ import { ServicePage } from './pages/service'
 import { FlowPage } from './pages/flow'
 import { FAQPage } from './pages/faq'
 import { ContactPage } from './pages/contact'
+import { BlogListPage } from './pages/blog'
 
 // Build time content
 const { home, pages, posts, settings } = buildTimeContent;
@@ -335,128 +336,11 @@ app.get('/flow', (c) => {
 
 // ブログ一覧ページ
 app.get('/blog', (c) => {
-  const allPosts = posts
   const page = parseInt(c.req.query('page') || '1')
   const perPage = 9
-  const offset = (page - 1) * perPage
-  const paginatedPosts = allPosts.slice(offset, offset + perPage)
-  const totalPages = Math.ceil(allPosts.length / perPage)
+  const totalPages = Math.ceil(posts.length / perPage)
   
-  const meta = generateSEOMeta({
-    title: 'ブログ',
-    description: '婚活に役立つノウハウやイベント情報をお届けします'
-  })
-  
-  const breadcrumbs = generateBreadcrumbs('/blog')
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbs.map((crumb, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: crumb.name,
-      item: `${c.req.url.split('/blog')[0]}${crumb.href}`
-    }))
-  }
-  
-  const content = `
-    <div class="container mx-auto px-4 py-12">
-      <nav class="mb-8" aria-label="パンくずリスト">
-        <ol class="flex space-x-2 text-sm text-gray-600">
-          ${breadcrumbs.map((crumb, index) => `
-            <li class="flex items-center">
-              ${index > 0 ? '<i class="fas fa-chevron-right mx-2 text-xs"></i>' : ''}
-              ${index === breadcrumbs.length - 1 
-                ? `<span class="text-gray-900">${crumb.name}</span>`
-                : `<a href="${crumb.href}" class="hover:text-primary-500">${crumb.name}</a>`
-              }
-            </li>
-          `).join('')}
-        </ol>
-      </nav>
-      
-      <div class="text-center mb-12">
-        <h1 class="font-mincho text-3xl md:text-4xl font-bold text-gray-900 mb-4">ブログ</h1>
-        <p class="text-lg text-gray-600">婚活に役立つノウハウやイベント情報をお届けします</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        ${paginatedPosts.map(post => `
-          <article class="card">
-            <div class="card-body">
-              ${post.featured_image ? `
-                <div class="mb-4">
-                  <img src="${post.featured_image}" alt="${post.title}" class="w-full h-48 object-cover rounded-lg">
-                </div>
-              ` : ''}
-              
-              <div class="mb-3">
-                <span class="inline-block bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">
-                  ${post.category}
-                </span>
-              </div>
-              
-              <h2 class="font-semibold text-xl text-gray-900 mb-3 line-clamp-2">
-                <a href="/blog/${post.slug}" class="hover:text-primary-600">${post.title}</a>
-              </h2>
-              
-              <p class="text-gray-600 mb-4 line-clamp-3">${post.description}</p>
-              
-              <div class="flex items-center justify-between text-sm text-gray-500">
-                <time datetime="${post.date}">
-                  ${new Date(post.date).toLocaleDateString('ja-JP')}
-                </time>
-                <a href="/blog/${post.slug}" class="text-primary-600 hover:text-primary-700 font-medium">
-                  続きを読む →
-                </a>
-              </div>
-            </div>
-          </article>
-        `).join('')}
-      </div>
-      
-      <!-- Pagination -->
-      ${totalPages > 1 ? `
-        <nav class="flex justify-center" aria-label="ページネーション">
-          <div class="flex space-x-2">
-            ${page > 1 ? `
-              <a href="/blog?page=${page - 1}" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
-                前へ
-              </a>
-            ` : ''}
-            
-            ${Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-              const pageNum = page <= 3 ? i + 1 : page - 2 + i
-              if (pageNum > totalPages) return ''
-              return `
-                <a href="/blog?page=${pageNum}" 
-                   class="px-4 py-2 border rounded-md ${pageNum === page 
-                     ? 'bg-primary-500 text-white border-primary-500' 
-                     : 'border-gray-300 text-gray-700 hover:bg-gray-50'}">
-                  ${pageNum}
-                </a>
-              `
-            }).join('')}
-            
-            ${page < totalPages ? `
-              <a href="/blog?page=${page + 1}" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
-                次へ
-              </a>
-            ` : ''}
-          </div>
-        </nav>
-      ` : ''}
-    </div>
-    
-    ${CTA({ variant: 'default' })}
-  `
-  
-  return c.html(Layout({
-    title: meta.title,
-    description: meta.description,
-    children: content,
-    structuredData: breadcrumbSchema
-  }))
+  return c.html(BlogListPage(posts, page, totalPages))
 })
 
 // ブログ記事詳細ページ

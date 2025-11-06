@@ -172,7 +172,7 @@ export function FAQPage() {
             経験豊富なカウンセラーが丁寧にお答えいたします。
           </p>
           <div class="faq-cta-buttons">
-            <a href="#contact" class="faq-cta-button primary">
+            <a href="/contact" class="faq-cta-button primary">
               <i class="fas fa-calendar-check mr-2"></i>
               無料カウンセリング予約
             </a>
