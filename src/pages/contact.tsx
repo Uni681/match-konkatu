@@ -11,7 +11,7 @@ export function ContactPage() {
     description: '結婚相談所MATCHへのお問い合わせはこちら。無料カウンセリングのご予約、サービスに関するご質問など、お気軽にご連絡ください。',
     children: html`
       <!-- Contact Hero Section -->
-      <section class="contact-hero-section relative py-32 overflow-hidden flex items-center min-h-[60vh]">
+      <section class="contact-hero-section relative py-24 overflow-hidden flex items-center justify-center min-h-[60vh]">
         <!-- 和柄背景 -->
         <div class="absolute inset-0 z-0">
           <div class="contact-hero-background"></div>

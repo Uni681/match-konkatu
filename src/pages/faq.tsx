@@ -10,7 +10,7 @@ export function FAQPage() {
     description: '結婚相談所MATCHに寄せられるよくあるご質問にお答えします。料金、サービス内容、活動方法など、お気軽にお問い合わせください。',
     children: html`
       <!-- FAQ Hero Section -->
-      <section class="faq-hero-section relative py-32 overflow-hidden flex items-center min-h-[60vh]">
+      <section class="faq-hero-section relative py-24 overflow-hidden flex items-center justify-center min-h-[60vh]">
         <!-- 和柄背景 -->
         <div class="absolute inset-0 z-0">
           <div class="faq-hero-background"></div>

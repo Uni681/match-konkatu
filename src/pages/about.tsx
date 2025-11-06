@@ -11,7 +11,7 @@ export function AboutPage() {
     description: 'MATCH（マッチ）本気の婚活の理念、カウンセラー紹介、事業所概要をご紹介します。親子で運営する温かい結婚相談所として、皆様の人生の新たなスタートをサポートいたします。',
     children: html`
       <!-- About Hero Section -->
-      <section class="about-hero-section relative py-32 overflow-hidden flex items-center min-h-[80vh]">
+      <section class="about-hero-section relative py-24 overflow-hidden flex items-center justify-center min-h-[60vh]">
         <!-- 和柄背景 -->
         <div class="absolute inset-0 z-0">
           <div class="about-hero-background"></div>
