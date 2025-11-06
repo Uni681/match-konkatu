@@ -10,7 +10,7 @@ export function FlowPage() {
     description: '結婚相談所MATCHのご入会からご成婚までの流れをご紹介します。無料カウンセリングから成婚退会まで、6つのステップで分かりやすく解説いたします。',
     children: html`
       <!-- Flow Hero Section -->
-      <section class="flow-hero-section relative py-24 overflow-hidden flex items-center justify-center min-h-[60vh]">
+      <section class="flow-hero-section relative overflow-hidden flex items-center justify-center min-h-[60vh]">
         <!-- 和柄背景 -->
         <div class="absolute inset-0 z-0">
           <div class="flow-hero-background"></div>
