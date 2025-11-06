@@ -1887,146 +1887,184 @@ label[required]::after {
   }
 }
 
-/* SNSセクション */
+/* SNSセクション v2 - シンプル・モダン */
 .sns-section {
   background: linear-gradient(135deg, #FAF7F4 0%, #F5F1EA 50%, #E8DDD0 100%);
 }
 
-.sns-card {
+.sns-card-v2 {
   background: white;
-  border-radius: 12px;
-  padding: 2rem;
+  border-radius: 20px;
+  padding: 3rem 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.sns-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-.line-card {
-  background: linear-gradient(135deg, #E6F9EE 0%, #F0FFF4 100%);
-}
-
-.instagram-card {
-  background: linear-gradient(135deg, #FFF0F4 0%, #F3F8FF 100%);
-}
-
-.sns-card-content {
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 1.5rem;
-  height: 100%;
+  border: 2px solid transparent;
 }
 
-.sns-card-title {
+.sns-card-v2:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.line-card-v2 {
+  background: linear-gradient(135deg, #E6F9EE 0%, #F0FFF4 100%);
+  border-color: rgba(6, 95, 70, 0.1);
+}
+
+.line-card-v2:hover {
+  border-color: #06BF63;
+}
+
+.instagram-card-v2 {
+  background: linear-gradient(135deg, #FFF0F4 0%, #FFF5F0 100%);
+  border-color: rgba(191, 164, 90, 0.1);
+}
+
+.instagram-card-v2:hover {
+  border-color: #BFA45A;
+}
+
+.sns-icon-wrapper {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.line-icon {
+  background: linear-gradient(135deg, #06BF63 0%, #00A859 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(6, 191, 99, 0.3);
+}
+
+.line-card-v2:hover .line-icon {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(6, 191, 99, 0.4);
+}
+
+.instagram-icon {
+  background: linear-gradient(135deg, #E4405F 0%, #C13584 50%, #833AB4 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(228, 64, 95, 0.3);
+}
+
+.instagram-card-v2:hover .instagram-icon {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(228, 64, 95, 0.4);
+}
+
+.sns-card-v2-title {
   font-family: 'Noto Serif JP', serif;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 600;
   color: #3D271B;
-  display: flex;
-  align-items: center;
+  margin: 0;
 }
 
-.sns-card-description {
+.sns-card-v2-description {
   color: #5A3926;
-  line-height: 1.6;
-  flex-grow: 1;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  max-width: 320px;
 }
 
-.sns-qr-container {
-  display: flex;
-  justify-content: center;
-}
-
-.sns-qr-placeholder {
-  width: 200px;
-  height: 200px;
-  background: #F5F5F5;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed #D1D5DB;
-}
-
-.qr-placeholder-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #6B7280;
-}
-
-.sns-btn {
+.sns-btn-v2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2.5rem;
   font-weight: 600;
-  border-radius: 8px;
-  height: 44px;
+  border-radius: 50px;
+  font-size: 1rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  text-align: center;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.line-btn {
-  background: #28564A;
+.line-btn-v2 {
+  background: linear-gradient(135deg, #06BF63 0%, #00A859 100%);
   color: white;
 }
 
-.line-btn:hover {
-  background: #34675A;
+.line-btn-v2:hover {
+  background: linear-gradient(135deg, #05AB58 0%, #00964E 100%);
   color: white;
   text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(6, 191, 99, 0.3);
 }
 
-.instagram-btn {
-  background: #BFA45A;
+.instagram-btn-v2 {
+  background: linear-gradient(135deg, #E4405F 0%, #C13584 50%, #833AB4 100%);
   color: white;
 }
 
-.instagram-btn:hover {
-  background: #A67C5A;
+.instagram-btn-v2:hover {
+  background: linear-gradient(135deg, #D03555 0%, #AD2F75 50%, #7231A0 100%);
   color: white !important;
   text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(228, 64, 95, 0.3);
 }
 
 @media (max-width: 1024px) {
-  .sns-card {
-    padding: 1.5rem;
+  .sns-card-v2 {
+    padding: 2.5rem 1.5rem;
   }
   
-  .sns-qr-placeholder {
-    width: 160px;
-    height: 160px;
+  .sns-icon-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .sns-card-v2-title {
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 640px) {
-  .sns-card {
-    padding: 1.25rem;
+  .sns-card-v2 {
+    padding: 2rem 1.25rem;
   }
   
-  .sns-qr-placeholder {
-    width: 140px;
-    height: 140px;
+  .sns-icon-wrapper {
+    width: 70px;
+    height: 70px;
   }
   
-  .sns-card-title {
-    font-size: 1.25rem;
+  .sns-icon-wrapper i {
+    font-size: 2rem;
+  }
+  
+  .sns-card-v2-title {
+    font-size: 1.35rem;
+  }
+  
+  .sns-btn-v2 {
+    padding: 0.875rem 2rem;
+    font-size: 0.95rem;
   }
 }
 
-/* CONTACT & ACCESSセクション */
+/* CONTACT & ACCESSセクション - フルブリード（余白なし） */
 .contact-access-section {
-  background: linear-gradient(135deg, #FAF8F4 0%, #F5F1EA 100%);
+  background: transparent;
 }
 
 .contact-block {
   background: white;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: none;
+  min-height: 400px;
 }
 
 .contact-section-title {

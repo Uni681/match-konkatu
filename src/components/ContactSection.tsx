@@ -2,11 +2,11 @@ import { html } from 'hono/html'
 
 export function ContactSection() {
   return html`
-    <section class="contact-access-section py-20">
-      <div class="container mx-auto px-6 max-w-7xl">
+    <section class="contact-access-section py-0">
+      <div class="container mx-auto px-0 max-w-full">
         
-        <!-- CONTACTブロック -->
-        <div class="contact-block relative mb-16 overflow-hidden rounded-2xl">
+        <!-- CONTACTブロック - フルブリード（余白なし） -->
+        <div class="contact-block relative overflow-hidden">
           <!-- 背景画像 - 和装婚（軽いぼかし） -->
           <div class="absolute inset-0 z-0">
             <img 
@@ -22,7 +22,7 @@ export function ContactSection() {
           <!-- 軽い暗めのオーバーレイ -->
           <div class="absolute inset-0 z-10 bg-gradient-to-r from-black/30 via-black/20 to-black/10"></div>
           
-          <div class="relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 lg:p-16">
+          <div class="relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-8 py-16 px-6 lg:py-24 lg:px-16">
             
             <!-- 左側テキスト -->
             <div class="contact-text-content">
