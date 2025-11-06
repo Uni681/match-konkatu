@@ -1,6 +1,8 @@
 import { html } from 'hono/html'
 import Layout from '../components/Layout'
+import { SNSSection } from '../components/SNSSection'
 import { ContactSection } from '../components/ContactSection'
+import { AccessMapSection } from '../components/AccessMapSection'
 
 export function ServicePage() {
   return Layout({
@@ -382,8 +384,14 @@ export function ServicePage() {
         </div>
       </section>
 
+      <!-- SNSセクション -->
+      ${SNSSection()}
+
       <!-- お問い合わせセクション -->
       ${ContactSection()}
+
+      <!-- アクセスマップセクション -->
+      ${AccessMapSection()}
 
     `
   })
