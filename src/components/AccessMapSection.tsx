@@ -22,7 +22,7 @@ export function AccessMapSection() {
                 
                 <div class="access-info-item">
                   <i class="fas fa-map-marker-alt mr-2 text-primary-600"></i>
-                  <span>〒221-0834 神奈川県横浜市神奈川区台町5-14 412</span>
+                  <span>〒221-0834 神奈川県横浜市神奈川区台町8-14 412</span>
                 </div>
                 
                 <div class="access-info-item">
@@ -33,6 +33,24 @@ export function AccessMapSection() {
                 <div class="access-info-item">
                   <i class="fas fa-phone mr-2 text-primary-600"></i>
                   <span>TEL：045-534-8922</span>
+                </div>
+                
+                <div class="access-info-item">
+                  <i class="fas fa-clock mr-2 text-primary-600"></i>
+                  <span>営業時間：11:00-22:00</span>
+                </div>
+                
+                <div class="access-info-item text-sm text-gray-600">
+                  <span>※お問い合わせフォームや公式LINEでのお問い合わせは24時間受け付けております</span>
+                </div>
+                
+                <div class="access-info-item">
+                  <i class="fas fa-calendar-times mr-2 text-primary-600"></i>
+                  <span>定休日：毎週木曜日</span>
+                </div>
+                
+                <div class="access-info-item text-sm text-gray-600">
+                  <span>※但し、ご相談により対応する場合があります。</span>
                 </div>
               </div>
             </div>

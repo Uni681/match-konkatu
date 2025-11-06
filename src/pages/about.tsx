@@ -190,7 +190,7 @@ export function AboutPage() {
                 </div>
                 <div class="info-value">
                   〒221-0834<br>
-                  神奈川県横浜市神奈川区台町6-14 412
+                  神奈川県横浜市神奈川区台町8-14 412
                 </div>
               </div>
 
@@ -208,7 +208,18 @@ export function AboutPage() {
                   🕰️ 営業時間
                 </div>
                 <div class="info-value">
-                  平日10:00〜19:00
+                  11:00-22:00<br>
+                  <span class="text-sm text-gray-600">※お問い合わせフォームや公式LINEでのお問い合わせは24時間受け付けております</span>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-label">
+                  📅 定休日
+                </div>
+                <div class="info-value">
+                  毎週木曜日<br>
+                  <span class="text-sm text-gray-600">※但し、ご相談により対応する場合があります。</span>
                 </div>
               </div>
 

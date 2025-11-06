@@ -199,7 +199,7 @@ export const Layout = ({
           <a href="https://www.instagram.com/match_konkatu" class="text-gray-600 hover:text-primary-600 transition-colors">
             <i class="fab fa-instagram text-xl"></i>
           </a>
-          <a href="https://line.me/R/ti/p/@match-konkatu" class="text-gray-600 hover:text-primary-600 transition-colors">
+          <a href="https://lin.ee/hxJlbwI" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-primary-600 transition-colors">
             <i class="fab fa-line text-xl"></i>
           </a>
         </div>
@@ -268,8 +268,16 @@ export const Layout = ({
             <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="h-12 w-auto">
           </div>
           <div class="footer-address">
-            <div>〒221-0834 神奈川県横浜市神奈川区台町5-14 412</div>
+            <div>〒221-0834 神奈川県横浜市神奈川区台町8-14 412</div>
             <div>TEL：045-534-8922</div>
+            <div class="text-sm mt-2">
+              <div>営業時間：11:00-22:00</div>
+              <div class="text-xs text-gray-500">※お問い合わせフォームや公式LINEでのお問い合わせは24時間受け付けております</div>
+            </div>
+            <div class="text-sm mt-1">
+              <div>定休日：毎週木曜日</div>
+              <div class="text-xs text-gray-500">※但し、ご相談により対応する場合があります。</div>
+            </div>
           </div>
         </div>
         
@@ -302,8 +310,16 @@ export const Layout = ({
         
         <!-- 住所 -->
         <div class="footer-address-sp">
-          <div>〒221-0834 神奈川県横浜市神奈川区台町5-14 412</div>
+          <div>〒221-0834 神奈川県横浜市神奈川区台町8-14 412</div>
           <div>TEL：045-534-8922</div>
+          <div class="text-sm mt-2">
+            <div>営業時間：11:00-22:00</div>
+            <div class="text-xs text-gray-500">※お問い合わせフォームや公式LINEでのお問い合わせは24時間受け付けております</div>
+          </div>
+          <div class="text-sm mt-1">
+            <div>定休日：毎週木曜日</div>
+            <div class="text-xs text-gray-500">※但し、ご相談により対応する場合があります。</div>
+          </div>
         </div>
         
         <!-- ナビ -->

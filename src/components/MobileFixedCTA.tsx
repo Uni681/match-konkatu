@@ -9,7 +9,7 @@ export const MobileFixedCTA = () => {
       <i class="fas fa-calendar-check mr-2"></i>
       無料相談
     </a>
-    <a href="https://line.me/R/ti/p/@match-konkatu" class="cta-btn cta-secondary-mini">
+    <a href="https://lin.ee/hxJlbwI" target="_blank" rel="noopener noreferrer" class="cta-btn cta-secondary-mini">
       <i class="fab fa-line mr-2 text-green-500"></i>
       LINE相談
     </a>

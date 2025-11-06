@@ -75,7 +75,7 @@ export function generateOrganizationSchema(baseUrl: string) {
     "sameAs": [
       "https://www.facebook.com/match.konkatu",
       "https://www.instagram.com/match_konkatu",
-      "https://line.me/R/ti/p/@match-konkatu"
+      "https://lin.ee/hxJlbwI"
     ]
   }
 }
@@ -264,7 +264,7 @@ export function generateWebSiteSchema(baseUrl: string) {
     "sameAs": [
       "https://www.facebook.com/match.konkatu",
       "https://www.instagram.com/match_konkatu", 
-      "https://line.me/R/ti/p/@match-konkatu"
+      "https://lin.ee/hxJlbwI"
     ]
   }
 }
