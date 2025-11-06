@@ -7,10 +7,11 @@ export const StorySection = () => {
     <!-- シンプルヘッダー -->
     <div class="mb-12">
       <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-6 font-mincho">
-        親子で支える、温かい結婚相談所
+        親子で支える温かい結婚相談所
       </h2>
       <p class="text-xl text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
-        異なる世代の視点と経験を活かし、お一人おひとりに寄り添ったサポートを提供しています。
+        異なる世代の視点と経験を活かし、<br>
+        お一人おひとりに寄り添ったサポートを提供しています。
       </p>
     </div>
 

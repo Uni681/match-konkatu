@@ -15,7 +15,7 @@ export const ReasonsSection = () => {
     {
       icon: 'fas fa-certificate',
       title: 'IBJ正規加盟店の信頼',
-      description: 'IBJ正規加盟店として、信頼できる出会いと豊富な会員ネットワークをご紹介します。80,000名以上の結婚相談所会員との出会いが可能です。'
+      description: 'IBJ正規加盟店として、信頼できる出会いと豊富な会員ネットワークをご紹介します。90,000名以上の結婚相談所会員との出会いが可能です。'
     }
   ];
 
