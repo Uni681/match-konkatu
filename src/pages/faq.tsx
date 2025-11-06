@@ -21,8 +21,8 @@ export function FAQPage() {
           <div class="gold-foil-decoration"></div>
         </div>
         
-        <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl flex items-center justify-center h-full">
-          <div>
+        <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
+          <div class="py-16">
             <!-- 英字見出し（背景扱い） -->
             <div class="faq-hero-english mb-6">
               FAQ
