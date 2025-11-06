@@ -14,8 +14,8 @@ export const Hero = ({ title, subtitle, ctaText, ctaLink, backgroundImage }: Her
   <!-- 提供された本物の和装婚礼写真 -->
   <div class="absolute inset-0 z-0">
     <img 
-      src="https://page.gensparksite.com/v1/base64_upload/971eb324e80dbcd26a94751513768cbb" 
-      alt="桜満開の神社鳥居前で行われる和装結婚式、白無垢・角隠しの花嫁と紋付袴の花婿" 
+      src="https://page.gensparksite.com/v1/base64_upload/6dc9bf755dc318a18394939e8a53a65d" 
+      alt="桜満開の神社鳥居前で行われる和装結婚式、白無垢の花嫁と紋付袴の花婿が向かい合う美しい瞬間" 
       class="w-full h-full object-cover object-center brightness-110 saturate-110 contrast-105"
       loading="eager"
       fetchpriority="high"
