@@ -20,9 +20,6 @@ export function FAQPage() {
         <div class="absolute inset-0 z-10">
           <div class="gold-foil-decoration"></div>
         </div>
-
-        <!-- 左上の花柄装飾 -->
-        <div class="faq-hero-decoration"></div>
         
         <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
           <!-- 英字見出し（背景扱い） -->
