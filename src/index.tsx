@@ -54,6 +54,7 @@ import { AboutPage } from './pages/about'
 import { ServicePage } from './pages/service'
 import { FlowPage } from './pages/flow'
 import { FAQPage } from './pages/faq'
+import { ContactPage } from './pages/contact'
 
 // Build time content
 const { home, pages, posts, settings } = buildTimeContent;
@@ -599,49 +600,7 @@ app.get('/faq', (c) => {
 
 // お問い合わせページ
 app.get('/contact', (c) => {
-  const meta = generateSEOMeta({
-    title: 'お問い合わせ',
-    description: 'お気軽にお問い合わせください。フォーム、LINE、お電話よりご連絡をお願いいたします。'
-  })
-  
-  const breadcrumbs = generateBreadcrumbs('/contact')
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbs.map((crumb, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: crumb.name,
-      item: `${c.req.url.split('/contact')[0]}${crumb.href}`
-    }))
-  }
-  
-  const content = `
-    <div class="container mx-auto px-4 py-12">
-      <nav class="mb-8" aria-label="パンくずリスト">
-        <ol class="flex space-x-2 text-sm text-gray-600">
-          ${breadcrumbs.map((crumb, index) => `
-            <li class="flex items-center">
-              ${index > 0 ? '<i class="fas fa-chevron-right mx-2 text-xs"></i>' : ''}
-              ${index === breadcrumbs.length - 1 
-                ? `<span class="text-gray-900">${crumb.name}</span>`
-                : `<a href="${crumb.href}" class="hover:text-primary-500">${crumb.name}</a>`
-              }
-            </li>
-          `).join('')}
-        </ol>
-      </nav>
-    </div>
-    
-    ${ContactForm()}
-  `
-  
-  return c.html(Layout({
-    title: meta.title,
-    description: meta.description,
-    children: content,
-    structuredData: breadcrumbSchema
-  }))
+  return c.html(ContactPage())
 })
 
 // プライバシーポリシーページ
