@@ -118,7 +118,7 @@ export function FlowPage() {
             <div class="flow-step-content-wrapper">
               <div class="flow-step-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop" 
+                  src="https://page.gensparksite.com/v1/base64_upload/2a65b764dc0517349dad6c81a7869049" 
                   alt="プロフィール作成"
                   loading="lazy"
                 >
@@ -164,7 +164,7 @@ export function FlowPage() {
               </div>
               <div class="flow-step-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=600&fit=crop" 
+                  src="https://page.gensparksite.com/v1/base64_upload/b3c3658fe728149c538ab168e1d77e63" 
                   alt="お相手探し"
                   loading="lazy"
                 >
@@ -186,7 +186,7 @@ export function FlowPage() {
             <div class="flow-step-content-wrapper">
               <div class="flow-step-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop" 
+                  src="https://page.gensparksite.com/v1/base64_upload/a966f9157dd9c30641236bff95b64664" 
                   alt="お見合い・交際"
                   loading="lazy"
                 >
