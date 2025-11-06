@@ -2637,13 +2637,12 @@ label[required]::after {
 
 .about-hero-english {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 200;
-  letter-spacing: 0.3em;
-  color: rgba(191, 164, 90, 0.15);
+  letter-spacing: 0.2em;
+  color: rgba(191, 164, 90, 0.2);
   text-transform: uppercase;
-  line-height: 1;
-  margin-bottom: -1rem;
+  line-height: 1.2;
   user-select: none;
   pointer-events: none;
 }
@@ -3118,13 +3117,12 @@ label[required]::after {
 
 .service-hero-english {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 200;
-  letter-spacing: 0.3em;
-  color: rgba(191, 164, 90, 0.15);
+  letter-spacing: 0.2em;
+  color: rgba(191, 164, 90, 0.2);
   text-transform: uppercase;
-  line-height: 1;
-  margin-bottom: -1rem;
+  line-height: 1.2;
   user-select: none;
   pointer-events: none;
 }
@@ -3586,11 +3584,10 @@ label[required]::after {
   font-family: 'Cormorant Garamond', serif;
   font-size: 3rem;
   font-weight: 200;
-  letter-spacing: 0.3em;
-  color: rgba(191, 164, 90, 0.15);
+  letter-spacing: 0.2em;
+  color: rgba(191, 164, 90, 0.2);
   text-transform: uppercase;
-  line-height: 1;
-  margin-bottom: -1rem;
+  line-height: 1.2;
   user-select: none;
   pointer-events: none;
 }
@@ -3982,11 +3979,10 @@ label[required]::after {
   font-family: 'Cormorant Garamond', serif;
   font-size: 3rem;
   font-weight: 200;
-  letter-spacing: 0.3em;
-  color: rgba(191, 164, 90, 0.15);
+  letter-spacing: 0.2em;
+  color: rgba(191, 164, 90, 0.2);
   text-transform: uppercase;
-  line-height: 1;
-  margin-bottom: -1rem;
+  line-height: 1.2;
   user-select: none;
   pointer-events: none;
 }
@@ -4321,11 +4317,10 @@ label[required]::after {
   font-family: 'Cormorant Garamond', serif;
   font-size: 3rem;
   font-weight: 200;
-  letter-spacing: 0.3em;
-  color: rgba(191, 164, 90, 0.15);
+  letter-spacing: 0.2em;
+  color: rgba(191, 164, 90, 0.2);
   text-transform: uppercase;
-  line-height: 1;
-  margin-bottom: -1rem;
+  line-height: 1.2;
   user-select: none;
   pointer-events: none;
 }

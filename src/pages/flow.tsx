@@ -23,20 +23,14 @@ export function FlowPage() {
         
         <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
           <!-- 英字見出し（背景扱い） -->
-          <div class="flow-hero-english mb-4">
+          <div class="flow-hero-english mb-6">
             FLOW TO MARRIAGE
           </div>
           
           <!-- メイン見出し -->
-          <h1 class="flow-hero-title mb-8">
+          <h1 class="flow-hero-title">
             ご成婚までの流れ
           </h1>
-          
-          <!-- 説明文 -->
-          <div class="flow-hero-description">
-            <p>無料カウンセリングからご成婚まで、安心してご活動いただけるよう</p>
-            <p>経験豊富なカウンセラーが丁寧にサポートいたします。</p>
-          </div>
         </div>
       </section>
 

@@ -24,20 +24,14 @@ export function ContactPage() {
         
         <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
           <!-- 英字見出し（背景扱い） -->
-          <div class="contact-hero-english mb-4">
+          <div class="contact-hero-english mb-6">
             CONTACT US
           </div>
           
           <!-- メイン見出し -->
-          <h1 class="contact-hero-title mb-8">
+          <h1 class="contact-hero-title">
             お問い合わせ
           </h1>
-          
-          <!-- 説明文 -->
-          <div class="contact-hero-description">
-            <p>婚活に関するご相談やサービスについてのご質問など、</p>
-            <p>お気軽にお問い合わせください。専門カウンセラーが丁寧にお答えいたします。</p>
-          </div>
         </div>
       </section>
 

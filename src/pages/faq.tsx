@@ -23,20 +23,14 @@ export function FAQPage() {
         
         <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
           <!-- 英字見出し（背景扱い） -->
-          <div class="faq-hero-english mb-4">
+          <div class="faq-hero-english mb-6">
             FAQ
           </div>
           
           <!-- メイン見出し -->
-          <h1 class="faq-hero-title mb-8">
+          <h1 class="faq-hero-title">
             よくあるご質問
           </h1>
-          
-          <!-- 説明文 -->
-          <div class="faq-hero-description">
-            <p>お客様から寄せられるよくあるご質問にお答えします。</p>
-            <p>その他のご質問は、お気軽にお問い合わせください。</p>
-          </div>
         </div>
       </section>
 

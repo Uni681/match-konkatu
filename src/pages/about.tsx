@@ -24,21 +24,14 @@ export function AboutPage() {
         
         <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
           <!-- 英字見出し（背景扱い） -->
-          <div class="about-hero-english mb-4">
+          <div class="about-hero-english mb-6">
             ABOUT
           </div>
           
           <!-- メイン見出し -->
-          <h1 class="about-hero-title mb-8">
+          <h1 class="about-hero-title">
             当結婚相談所について
           </h1>
-          
-          <!-- 説明文 -->
-          <div class="about-hero-description">
-            <p>神奈川県横浜市神奈川区にあるIBJ正規加盟店「MATCH」です。</p>
-            <p>男女2名のカウンセラーが寄り添い、会員様のご成婚に向けて全力でサポートいたします。</p>
-            <p>温かさと安心感を大切にしながら、皆様の未来を一緒に築いてまいります。</p>
-          </div>
         </div>
       </section>
 

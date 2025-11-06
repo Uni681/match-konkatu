@@ -23,20 +23,14 @@ export function ServicePage() {
         
         <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
           <!-- 英字見出し（背景扱い） -->
-          <div class="service-hero-english mb-4">
+          <div class="service-hero-english mb-6">
             SERVICE & PRICING
           </div>
           
           <!-- メイン見出し -->
-          <h1 class="service-hero-title mb-8">
+          <h1 class="service-hero-title">
             サービス・料金
           </h1>
-          
-          <!-- 説明文 -->
-          <div class="service-hero-description">
-            <p>お一人おひとりの婚活スタイルに合わせた、3つのプランをご用意しております。</p>
-            <p>IBJ正規加盟店として、充実したサポート体制で皆様のご成婚を全力で応援いたします。</p>
-          </div>
         </div>
       </section>
 
