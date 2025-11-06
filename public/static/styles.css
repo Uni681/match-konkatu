@@ -2676,16 +2676,11 @@ label[required]::after {
 
 @media (max-width: 768px) {
   .about-hero-english {
-    font-size: 3rem;
-    margin-bottom: -0.5rem;
+    font-size: 2rem;
   }
   
   .about-hero-title {
-    font-size: 2.25rem;
-  }
-  
-  .about-hero-description {
-    font-size: 1rem;
+    font-size: 2rem;
   }
 }
 
@@ -3491,22 +3486,12 @@ label[required]::after {
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
-  .service-hero-section {
-    padding: 6rem 0;
-    min-height: 50vh;
-  }
-  
   .service-hero-english {
-    font-size: 2.5rem;
-    margin-bottom: -0.5rem;
+    font-size: 2rem;
   }
   
   .service-hero-title {
-    font-size: 2.25rem;
-  }
-  
-  .service-hero-description {
-    font-size: 1rem;
+    font-size: 2rem;
   }
   
   .plans-grid {
@@ -3888,22 +3873,12 @@ label[required]::after {
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
-  .flow-hero-section {
-    padding: 6rem 0;
-    min-height: 50vh;
-  }
-  
   .flow-hero-english {
     font-size: 2rem;
-    margin-bottom: -0.5rem;
   }
   
   .flow-hero-title {
-    font-size: 2.25rem;
-  }
-  
-  .flow-hero-description {
-    font-size: 1rem;
+    font-size: 2rem;
   }
   
   .flow-step-content-wrapper {
@@ -4190,20 +4165,12 @@ label[required]::after {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .faq-hero-section {
-    padding: 6rem 0 3rem;
-  }
-  
   .faq-hero-english {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
   
   .faq-hero-title {
     font-size: 2rem;
-  }
-  
-  .faq-hero-description {
-    font-size: 1rem;
   }
   
   .faq-list-section {
@@ -4354,21 +4321,12 @@ label[required]::after {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .contact-hero-section {
-    padding: 6rem 0 3rem;
-  }
-  
   .contact-hero-english {
     font-size: 2rem;
-    margin-bottom: -0.5rem;
   }
   
   .contact-hero-title {
-    font-size: 2.25rem;
-  }
-  
-  .contact-hero-description {
-    font-size: 1rem;
+    font-size: 2rem;
   }
 }
 
