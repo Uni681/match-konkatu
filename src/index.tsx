@@ -51,6 +51,7 @@ import {
 } from './utils/seo'
 import { z } from 'zod'
 import { AboutPage } from './pages/about'
+import { ServicePage } from './pages/service'
 
 // Build time content
 const { home, pages, posts, settings } = buildTimeContent;
@@ -370,6 +371,11 @@ app.get('/price', (c) => {
 // 私たちについてページ
 app.get('/about', (c) => {
   return c.html(AboutPage())
+})
+
+// サービス・料金ページ
+app.get('/service', (c) => {
+  return c.html(ServicePage())
 })
 
 // ブログ一覧ページ

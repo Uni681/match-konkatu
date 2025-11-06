@@ -3006,3 +3006,445 @@ label[required]::after {
     padding: 1rem;
   }
 }
+/* ===============================
+   Service ページ専用スタイル
+   =============================== */
+
+/* Service Hero Section */
+.service-hero-section {
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f1ea 100%);
+  position: relative;
+}
+
+.service-hero-background {
+  width: 100%;
+  height: 100%;
+  /* 和柄（麻の葉パターン） - 濃いめに調整 */
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.12'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='40' cy='0' r='10'/%3E%3Ccircle cx='0' cy='40' r='10'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px, 60px 60px;
+  opacity: 0.9;
+}
+
+.service-hero-english {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 200;
+  letter-spacing: 0.3em;
+  color: rgba(191, 164, 90, 0.15);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: -1rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+.service-hero-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #BFA45A;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.service-hero-description {
+  font-size: 1.125rem;
+  color: #374151;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.service-hero-description p {
+  margin-bottom: 0.75rem;
+}
+
+.service-hero-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Plans Section */
+.plans-section {
+  position: relative;
+}
+
+.section-subtitle {
+  color: #6B7280;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Plan Card */
+.plan-card {
+  background: white;
+  border: 2px solid rgba(191, 164, 90, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(191, 164, 90, 0.2);
+  border-color: #BFA45A;
+}
+
+.plan-card-featured {
+  border: 3px solid #BFA45A;
+  background: linear-gradient(135deg, #faf9f7 0%, #ffffff 100%);
+  box-shadow: 0 8px 30px rgba(191, 164, 90, 0.15);
+}
+
+.plan-card-featured:hover {
+  box-shadow: 0 16px 50px rgba(191, 164, 90, 0.25);
+}
+
+.plan-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: linear-gradient(135deg, #BFA45A 0%, #D4AF37 100%);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(191, 164, 90, 0.3);
+}
+
+/* Plan Header */
+.plan-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(191, 164, 90, 0.2);
+}
+
+.plan-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.plan-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2F4F4F;
+  margin-bottom: 0.5rem;
+}
+
+.plan-subtitle {
+  color: #6B7280;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+/* Plan Price */
+.plan-price {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f1ea 50%, #faf9f7 100%);
+  border-radius: 12px;
+}
+
+.price-label {
+  font-size: 0.875rem;
+  color: #6B7280;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.price-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #BFA45A;
+  line-height: 1;
+}
+
+.price-unit {
+  font-size: 1.5rem;
+  margin-left: 0.25rem;
+}
+
+.price-note {
+  font-size: 0.875rem;
+  color: #9CA3AF;
+  margin-top: 0.5rem;
+}
+
+/* Plan Features */
+.plan-features {
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.feature-icon {
+  color: #BFA45A;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+/* Plan Description */
+.plan-description {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(250, 249, 247, 0.5);
+  border-radius: 12px;
+  border-left: 3px solid #BFA45A;
+}
+
+.plan-description p {
+  color: #4B5563;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Plan CTA */
+.plan-cta {
+  text-align: center;
+}
+
+.plan-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: white;
+  color: #BFA45A;
+  border: 2px solid #BFA45A;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.plan-button:hover {
+  background: #BFA45A;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(191, 164, 90, 0.3);
+}
+
+.plan-button-featured {
+  background: linear-gradient(135deg, #BFA45A 0%, #D4AF37 100%);
+  color: white;
+  border: none;
+}
+
+.plan-button-featured:hover {
+  background: linear-gradient(135deg, #D4AF37 0%, #BFA45A 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(191, 164, 90, 0.4);
+}
+
+/* Service Details Section */
+.service-details-section {
+  position: relative;
+}
+
+.service-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .service-details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-details-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.service-detail-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(191, 164, 90, 0.1);
+}
+
+.service-detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(191, 164, 90, 0.15);
+  border-color: #BFA45A;
+}
+
+.service-detail-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f1ea 100%);
+  border-radius: 50%;
+  font-size: 2rem;
+  color: #BFA45A;
+  border: 2px solid rgba(191, 164, 90, 0.2);
+}
+
+.service-detail-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2F4F4F;
+  margin-bottom: 1rem;
+}
+
+.service-detail-description {
+  color: #4B5563;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* FAQ Section */
+.faq-section {
+  position: relative;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(191, 164, 90, 0.1);
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 20px rgba(191, 164, 90, 0.15);
+  border-color: #BFA45A;
+}
+
+.faq-question {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.faq-icon {
+  color: #BFA45A;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.faq-question h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2F4F4F;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.faq-answer {
+  padding-left: 2.5rem;
+}
+
+.faq-answer p {
+  color: #4B5563;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .service-hero-section {
+    padding: 6rem 0;
+    min-height: 50vh;
+  }
+  
+  .service-hero-english {
+    font-size: 2.5rem;
+    margin-bottom: -0.5rem;
+  }
+  
+  .service-hero-title {
+    font-size: 2.25rem;
+  }
+  
+  .service-hero-description {
+    font-size: 1rem;
+  }
+  
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .plan-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .plan-name {
+    font-size: 1.5rem;
+  }
+  
+  .price-amount {
+    font-size: 2.5rem;
+  }
+  
+  .service-details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .faq-answer {
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+}
