@@ -2,6 +2,8 @@ import { html } from 'hono/html'
 import Layout from '../components/Layout'
 import { ContactForm } from '../components/ContactForm'
 import { SNSSection } from '../components/SNSSection'
+import { ContactSection } from '../components/ContactSection'
+import { AccessMapSection } from '../components/AccessMapSection'
 
 export function ContactPage() {
   return Layout({
@@ -44,6 +46,12 @@ export function ContactPage() {
 
       <!-- SNSセクション -->
       ${SNSSection()}
+
+      <!-- お問い合わせセクション -->
+      ${ContactSection()}
+
+      <!-- アクセスマップセクション -->
+      ${AccessMapSection()}
     `
   })
 }
