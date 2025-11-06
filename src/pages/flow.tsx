@@ -118,7 +118,7 @@ export function FlowPage() {
             <div class="flow-step-content-wrapper">
               <div class="flow-step-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1554224311-beee2c201459?w=800&h=600&fit=crop" 
+                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop" 
                   alt="プロフィール作成"
                   loading="lazy"
                 >
@@ -164,7 +164,7 @@ export function FlowPage() {
               </div>
               <div class="flow-step-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop" 
+                  src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=600&fit=crop" 
                   alt="お相手探し"
                   loading="lazy"
                 >
