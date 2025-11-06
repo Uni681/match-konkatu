@@ -222,9 +222,9 @@ export const Layout = ({
           <a href="/" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">ホーム</a>
           <a href="/about" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">当結婚相談所について</a>
           <a href="/service" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">サービス・料金</a>
-          <a href="/about" class="block py-2 text-gray-700 hover:text-gray-900 transition-colors">私たちについて</a>
-          <a href="/blog" class="block py-2 text-gray-700 hover:text-gray-900 transition-colors">ブログ</a>
-          <a href="/contact" class="block py-2 text-gray-800 font-semibold">無料相談</a>
+          <a href="/flow" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">ご成婚までのながれ</a>
+          <a href="/faq" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">よくあるご質問</a>
+          <a href="/contact" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">お問い合わせ</a>
         </nav>
       </div>
     </div>
