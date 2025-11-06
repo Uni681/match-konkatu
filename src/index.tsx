@@ -262,59 +262,6 @@ app.get('/', (c) => {
   }))
 })
 
-// サービスページ
-app.get('/service', (c) => {
-  const pageContent = pages.service
-  
-  const meta = generateSEOMeta({
-    title: pageContent.title,
-    description: pageContent.description
-  })
-  
-  const breadcrumbs = generateBreadcrumbs('/service')
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbs.map((crumb, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: crumb.name,
-      item: `${c.req.url.split('/service')[0]}${crumb.href}`
-    }))
-  }
-  
-  const content = `
-    <div class="container mx-auto px-4 py-12">
-      <nav class="mb-8" aria-label="パンくずリスト">
-        <ol class="flex space-x-2 text-sm text-gray-600">
-          ${breadcrumbs.map((crumb, index) => `
-            <li class="flex items-center">
-              ${index > 0 ? '<i class="fas fa-chevron-right mx-2 text-xs"></i>' : ''}
-              ${index === breadcrumbs.length - 1 
-                ? `<span class="text-gray-900">${crumb.name}</span>`
-                : `<a href="${crumb.href}" class="hover:text-primary-500">${crumb.name}</a>`
-              }
-            </li>
-          `).join('')}
-        </ol>
-      </nav>
-      
-      <div class="max-w-4xl mx-auto prose prose-lg">
-        ${raw(pageContent.content)}
-      </div>
-    </div>
-    
-    ${CTA({ variant: 'default' })}
-  `
-  
-  return c.html(Layout({
-    title: meta.title,
-    description: meta.description,
-    children: content,
-    structuredData: breadcrumbSchema
-  }))
-})
-
 // 料金ページ
 app.get('/price', (c) => {
   const pageContent = pages.price
