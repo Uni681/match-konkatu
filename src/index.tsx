@@ -52,6 +52,7 @@ import {
 import { z } from 'zod'
 import { AboutPage } from './pages/about'
 import { ServicePage } from './pages/service'
+import { FlowPage } from './pages/flow'
 
 // Build time content
 const { home, pages, posts, settings } = buildTimeContent;
@@ -323,6 +324,11 @@ app.get('/about', (c) => {
 // サービス・料金ページ
 app.get('/service', (c) => {
   return c.html(ServicePage())
+})
+
+// ご成婚までの流れページ
+app.get('/flow', (c) => {
+  return c.html(FlowPage())
 })
 
 // ブログ一覧ページ

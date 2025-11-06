@@ -3448,3 +3448,376 @@ label[required]::after {
     margin-top: 1rem;
   }
 }
+
+/* ===============================
+   Flow ページ専用スタイル
+   =============================== */
+
+/* Flow Hero Section */
+.flow-hero-section {
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f1ea 100%);
+  position: relative;
+}
+
+.flow-hero-background {
+  width: 100%;
+  height: 100%;
+  /* 和柄（麻の葉パターン） - 濃いめに調整 */
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.12'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Ccircle cx='20' cy='20' r='10'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3Ccircle cx='40' cy='0' r='10'/%3E%3Ccircle cx='0' cy='40' r='10'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px, 60px 60px;
+  opacity: 0.9;
+}
+
+.flow-hero-english {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 200;
+  letter-spacing: 0.3em;
+  color: rgba(191, 164, 90, 0.15);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: -1rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+.flow-hero-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #BFA45A;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.flow-hero-description {
+  font-size: 1.125rem;
+  color: #374151;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.flow-hero-description p {
+  margin-bottom: 0.5rem;
+}
+
+.flow-hero-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Flow Steps Section */
+.flow-steps-section {
+  position: relative;
+}
+
+.flow-step-item {
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.flow-step-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #BFA45A;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.flow-step-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .flow-step-left .flow-step-content-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .flow-step-right .flow-step-content-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.flow-step-image {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.flow-step-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(191, 164, 90, 0.2);
+}
+
+.flow-step-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
+.flow-step-text {
+  padding: 1rem;
+}
+
+.flow-step-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2F4F4F;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.flow-step-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #BFA45A 0%, transparent 100%);
+}
+
+.flow-step-description {
+  color: #4B5563;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.flow-step-description p {
+  margin-bottom: 1.5rem;
+}
+
+.flow-step-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+}
+
+.flow-step-list li {
+  padding: 0.75rem 0;
+  padding-left: 2rem;
+  position: relative;
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.flow-step-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.125rem;
+  width: 8px;
+  height: 8px;
+  background: #BFA45A;
+  border-radius: 50%;
+}
+
+/* Flow Step Divider */
+.flow-step-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0;
+  position: relative;
+}
+
+.flow-divider-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    rgba(191, 164, 90, 0.3) 20%, 
+    rgba(191, 164, 90, 0.5) 50%, 
+    rgba(191, 164, 90, 0.3) 80%, 
+    transparent 100%
+  );
+}
+
+.flow-divider-icon {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 2px solid #BFA45A;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #BFA45A;
+  font-size: 1rem;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(191, 164, 90, 0.15);
+}
+
+/* Flow Final Message */
+.flow-final-message {
+  margin-top: 5rem;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f1ea 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.flow-final-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #BFA45A 0%, #D4AF37 100%);
+  border-radius: 50%;
+  color: white;
+  font-size: 2.5rem;
+  box-shadow: 0 8px 20px rgba(191, 164, 90, 0.3);
+}
+
+.flow-final-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2F4F4F;
+  margin-bottom: 1rem;
+}
+
+.flow-final-text {
+  color: #4B5563;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+/* Duration Section */
+.flow-duration-section {
+  position: relative;
+}
+
+.duration-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .duration-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.duration-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(191, 164, 90, 0.1);
+  transition: all 0.3s ease;
+}
+
+.duration-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(191, 164, 90, 0.15);
+  border-color: #BFA45A;
+}
+
+.duration-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f1ea 100%);
+  border-radius: 50%;
+  color: #BFA45A;
+  font-size: 2rem;
+  border: 2px solid rgba(191, 164, 90, 0.2);
+}
+
+.duration-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #2F4F4F;
+  margin-bottom: 1rem;
+}
+
+.duration-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #BFA45A;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.duration-description {
+  color: #4B5563;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .flow-hero-section {
+    padding: 6rem 0;
+    min-height: 50vh;
+  }
+  
+  .flow-hero-english {
+    font-size: 2rem;
+    margin-bottom: -0.5rem;
+  }
+  
+  .flow-hero-title {
+    font-size: 2.25rem;
+  }
+  
+  .flow-hero-description {
+    font-size: 1rem;
+  }
+  
+  .flow-step-content-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .flow-step-title {
+    font-size: 1.5rem;
+  }
+  
+  .flow-step-text {
+    padding: 0;
+  }
+  
+  .flow-final-message {
+    padding: 2rem 1.5rem;
+  }
+  
+  .flow-final-title {
+    font-size: 1.5rem;
+  }
+  
+  .flow-final-text {
+    font-size: 1rem;
+  }
+}
