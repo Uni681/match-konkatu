@@ -24,7 +24,7 @@ export function SNSSection() {
             <p class="sns-card-v2-description">
               友だち追加で、無料カウンセリングのご予約やご質問がスムーズにできます。
             </p>
-            <a href="https://line.me/R/ti/p/@match-konkatu" target="_blank" rel="noopener noreferrer" class="sns-btn-v2 line-btn-v2">
+            <a href="https://lin.ee/hxJlbwI" target="_blank" rel="noopener noreferrer" class="sns-btn-v2 line-btn-v2">
               <i class="fab fa-line mr-2"></i>
               LINEで相談する
             </a>
