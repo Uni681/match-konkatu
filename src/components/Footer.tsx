@@ -22,16 +22,19 @@ export function Footer() {
             </div>
           </div>
           
-          <!-- 中央ブロック: グローバルナビ（横並び） -->
+          <!-- 中央ブロック: グローバルナビ（上下左右中央） -->
           <nav class="footer-block-center">
             <ul class="footer-nav-horizontal"><li><a href="/" class="footer-nav-link">ホーム</a></li><li class="footer-nav-sep">/</li><li><a href="/about" class="footer-nav-link">当結婚相談所について</a></li><li class="footer-nav-sep">/</li><li><a href="/service" class="footer-nav-link">サービス・料金</a></li><li class="footer-nav-sep">/</li><li><a href="/flow" class="footer-nav-link">ご成婚までのながれ</a></li><li class="footer-nav-sep">/</li><li><a href="/faq" class="footer-nav-link">よくあるご質問</a></li><li class="footer-nav-sep">/</li><li><a href="/contact" class="footer-nav-link">お問い合わせ</a></li></ul>
           </nav>
           
-          <!-- 右ブロック: コピーライト -->
-          <div class="footer-block-right">
-            <p class="footer-copyright">&copy; 2024 MATCH by Uni</p>
-          </div>
+          <!-- 右ブロック: 空 -->
+          <div class="footer-block-right"></div>
           
+        </div>
+        
+        <!-- コピーライト: 最下に、さりげなく -->
+        <div class="footer-copyright-bottom">
+          <p class="footer-copyright">&copy; 2024 MATCH by Uni</p>
         </div>
         
       </div>

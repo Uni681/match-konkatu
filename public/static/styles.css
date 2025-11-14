@@ -1917,9 +1917,9 @@ label[required]::after {
    ======================================== */
 
 .footer-elegant {
-  background-color: #fbf9f6; /* さらに薄いクリーム系 */
+  background-color: rgba(255, 255, 255, 0.95); /* ヘッダーと同じ */
   border-top: 1px solid rgba(200, 179, 122, 0.2); /* 細い薄いボーダー */
-  padding: 3rem 0 2.5rem; /* 縦幅を狭く（48px / 40px） */
+  padding: 3rem 0 1.5rem; /* 下パディング縮小（コピーライト用） */
 }
 
 /* ===== PC Layout: Flexbox 3ブロック ===== */
@@ -1941,7 +1941,7 @@ label[required]::after {
 }
 
 .footer-logo-image {
-  height: 2.5rem; /* 40px - ヘッダーより少し小さく */
+  height: 3.5rem; /* 56px - もう少し大きく */
   width: auto;
   opacity: 0.95;
 }
@@ -1969,12 +1969,12 @@ label[required]::after {
   margin: 0;
 }
 
-/* ===== 中央ブロック: グローバルナビ（横並び） ===== */
+/* ===== 中央ブロック: グローバルナビ（上下左右中央） ===== */
 .footer-block-center {
   flex: 1 1 auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* 水平方向中央 */
+  align-items: center; /* 垂直方向中央 */
 }
 
 .footer-nav-horizontal {
@@ -2021,21 +2021,23 @@ label[required]::after {
   user-select: none;
 }
 
-/* ===== 右ブロック: コピーライト ===== */
+/* ===== 右ブロック: 空 ===== */
 .footer-block-right {
   flex: 0 0 auto;
   min-width: 180px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+}
+
+/* ===== コピーライト: 最下に、さりげなく ===== */
+.footer-copyright-bottom {
+  margin-top: 2rem; /* 上に余白 */
+  text-align: center; /* 中央揃え */
 }
 
 .footer-copyright {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.6875rem; /* 11px - さらに小さく、さりげなく */
   font-weight: 300;
-  color: #8c857c;
-  text-align: right;
+  color: #a8a199; /* より薄く、さりげなく */
   margin: 0;
   line-height: 1.5;
 }
@@ -2082,11 +2084,6 @@ label[required]::after {
   
   .footer-block-right {
     width: 100%;
-    justify-content: center;
-  }
-  
-  .footer-copyright {
-    text-align: center;
   }
 }
 
@@ -2101,7 +2098,11 @@ label[required]::after {
   }
   
   .footer-logo-image {
-    height: 2rem; /* 32px - スマホでさらに小さく */
+    height: 2.75rem; /* 44px - スマホでも大きめに */
+  }
+  
+  .footer-copyright-bottom {
+    margin-top: 1.5rem; /* スマホでは少し狭く */
   }
   
   .footer-address,
