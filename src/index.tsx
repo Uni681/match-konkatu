@@ -20,6 +20,7 @@ import IBJStatsSection from './components/IBJStatsSection'
 import AboutUsLinksSection from './components/AboutUsLinksSection'
 import { BadgesSection } from './components/BadgesSection'
 import { SNSSection } from './components/SNSSection'
+import { ContactSection } from './components/ContactSection'
 import { ContactAccessSection } from './components/ContactAccessSection'
 
 // Utils
