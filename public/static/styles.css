@@ -1917,9 +1917,9 @@ label[required]::after {
    ======================================== */
 
 .footer-elegant {
-  background-color: #faf7f2; /* ごく淡いクリーム系 */
-  border-top: 1px solid rgba(200, 179, 122, 0.25); /* 細い薄いボーダー */
-  padding: 5rem 0 4rem; /* 上下に十分な余白 */
+  background-color: #fbf9f6; /* さらに薄いクリーム系 */
+  border-top: 1px solid rgba(200, 179, 122, 0.2); /* 細い薄いボーダー */
+  padding: 3rem 0 2.5rem; /* 縦幅を狭く（48px / 40px） */
 }
 
 /* ===== PC Layout: Flexbox 3ブロック ===== */
@@ -1937,16 +1937,13 @@ label[required]::after {
 }
 
 .footer-logo {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; /* 少し狭く */
 }
 
-.footer-logo-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem; /* 32px */
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  color: #3c3733; /* 落ち着いた濃いグレー */
-  margin: 0;
+.footer-logo-image {
+  height: 2.5rem; /* 40px - ヘッダーより少し小さく */
+  width: auto;
+  opacity: 0.95;
 }
 
 .footer-contact {
@@ -2096,15 +2093,15 @@ label[required]::after {
 /* ===== Responsive: 小型スマホ（640px以下） ===== */
 @media (max-width: 640px) {
   .footer-elegant {
-    padding: 4rem 0 3rem;
+    padding: 2.5rem 0 2rem; /* スマホも狭く（40px / 32px） */
   }
   
   .footer-content-wrapper {
-    gap: 2.5rem;
+    gap: 2rem; /* 狭く */
   }
   
-  .footer-logo-text {
-    font-size: 1.75rem; /* 28px */
+  .footer-logo-image {
+    height: 2rem; /* 32px - スマホでさらに小さく */
   }
   
   .footer-address,

@@ -14,7 +14,7 @@ export function Footer() {
           <!-- 左ブロック: ロゴ + 住所 + TEL -->
           <div class="footer-block-left">
             <div class="footer-logo">
-              <h2 class="footer-logo-text">MATCH</h2>
+              <img src="/img/logo-hq.png" alt="MATCH" class="footer-logo-image">
             </div>
             <div class="footer-contact">
               <p class="footer-address">〒221-0834<br>神奈川県横浜市神奈川区台町8-14 412</p>
