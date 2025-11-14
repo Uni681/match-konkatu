@@ -1,4 +1,5 @@
 import { html, raw } from 'hono/html';
+import { Footer } from './Footer';
 
 interface LayoutProps {
   title: string;
@@ -257,88 +258,8 @@ export const Layout = ({
     ${raw(children)}
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white border-t border-gray-300 py-8">
-    <div class="container mx-auto px-6">
-      <!-- PC Layout: 3分割 -->
-      <div class="hidden md:grid md:grid-cols-3 gap-8 items-start">
-        <!-- 左寄せ（ロゴ＋住所） -->
-        <div class="flex flex-col">
-          <div class="mb-3">
-            <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="h-12 w-auto">
-          </div>
-          <div class="footer-address">
-            <div>〒221-0834 神奈川県横浜市神奈川区台町8-14 412</div>
-            <div>TEL：045-534-8922</div>
-            <div class="text-sm mt-2">
-              <div>営業時間：11:00-22:00</div>
-              <div class="text-xs text-gray-500">※お問い合わせフォームや公式LINEでのお問い合わせは24時間受け付けております</div>
-            </div>
-            <div class="text-sm mt-1">
-              <div>定休日：毎週木曜日</div>
-              <div class="text-xs text-gray-500">※但し、ご相談により対応する場合があります。</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- 中央（ナビゲーションリンク） -->
-        <div class="flex justify-center">
-          <nav class="footer-nav">
-            <a href="/">ホーム</a>
-            <a href="/about">当結婚相談所について</a>
-            <a href="/service">サービス・料金</a>
-            <a href="/flow">ご成婚までのながれ</a>
-            <a href="/faq">よくあるご質問</a>
-            <a href="/contact">お問い合わせ</a>
-          </nav>
-        </div>
-        
-        <!-- 右寄せ（コピーライト） -->
-        <div class="flex justify-end">
-          <div class="footer-copyright">
-            ©2024 MATCH by Uni
-          </div>
-        </div>
-      </div>
-      
-      <!-- SP Layout: 縦並び -->
-      <div class="md:hidden flex flex-col items-center text-center space-y-6">
-        <!-- ロゴ -->
-        <div>
-          <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="h-10 w-auto mx-auto">
-        </div>
-        
-        <!-- 住所 -->
-        <div class="footer-address-sp">
-          <div>〒221-0834 神奈川県横浜市神奈川区台町8-14 412</div>
-          <div>TEL：045-534-8922</div>
-          <div class="text-sm mt-2">
-            <div>営業時間：11:00-22:00</div>
-            <div class="text-xs text-gray-500">※お問い合わせフォームや公式LINEでのお問い合わせは24時間受け付けております</div>
-          </div>
-          <div class="text-sm mt-1">
-            <div>定休日：毎週木曜日</div>
-            <div class="text-xs text-gray-500">※但し、ご相談により対応する場合があります。</div>
-          </div>
-        </div>
-        
-        <!-- ナビ -->
-        <nav class="footer-nav-sp">
-          <a href="/">ホーム</a>
-          <a href="/about">当結婚相談所について</a>
-          <a href="/service">サービス・料金</a>
-          <a href="/flow">ご成婚までのながれ</a>
-          <a href="/faq">よくあるご質問</a>
-          <a href="/contact">お問い合わせ</a>
-        </nav>
-        
-        <!-- コピーライト -->
-        <div class="footer-copyright">
-          ©2024 MATCH by Uni
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer (Elegant Version - Component) -->
+  ${raw(Footer())}
 
   <!-- Performance Optimization -->
   <script>
