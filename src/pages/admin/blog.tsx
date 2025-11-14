@@ -1,4 +1,4 @@
-import { html } from 'hono/html'
+import { html, raw } from 'hono/html'
 import AdminLayout from '../../components/AdminLayout'
 
 export function AdminBlogListPage(posts: any[]) {
@@ -35,13 +35,13 @@ export function AdminBlogListPage(posts: any[]) {
                 </tr>
               </thead>
               <tbody>
-                ${posts.map(post => {
+                ${raw(posts.map(post => {
                   const isDraft = post.draft === true || post.draft === 'true'
                   const statusBadge = isDraft
                     ? '<span style="background: #95a5a6; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem;">下書き</span>'
                     : '<span style="background: #27ae60; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem;">公開中</span>'
                   
-                  return html`
+                  return `
                     <tr style="border-bottom: 1px solid #dee2e6;">
                       <td style="padding: 15px; font-weight: 600;">${post.title}</td>
                       <td style="padding: 15px;">
@@ -68,7 +68,7 @@ export function AdminBlogListPage(posts: any[]) {
                       </td>
                     </tr>
                   `
-                }).join('')}
+                }).join(''))}
               </tbody>
             </table>
           </div>

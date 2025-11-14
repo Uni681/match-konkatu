@@ -1,6 +1,5 @@
 import { html, raw } from 'hono/html'
 import Layout from '../components/Layout'
-import { Hero } from '../components/Hero'
 import { SNSSection } from '../components/SNSSection'
 import { ContactSection } from '../components/ContactSection'
 import { AccessMapSection } from '../components/AccessMapSection'
@@ -14,12 +13,30 @@ export function BlogListPage(posts: any[], currentPage: number = 1, totalPages: 
     title: 'ブログ | MATCH（マッチ）本気の婚活',
     description: '婚活に役立つノウハウやイベント情報をお届けします。結婚相談所MATCHの最新情報や婚活アドバイスをご紹介。',
     children: html`
-      <!-- Hero Section -->
-      ${Hero({
-        englishTitle: 'BLOG',
-        title: 'ブログ',
-        description: '婚活に役立つノウハウやイベント情報をお届けします。<br>結婚相談所MATCHの最新情報や婚活アドバイスをご紹介。'
-      })}
+      <!-- Blog Hero Section -->
+      <section class="about-hero-section relative overflow-hidden">
+        <!-- 和柄背景 -->
+        <div class="absolute inset-0 z-0">
+          <div class="about-hero-background"></div>
+        </div>
+        
+        <!-- 金箔散らし装飾 -->
+        <div class="absolute inset-0 z-10">
+          <div class="gold-foil-decoration"></div>
+        </div>
+        
+        <div class="relative z-20 about-hero-content">
+          <!-- 英字見出し（背景扱い） -->
+          <div class="about-hero-english">
+            BLOG
+          </div>
+          
+          <!-- メイン見出し -->
+          <h1 class="about-hero-title">
+            ブログ
+          </h1>
+        </div>
+      </section>
 
       <!-- Blog List Section -->
       <section class="blog-list-section py-20 bg-white">
