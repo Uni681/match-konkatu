@@ -32,14 +32,14 @@ export function ContactAccessSection() {
             </p>
           </div>
           
-          <!-- 右側：大きなCTAボタンを縦並び -->
+          <!-- 右側：上品なCTAボタン - 枠線スタイル -->
           <div class="contact-buttons-container">
-            <a href="tel:045-534-8922" class="contact-cta-btn phone-btn bg-transparent text-white border-white hover:bg-white hover:text-gray-900">
+            <a href="tel:045-534-8922" class="contact-cta-btn phone-btn">
               <i class="fas fa-phone mr-3"></i>
               045-534-8922
             </a>
             
-            <a href="/contact" class="contact-cta-btn form-btn bg-transparent text-white border-white hover:bg-white hover:text-gray-900">
+            <a href="/contact" class="contact-cta-btn form-btn">
               <i class="fas fa-envelope mr-3"></i>
               お問い合わせフォーム
             </a>
@@ -49,7 +49,7 @@ export function ContactAccessSection() {
     </section>
     
     <!-- ACCESSセクション -->
-    <section class="contact-access-section py-20">
+    <section class="contact-access-section">
       <div class="container mx-auto px-6 max-w-7xl">
         <!-- ACCESSブロック -->
         <div class="access-block">
@@ -67,35 +67,35 @@ export function ContactAccessSection() {
                 </div>
                 
                 <div class="access-info-item">
-                  <i class="fas fa-map-marker-alt mr-2 text-primary-600"></i>
+                  <i class="fas fa-map-marker-alt mr-2"></i>
                   <span>〒221-0834 神奈川県横浜市神奈川区台町8-14 412</span>
                 </div>
                 
                 <div class="access-info-item">
-                  <i class="fas fa-walking mr-2 text-primary-600"></i>
+                  <i class="fas fa-walking mr-2"></i>
                   <span>横浜駅西口から徒歩7分</span>
                 </div>
                 
                 <div class="access-info-item">
-                  <i class="fas fa-phone mr-2 text-primary-600"></i>
+                  <i class="fas fa-phone mr-2"></i>
                   <span>TEL：045-534-8922</span>
                 </div>
                 
                 <div class="access-info-item">
-                  <i class="fas fa-clock mr-2 text-primary-600"></i>
+                  <i class="fas fa-clock mr-2"></i>
                   <span>営業時間：11:00-22:00</span>
                 </div>
                 
-                <div class="access-info-item text-sm text-gray-600">
+                <div class="access-info-item text-sm">
                   <span>※お問い合わせフォームや公式LINEでのお問い合わせは24時間受け付けております</span>
                 </div>
                 
                 <div class="access-info-item">
-                  <i class="fas fa-calendar-times mr-2 text-primary-600"></i>
+                  <i class="fas fa-calendar-times mr-2"></i>
                   <span>定休日：毎週木曜日</span>
                 </div>
                 
-                <div class="access-info-item text-sm text-gray-600">
+                <div class="access-info-item text-sm">
                   <span>※但し、ご相談により対応する場合があります。</span>
                 </div>
               </div>
