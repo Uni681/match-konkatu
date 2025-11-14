@@ -2437,8 +2437,19 @@ label[required]::after {
   position: relative;
   min-height: 380px; /* PC: 380px（ゆったり） */
   display: flex;
-  align-items: center;
-  padding: 5rem 0; /* 上下に余白 */
+  align-items: center; /* 垂直方向中央 */
+  justify-content: center; /* 水平方向中央 */
+}
+
+/* コンテンツラッパー：完全中央配置 */
+.about-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 水平方向中央 */
+  justify-content: center; /* 垂直方向中央 */
+  text-align: center;
+  width: 100%;
+  padding: 5rem 1.5rem; /* 上下に余白 */
 }
 
 .about-hero-background {
@@ -2486,6 +2497,7 @@ label[required]::after {
   user-select: none;
   pointer-events: none;
   opacity: 0.85; /* ほんのり控えめ */
+  margin-bottom: 1.5rem; /* タイトルとの間隔 */
 }
 
 /* メインタイトル */
@@ -2500,6 +2512,7 @@ label[required]::after {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.06); /* ほんのり影 */
   position: relative;
   padding-bottom: 1.5rem; /* 下に余白（ライン用） */
+  margin: 0; /* マージンリセット */
 }
 
 /* タイトル下の細いライン */
@@ -2536,7 +2549,10 @@ label[required]::after {
 @media (max-width: 768px) {
   .about-hero-section {
     min-height: 280px; /* スマホ: 280px（少しコンパクト） */
-    padding: 3.5rem 0; /* 上下余白は少し詰める */
+  }
+  
+  .about-hero-content {
+    padding: 3.5rem 1.5rem; /* 上下余白は少し詰める */
   }
   
   .about-hero-background::before {
@@ -2547,6 +2563,7 @@ label[required]::after {
   .about-hero-english {
     font-size: 0.875rem; /* 14px */
     letter-spacing: 0.3em;
+    margin-bottom: 1rem; /* 少し詰める */
   }
   
   .about-hero-title {

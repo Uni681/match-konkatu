@@ -11,7 +11,7 @@ export function AboutPage() {
     description: 'MATCH（マッチ）本気の婚活の理念、カウンセラー紹介、事業所概要をご紹介します。親子で運営する温かい結婚相談所として、皆様の人生の新たなスタートをサポートいたします。',
     children: html`
       <!-- About Hero Section -->
-      <section class="about-hero-section relative overflow-hidden flex items-center justify-center min-h-[60vh]">
+      <section class="about-hero-section relative overflow-hidden">
         <!-- 和柄背景 -->
         <div class="absolute inset-0 z-0">
           <div class="about-hero-background"></div>
@@ -22,18 +22,16 @@ export function AboutPage() {
           <div class="gold-foil-decoration"></div>
         </div>
         
-        <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
-          <div class="py-16">
-            <!-- 英字見出し（背景扱い） -->
-            <div class="about-hero-english mb-6">
-              ABOUT
-            </div>
-            
-            <!-- メイン見出し -->
-            <h1 class="about-hero-title">
-              当結婚相談所について
-            </h1>
+        <div class="relative z-20 about-hero-content">
+          <!-- 英字見出し（背景扱い） -->
+          <div class="about-hero-english">
+            ABOUT
           </div>
+          
+          <!-- メイン見出し -->
+          <h1 class="about-hero-title">
+            当結婚相談所について
+          </h1>
         </div>
       </section>
 
