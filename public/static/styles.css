@@ -2060,19 +2060,14 @@ label[required]::after {
     justify-content: center;
   }
   
-  /* スマホではナビを縦並びに */
-  .footer-nav-horizontal {
-    flex-direction: column;
-    gap: 0.5rem; /* もっと狭く */
+  /* ナビは横並びのまま */
+  .footer-nav-link {
+    font-size: 0.8125rem; /* 13px */
+    padding: 0.25rem 0.5rem; /* 少しコンパクトに */
   }
   
   .footer-nav-sep {
-    display: none; /* セパレーター非表示 */
-  }
-  
-  .footer-nav-link {
-    font-size: 0.9375rem; /* 15px - タップしやすく */
-    padding: 0.5rem 1rem;
+    font-size: 0.6875rem; /* 11px - 少し小さく */
   }
   
 
