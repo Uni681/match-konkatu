@@ -169,7 +169,7 @@ export const Layout = ({
         <!-- Logo -->
         <div class="flex items-center">
           <a href="/" class="flex items-center">
-            <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="h-14 w-auto opacity-95 md:h-16">
+            <img src="/img/logo-hq.png" alt="MATCH（マッチ）本気の婚活" class="w-auto opacity-95" style="height: 70px">
           </a>
         </div>
         

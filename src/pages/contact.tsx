@@ -8,7 +8,7 @@ import { AccessMapSection } from '../components/AccessMapSection'
 export function ContactPage() {
   return Layout({
     title: 'お問い合わせ | MATCH（マッチ）本気の婚活',
-    description: '結婚相談所MATCHへのお問い合わせはこちら。無料カウンセリングのご予約、サービスに関するご質問など、お気軽にご連絡ください。',
+    description: '婚活に関するご相談、サービス内容のご質問、お申し込み前の不安など、どんなことでもお気軽にお問い合わせください。',
     children: html`
       <!-- Contact Hero Section -->
       <section class="contact-hero-section relative overflow-hidden flex items-center justify-center min-h-[60vh]">

@@ -37,200 +37,138 @@ export function ServicePage() {
       </section>
 
       <!-- プラン比較セクション -->
-      <section class="plans-section py-20 bg-white">
-        <div class="container mx-auto px-6 max-w-7xl">
+      <section class="plans-section">
+        <div class="plans-container">
           <!-- セクションタイトル -->
-          <div class="text-center mb-16">
-            <div class="section-title-english mb-2">PLANS</div>
-            <h2 class="section-title-japanese">料金プラン</h2>
-            <p class="section-subtitle mt-4">ご自身に合ったプランをお選びください</p>
+          <div class="plans-header">
+            <div class="plans-english">PLANS</div>
+            <h2 class="plans-title">料金プラン</h2>
+            <p class="plans-subtitle">あなたのペースで進められる婚活サポートを届けます</p>
           </div>
 
-          <!-- 3プランカード -->
-          <div class="plans-grid">
+          <!-- メインプラン（3カード横並び） -->
+          <div class="plans-main-grid">
             
-            <!-- ライトプラン -->
-            <div class="plan-card">
-              <div class="plan-header">
-                <div class="plan-icon">✨</div>
-                <h3 class="plan-name">ライトプラン</h3>
-                <p class="plan-subtitle">気軽に始める婚活</p>
+            <!-- MATCHライト -->
+            <div class="new-plan-card">
+              <div class="new-plan-tag">単発</div>
+              <h3 class="new-plan-name">MATCHライト</h3>
+              <div class="new-plan-price">
+                <span class="new-price-amount">3,000</span>
+                <span class="new-price-unit">円</span>
+                <span class="new-price-period">/ 1回</span>
               </div>
-              
-              <div class="plan-price">
-                <div class="price-label">入会金</div>
-                <div class="price-amount">33,000<span class="price-unit">円</span></div>
-                <div class="price-note">（税込）</div>
-              </div>
-
-              <div class="plan-features">
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>月会費：11,000円</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>お見合い料：無料</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>成婚料：220,000円</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>申込可能数：月20名</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>基本的なサポート</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>IBJ会員検索システム</span>
-                </div>
-              </div>
-
-              <div class="plan-description">
-                <p>まずは気軽に婚活を始めたい方におすすめのプランです。基本的なサポートを受けながら、マイペースに活動できます。</p>
-              </div>
-
-              <div class="plan-cta">
-                <a href="/contact" class="plan-button">
-                  詳細を見る
-                  <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+              <div class="new-plan-description">
+                <p>「このまま婚活を始めていいのかな？」が気になる人へ。</p>
+                <p class="new-plan-content-title">内容</p>
+                <p class="new-plan-content">
+                  ・価値観整理ワーク（20〜30問）で思考を可視化<br>
+                  ・方向性診断（30分）で"いま向かうべき方向"を明確に<br>
+                  ・恋愛のクセ、つまずきやすい点を言語化
+                </p>
+                <p>婚活の前に、"自分のコンパス"をつくるための1回完結セッション。</p>
               </div>
             </div>
 
-            <!-- スタンダードプラン -->
-            <div class="plan-card plan-card-featured">
-              <div class="plan-badge">おすすめ</div>
-              
-              <div class="plan-header">
-                <div class="plan-icon">💎</div>
-                <h3 class="plan-name">スタンダードプラン</h3>
-                <p class="plan-subtitle">充実のサポート</p>
+            <!-- MATCHスタンダード -->
+            <div class="new-plan-card new-plan-featured">
+              <div class="new-plan-badge">おすすめ</div>
+              <div class="new-plan-tag">定番</div>
+              <h3 class="new-plan-name">MATCHスタンダード</h3>
+              <div class="new-plan-price">
+                <span class="new-price-amount">9,800</span>
+                <span class="new-price-unit">円</span>
+                <span class="new-price-period">/ 月額</span>
               </div>
-              
-              <div class="plan-price">
-                <div class="price-label">入会金</div>
-                <div class="price-amount">55,000<span class="price-unit">円</span></div>
-                <div class="price-note">（税込）</div>
-              </div>
-
-              <div class="plan-features">
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>月会費：16,500円</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>お見合い料：無料</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>成婚料：220,000円</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>申込可能数：月40名</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>手厚いカウンセリング</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>プロフィール写真撮影サポート</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>お見合い同行サービス（月2回）</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>定期的なフィードバック</span>
-                </div>
-              </div>
-
-              <div class="plan-description">
-                <p>最も人気のプランです。充実したサポート体制で、効率的に婚活を進めたい方に最適です。カウンセラーが二人三脚で伴走します。</p>
-              </div>
-
-              <div class="plan-cta">
-                <a href="#contact" class="plan-button plan-button-featured">
-                  詳細を見る
-                  <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+              <div class="new-plan-description">
+                <p>無理のないペースで婚活を続けたい人へ。<br>焦らず、淡々と、それでも確実に進むための基本セット。</p>
+                <p class="new-plan-content-title">内容</p>
+                <p class="new-plan-content">
+                  ・月2回の面談（45分 ×2）<br>
+                  ・毎月の紹介<br>
+                  ・ライトなLINE添削<br>
+                  ・プロフィールの微調整<br>
+                  ・AI恋愛行動分析（準備中）
+                </p>
+                <p>感情と行動が整うことで、ゆるやかでも前に進み続けられる。</p>
               </div>
             </div>
 
-            <!-- プレミアムプラン -->
-            <div class="plan-card">
-              <div class="plan-header">
-                <div class="plan-icon">👑</div>
-                <h3 class="plan-name">プレミアムプラン</h3>
-                <p class="plan-subtitle">最高峰のサポート</p>
+            <!-- MATCHプレミアム -->
+            <div class="new-plan-card">
+              <div class="new-plan-tag">集中サポート</div>
+              <h3 class="new-plan-name">MATCHプレミアム</h3>
+              <div class="new-plan-price">
+                <span class="new-price-amount">14,800</span>
+                <span class="new-price-unit">円</span>
+                <span class="new-price-period">/ 月額</span>
               </div>
-              
-              <div class="plan-price">
-                <div class="price-label">入会金</div>
-                <div class="price-amount">110,000<span class="price-unit">円</span></div>
-                <div class="price-note">（税込）</div>
-              </div>
-
-              <div class="plan-features">
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>月会費：22,000円</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>お見合い料：無料</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>成婚料：220,000円</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>申込可能数：月60名</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>専属カウンセラー制</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>プロカメラマン撮影付き</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>お見合い無制限同行</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>24時間LINE相談対応</span>
-                </div>
-                <div class="feature-item">
-                  <i class="fas fa-check feature-icon"></i>
-                  <span>ファッション・マナー指導</span>
-                </div>
-              </div>
-
-              <div class="plan-description">
-                <p>最高峰のサポートで、短期集中的にご成婚を目指す方におすすめ。専属カウンセラーがマンツーマンで徹底サポートいたします。</p>
-              </div>
-
-              <div class="plan-cta">
-                <a href="/contact" class="plan-button">
-                  詳細を見る
-                  <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+              <div class="new-plan-description">
+                <p>「ひとりだと止まってしまう」「短期間で動かしたい」<br>そんな時の伴走に近い距離感のサポート。</p>
+                <p class="new-plan-content-title">内容</p>
+                <p class="new-plan-content">
+                  ・週1面談（45分 ×4）<br>
+                  ・お見合い同行<br>
+                  ・デート前の練習・想定QA<br>
+                  ・プロフィールのフル添削<br>
+                  ・重めの相談にも丁寧に対応<br>
+                  ・紹介数アップ
+                </p>
+                <p>立ち止まりやすいポイントを、その場で解消していくスタイル。<br>メンタル面・実践面のどちらも丁寧に支える、最も手厚いプラン。</p>
               </div>
             </div>
 
           </div>
+
+          <!-- サブプラン（成婚料＋焦らない婚活ラボ） -->
+          <div class="plans-sub-grid">
+            
+            <!-- 登録料・成婚料 -->
+            <div class="new-plan-success-fee">
+              <div class="new-success-fee-prices">
+                <div class="new-success-fee-row">
+                  <h3 class="new-success-fee-title">登録料</h3>
+                  <div class="new-success-fee-price">
+                    <span class="new-price-amount">10,000</span>
+                    <span class="new-price-unit">円</span>
+                  </div>
+                </div>
+                <div class="new-success-fee-row">
+                  <h3 class="new-success-fee-title">成婚料</h3>
+                  <div class="new-success-fee-price">
+                    <span class="new-price-amount">50,000</span>
+                    <span class="new-price-unit">円</span>
+                  </div>
+                </div>
+              </div>
+              <p class="new-success-fee-text">
+                <span class="new-success-fee-badge">全プラン共通</span><br>
+                登録料は初回のみのお支払いです。<br>
+                成婚料は成功報酬として、成婚退会時にのみいただきます。<br>
+                追加費用はかかりません。
+              </p>
+            </div>
+
+            <!-- 焦らない婚活ラボ（準備中） -->
+            <div class="new-plan-comingsoon-wide">
+              <div class="new-plan-comingsoon-badge">Coming Soon</div>
+              <div class="new-plan-comingsoon-left">
+                <h3 class="new-plan-comingsoon-title">焦らない婚活ラボ</h3>
+                <div class="new-plan-comingsoon-price">
+                  月額 <span class="new-price-amount-small">500</span><span class="new-price-unit-small">円</span>
+                </div>
+              </div>
+              <div class="new-plan-comingsoon-right">
+                <p class="new-plan-comingsoon-text">
+                  婚活の前に、まず"心の土台"を整えたい人へ。恋愛ラジオ・匿名相談・心の整理ワークを通して、自分の感情や思考を優しく整える「休憩所」のような場所。
+                </p>
+                <p class="new-plan-note">※AIマチ子と同時リリース予定　※現在準備中です</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
         </div>
       </section>
 

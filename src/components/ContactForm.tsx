@@ -11,8 +11,8 @@ export const ContactForm = () => {
           お問い合わせ
         </h2>
         <p class="text-lg text-gray-600 leading-relaxed">
-          婚活に関するご相談やサービスについてのご質問など、<br class="hidden sm:block">
-          お気軽にお問い合わせください。
+          婚活に関するご相談、サービス内容のご質問、<br class="hidden sm:block">
+          お申し込み前の不安など、どんなことでもお気軽にお問い合わせください。
         </p>
       </div>
       
@@ -24,11 +24,10 @@ export const ContactForm = () => {
             <i class="fas fa-phone text-2xl text-white"></i>
           </div>
           <h3 class="font-semibold text-lg text-gray-900 mb-2">お電話</h3>
-          <p class="text-gray-600 mb-4">045-XXX-XXXX</p>
+          <p class="text-gray-600 mb-4 font-semibold text-xl">045-534-8922</p>
           <div class="text-sm text-gray-500">
-            <div>平日: 10:00〜19:00</div>
-            <div>土曜: 10:00〜17:00</div>
-            <div>日祝: 定休日</div>
+            <div>平日 11:00〜22:00</div>
+            <div class="mt-1">※面談中などで出られない場合があります</div>
           </div>
         </div>
         
@@ -38,10 +37,11 @@ export const ContactForm = () => {
             <i class="fas fa-envelope text-2xl text-white"></i>
           </div>
           <h3 class="font-semibold text-lg text-gray-900 mb-2">メール</h3>
-          <p class="text-gray-600 mb-4">info@match-konkatsu.com</p>
+          <p class="text-gray-600 mb-1 text-sm">飯島宛</p>
+          <p class="text-gray-600 mb-4 break-all">naodn.947@gmail.com</p>
           <div class="text-sm text-gray-500">
             24時間受付<br>
-            48時間以内にご返信
+            48時間以内にご返信いたします
           </div>
         </div>
         
@@ -51,7 +51,7 @@ export const ContactForm = () => {
             <i class="fab fa-line text-2xl text-white"></i>
           </div>
           <h3 class="font-semibold text-lg text-gray-900 mb-2">LINE</h3>
-          <p class="text-gray-600 mb-4">LINE公式アカウント</p>
+          <p class="text-gray-600 mb-4">公式LINEからもお問い合わせいただけます</p>
           <a href="#" class="btn btn-outline btn-sm">
             <i class="fab fa-line mr-2"></i>
             友だち追加
@@ -78,7 +78,7 @@ export const ContactForm = () => {
             <!-- Name -->
             <div>
               <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
-                お名前 <span class="text-red-500">*</span>
+                お名前<span class="text-red-500">（必須）</span>
               </label>
               <input 
                 type="text" 
@@ -86,14 +86,14 @@ export const ContactForm = () => {
                 name="name" 
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                placeholder="山田太郎"
+                placeholder="例）山田 太郎"
               >
             </div>
             
             <!-- Email -->
             <div>
               <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-                メールアドレス <span class="text-red-500">*</span>
+                メールアドレス<span class="text-red-500">（必須）</span>
               </label>
               <input 
                 type="email" 
@@ -101,7 +101,7 @@ export const ContactForm = () => {
                 name="email" 
                 required
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                placeholder="example@email.com"
+                placeholder="example@mail.com"
               >
             </div>
           </div>
@@ -109,7 +109,7 @@ export const ContactForm = () => {
           <!-- Phone -->
           <div>
             <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
-              電話番号
+              電話番号<span class="text-gray-500">（任意）</span>
             </label>
             <input 
               type="tel" 
@@ -123,7 +123,7 @@ export const ContactForm = () => {
           <!-- Inquiry Type -->
           <div>
             <label for="inquiry_type" class="block text-sm font-medium text-gray-700 mb-2">
-              お問い合わせ内容
+              お問い合わせ内容<span class="text-gray-500">（選択式）</span>
             </label>
             <select 
               id="inquiry_type" 
@@ -131,10 +131,10 @@ export const ContactForm = () => {
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
             >
               <option value="">選択してください</option>
-              <option value="consultation">無料相談希望</option>
               <option value="service">サービスについて</option>
-              <option value="price">料金について</option>
-              <option value="process">入会手続きについて</option>
+              <option value="price">料金プランについて</option>
+              <option value="considering">入会を検討している</option>
+              <option value="media">取材/メディア関連</option>
               <option value="other">その他</option>
             </select>
           </div>
@@ -142,7 +142,7 @@ export const ContactForm = () => {
           <!-- Message -->
           <div>
             <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
-              メッセージ <span class="text-red-500">*</span>
+              メッセージ<span class="text-red-500">（必須）</span>
             </label>
             <textarea 
               id="message" 
@@ -150,7 +150,7 @@ export const ContactForm = () => {
               rows="6" 
               required
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-vertical"
-              placeholder="ご質問やご相談内容をご記入ください。無料相談をご希望の場合は、希望日時もお書きください。"
+              placeholder="ご質問やご相談内容をご記入ください。&#10;無料相談をご希望の場合は、希望日時もお書きください。"
             ></textarea>
           </div>
           
@@ -165,7 +165,7 @@ export const ContactForm = () => {
                 class="mt-1 mr-3 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
               >
               <span class="text-sm text-gray-700">
-                <a href="/policy" target="_blank" class="text-primary-600 hover:underline">プライバシーポリシー</a>に同意します <span class="text-red-500">*</span>
+                <a href="/policy" target="_blank" class="text-primary-600 hover:underline">プライバシーポリシー</a>に同意します
               </span>
             </label>
           </div>

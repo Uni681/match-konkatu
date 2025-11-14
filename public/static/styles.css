@@ -2435,7 +2435,7 @@ label[required]::after {
 .about-hero-section {
   background: linear-gradient(to bottom, #fdfcfa 0%, #faf9f7 100%);
   position: relative;
-  min-height: 380px; /* PC: 380px（ゆったり） */
+  min-height: 60vh; /* 画面の60%の高さ */
   display: flex;
   align-items: center; /* 垂直方向中央 */
   justify-content: center; /* 水平方向中央 */
@@ -4486,13 +4486,13 @@ label[required]::after {
 
 /* コンテンツラッパー（画面の40-45%位置に配置 - 微調整済み） */
 .hero-content-wrapper {
-  padding-top: 38vh;
+  padding-top: 53vh;
   padding-bottom: 0;
 }
 
 @media (max-width: 768px) {
   .hero-content-wrapper {
-    padding-top: 33vh;
+    padding-top: 48vh;
   }
 }
 
@@ -4817,6 +4817,1175 @@ label[required]::after {
   .news-cta-button {
     padding: 0.65rem 1.875rem;
     font-size: 0.8125rem;
+  }
+}
+
+/* ==============================================
+   全ページ共通ヒーローセクション
+   ============================================== */
+
+/* Service Hero */
+.service-hero-section {
+  background: linear-gradient(to bottom, #fdfcfa 0%, #faf9f7 100%);
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-hero-background {
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95) 0%, rgba(250, 249, 247, 0.7) 40%, rgba(245, 241, 234, 0.5) 70%, rgba(245, 241, 234, 0.3) 100%),
+    #fdfcfa;
+  position: relative;
+}
+
+.service-hero-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8b37a' fill-opacity='0.08'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  opacity: 0.6;
+  -webkit-mask-image: 
+    radial-gradient(ellipse at center, transparent 0%, transparent 30%, black 60%, black 100%);
+  mask-image: 
+    radial-gradient(ellipse at center, transparent 0%, transparent 30%, black 60%, black 100%);
+  pointer-events: none;
+}
+
+.service-hero-english {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  color: #c8b37a;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.service-hero-title {
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #3c3733;
+  line-height: 1.4;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  padding-bottom: 1.5rem;
+  margin: 0;
+}
+
+.service-hero-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c8b37a, transparent);
+  opacity: 0.5;
+}
+
+/* Flow, FAQ, Contact, Blog Hero - 同じスタイル適用 */
+.flow-hero-section,
+.faq-hero-section,
+.contact-hero-section,
+.blog-hero-section {
+  background: linear-gradient(to bottom, #fdfcfa 0%, #faf9f7 100%);
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flow-hero-background,
+.faq-hero-background,
+.contact-hero-background,
+.blog-hero-background {
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95) 0%, rgba(250, 249, 247, 0.7) 40%, rgba(245, 241, 234, 0.5) 70%, rgba(245, 241, 234, 0.3) 100%),
+    #fdfcfa;
+  position: relative;
+}
+
+.flow-hero-background::before,
+.faq-hero-background::before,
+.contact-hero-background::before,
+.blog-hero-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8b37a' fill-opacity='0.08'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  opacity: 0.6;
+  -webkit-mask-image: 
+    radial-gradient(ellipse at center, transparent 0%, transparent 30%, black 60%, black 100%);
+  mask-image: 
+    radial-gradient(ellipse at center, transparent 0%, transparent 30%, black 60%, black 100%);
+  pointer-events: none;
+}
+
+.flow-hero-english,
+.faq-hero-english,
+.contact-hero-english,
+.blog-hero-english {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  color: #c8b37a;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.flow-hero-title,
+.faq-hero-title,
+.contact-hero-title,
+.blog-hero-title {
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #3c3733;
+  line-height: 1.4;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  position: relative;
+  padding-bottom: 1.5rem;
+  margin: 0;
+}
+
+.flow-hero-title::after,
+.faq-hero-title::after,
+.contact-hero-title::after,
+.blog-hero-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c8b37a, transparent);
+  opacity: 0.5;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .service-hero-title,
+  .flow-hero-title,
+  .faq-hero-title,
+  .contact-hero-title,
+  .blog-hero-title,
+  .about-hero-title {
+    font-size: 2rem;
+  }
+}
+
+/* ==============================================
+   カウンセラーメッセージセクション
+   ============================================== */
+
+/* セクション全体 */
+.counselor-message-section {
+  background: linear-gradient(to bottom, #ffffff 0%, #faf9f7 50%, #ffffff 100%);
+}
+
+/* セクションタイトル */
+.message-section-english {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  color: #c8b37a;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: 0.75rem;
+}
+
+.message-section-title {
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #3c3733;
+  letter-spacing: 0.15em;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+.message-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c8b37a, transparent);
+  opacity: 0.6;
+}
+
+/* カウンセラーカード */
+.counselor-card-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.counselor-card-first {
+  margin-bottom: 8rem; /* 128px = 8rem */
+}
+
+.counselor-card-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* 写真エリア */
+.counselor-photo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counselor-photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  border: 2px solid #d4c5a0;
+  padding: 8px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.counselor-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* テキストエリア */
+.counselor-text-box {
+  padding: 1.5rem 0;
+}
+
+.counselor-role {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  opacity: 0.85;
+}
+
+.counselor-role.primary {
+  color: #c8b37a;
+}
+
+.counselor-role.secondary {
+  color: #a89968;
+}
+
+.counselor-name {
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.counselor-name.primary {
+  color: #2d2926;
+}
+
+.counselor-name.secondary {
+  color: #3c3733;
+}
+
+.name-reading {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #8a8278;
+  letter-spacing: 0.05em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.counselor-message {
+  color: #3c3733;
+  line-height: 1.9;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.counselor-message p {
+  margin-bottom: 1.25rem;
+}
+
+.counselor-message p:last-child {
+  margin-bottom: 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+  .counselor-card-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  
+  .counselor-photo-frame {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  .counselor-name {
+    justify-content: center;
+  }
+  
+  .counselor-text-box {
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .message-section-title {
+    font-size: 1.75rem;
+  }
+  
+  .counselor-card-wrapper {
+    margin-bottom: 3rem !important;
+  }
+  
+  .counselor-name {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  
+  .counselor-message {
+    font-size: 0.9rem;
+    line-height: 1.85;
+  }
+  
+  .counselor-photo-frame {
+    max-width: 240px;
+  }
+}
+
+/* ==============================================
+   想い・理念セクション
+   ============================================== */
+
+.philosophy-section {
+  background: linear-gradient(to bottom, #ffffff 0%, #faf9f7 50%, #ffffff 100%);
+  padding: 6rem 0;
+}
+
+.philosophy-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.philosophy-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* テキストエリア */
+.philosophy-text-area {
+  padding-right: 2rem;
+}
+
+.philosophy-title {
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #3c3733;
+  letter-spacing: 0.12em;
+  margin-bottom: 2.5rem;
+  position: relative;
+  padding-bottom: 1.25rem;
+}
+
+/* 3本のゴールドライン */
+.philosophy-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #c8b37a 0%, #d4c5a0 50%, #c8b37a 100%);
+  border-radius: 2px;
+}
+
+.philosophy-title::before {
+  content: '';
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #d4c5a0 0%, #e8dcc5 50%, #d4c5a0 100%);
+  opacity: 0.6;
+  border-radius: 1px;
+}
+
+.philosophy-message {
+  color: #3c3733;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  letter-spacing: 0.03em;
+}
+
+.philosophy-message p {
+  margin-bottom: 1.5rem;
+}
+
+.philosophy-message p:last-child {
+  margin-bottom: 0;
+}
+
+/* 写真エリア */
+.philosophy-photo-area {
+  position: relative;
+}
+
+.philosophy-photo-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  background: white;
+  padding: 12px;
+}
+
+.philosophy-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+/* 写真フレームに上品なアクセント */
+.philosophy-photo-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(200, 179, 122, 0.15);
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+  .philosophy-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .philosophy-text-area {
+    padding-right: 0;
+    text-align: left;
+  }
+  
+  .philosophy-photo-frame {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .philosophy-section {
+    padding: 4rem 0;
+  }
+  
+  .philosophy-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  .philosophy-message {
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+  
+  .philosophy-message p {
+    margin-bottom: 1.25rem;
+  }
+  
+  .philosophy-photo-frame {
+    max-width: 100%;
+  }
+}
+
+/* ==============================================
+   事業所概要セクション
+   ============================================== */
+
+.business-info-section {
+  background: linear-gradient(135deg, #fdfcfa 0%, #faf9f7 50%, #fdfcfa 100%);
+  padding: 6rem 0;
+  position: relative;
+}
+
+/* 和柄背景（薄く） */
+.business-info-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8b37a' fill-opacity='0.04'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.business-info-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* セクションタイトル */
+.business-info-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.business-info-english {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  color: #c8b37a;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: 0.75rem;
+}
+
+.business-info-title {
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #3c3733;
+  letter-spacing: 0.15em;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+.business-info-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c8b37a, transparent);
+  opacity: 0.6;
+}
+
+/* カード */
+.business-info-card {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.business-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(200, 179, 122, 0.12);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+/* 情報リスト */
+.business-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.business-info-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ラベル（左側） */
+.business-info-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 180px;
+  color: #8a7d6f;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.business-info-label i {
+  font-size: 24px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c8b37a;
+  flex-shrink: 0;
+}
+
+.business-info-label span {
+  flex-shrink: 0;
+}
+
+/* コンテンツ（右側） */
+.business-info-content {
+  flex: 1;
+  color: #3c3733;
+  font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+}
+
+.business-info-note {
+  display: block;
+  font-size: 0.875rem;
+  color: #6b6460;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .business-info-section {
+    padding: 4rem 0;
+  }
+  
+  .business-info-container {
+    padding: 0 1rem;
+  }
+  
+  .business-info-title {
+    font-size: 1.75rem;
+  }
+  
+  .business-info-card {
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+  }
+  
+  .business-info-list {
+    gap: 1.75rem;
+  }
+  
+  .business-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .business-info-label {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .business-info-label i {
+    font-size: 20px;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .business-info-content {
+    width: 100%;
+    padding-left: 0;
+    font-size: 0.95rem;
+  }
+  
+  .business-info-note {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .business-info-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .business-info-list {
+    gap: 1.5rem;
+  }
+}
+
+/* ==============================================
+   新料金プランセクション
+   ============================================== */
+
+.plans-section {
+  background: white;
+  padding: 6rem 0;
+  position: relative;
+}
+
+.plans-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ヘッダー */
+.plans-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.plans-english {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  color: #c8b37a;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: 0.75rem;
+}
+
+.plans-title {
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #3c3733;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+}
+
+.plans-subtitle {
+  font-size: 0.95rem;
+  color: #6b6460;
+  letter-spacing: 0.05em;
+}
+
+/* メイングリッド（3カード横並び） */
+.plans-main-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* サブグリッド（成婚料＋準備中） */
+.plans-sub-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* プランカード */
+.new-plan-card {
+  background: white;
+  border-radius: 12px;
+  padding: 3.5rem 2rem 2.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.new-plan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* おすすめプラン */
+.new-plan-featured {
+  border-color: #c8b37a;
+  transform: scale(1.03);
+}
+
+.new-plan-featured:hover {
+  transform: scale(1.03) translateY(-4px);
+}
+
+.new-plan-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #c8b37a 0%, #d4c5a0 100%);
+  color: white;
+  padding: 0.4rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  box-shadow: 0 2px 8px rgba(200, 179, 122, 0.3);
+}
+
+/* プランタグ（単発、定番、集中サポート） */
+.new-plan-tag {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background: rgba(200, 179, 122, 0.15);
+  color: #8a7d6f;
+  padding: 0.3rem 0.9rem;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* 準備中プラン（横長） */
+.new-plan-comingsoon-wide {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  border: 2px solid #e0d8c8;
+  opacity: 0.7;
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.new-plan-comingsoon-badge {
+  position: absolute;
+  top: -12px;
+  left: 2rem;
+  background: #8a7d6f;
+  color: white;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.new-plan-comingsoon-left {
+  flex-shrink: 0;
+  min-width: 200px;
+  padding-top: 0.25rem;
+}
+
+.new-plan-comingsoon-title {
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #3c3733;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.new-plan-comingsoon-price {
+  font-size: 0.95rem;
+  color: #6b6460;
+}
+
+.new-price-amount-small {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #c8b37a;
+  margin: 0 0.25rem;
+}
+
+.new-price-unit-small {
+  font-size: 0.95rem;
+  color: #8a7d6f;
+}
+
+.new-plan-comingsoon-right {
+  flex: 1;
+}
+
+.new-plan-comingsoon-text {
+  font-size: 0.9rem;
+  color: #3c3733;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+/* プラン名 */
+.new-plan-name {
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #3c3733;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+/* 料金表示 */
+.new-plan-price {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(200, 179, 122, 0.2);
+}
+
+.new-price-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #c8b37a;
+  letter-spacing: -0.02em;
+}
+
+.new-price-unit {
+  font-size: 1.2rem;
+  color: #8a7d6f;
+  margin-left: 0.25rem;
+}
+
+.new-price-period {
+  font-size: 0.9rem;
+  color: #8a7d6f;
+  margin-left: 0.5rem;
+}
+
+/* 説明文 */
+.new-plan-description {
+  color: #3c3733;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+}
+
+.new-plan-description p {
+  margin-bottom: 1.25rem;
+}
+
+.new-plan-description p:last-child {
+  margin-bottom: 0;
+}
+
+.new-plan-content-title {
+  font-weight: 600;
+  color: #8a7d6f;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem !important;
+}
+
+.new-plan-content {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #6b6460;
+  padding-left: 0.5rem;
+}
+
+.new-plan-note {
+  font-size: 0.8rem;
+  color: #a0978d;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* 成婚料ボックス（横長） */
+.new-plan-success-fee {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(200, 179, 122, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.new-success-fee-prices {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 240px;
+}
+
+.new-success-fee-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.new-success-fee-title {
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #3c3733;
+  letter-spacing: 0.1em;
+}
+
+.new-success-fee-price {
+  white-space: nowrap;
+}
+
+.new-success-fee-badge {
+  display: inline-block;
+  background: rgba(200, 179, 122, 0.15);
+  color: #8a7d6f;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.new-success-fee-text {
+  flex: 1;
+  font-size: 0.9rem;
+  color: #6b6460;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+  .plans-main-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .new-plan-featured {
+    transform: scale(1);
+  }
+  
+  .new-plan-featured:hover {
+    transform: translateY(-4px);
+  }
+  
+  .new-plan-comingsoon-wide {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .new-plan-comingsoon-left {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .new-plan-comingsoon-right {
+    width: 100%;
+  }
+  
+  .new-plan-success-fee {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .new-success-fee-prices {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .new-success-fee-row {
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .new-success-fee-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .plans-section {
+    padding: 4rem 0;
+  }
+  
+  .plans-container {
+    padding: 0 1rem;
+  }
+  
+  .plans-header {
+    margin-bottom: 3rem;
+  }
+  
+  .plans-title {
+    font-size: 1.75rem;
+  }
+  
+  .new-plan-card,
+  .new-plan-success-fee {
+    padding: 2rem 1.5rem;
+  }
+  
+  .new-plan-name,
+  .new-success-fee-title {
+    font-size: 1.25rem;
+  }
+  
+  .new-price-amount {
+    font-size: 2rem;
+  }
+  
+  .plans-main-grid {
+    margin-bottom: 2rem;
+  }
+  
+  .new-plan-comingsoon-wide {
+    padding: 1.5rem;
+  }
+  
+  .new-plan-comingsoon-title {
+    font-size: 1.15rem;
+  }
+  
+  .new-plan-comingsoon-text {
+    font-size: 0.85rem;
+  }
+  
+  .new-plan-success-fee {
+    padding: 1.5rem;
+  }
+  
+  .new-success-fee-title {
+    font-size: 1.2rem;
   }
 }
 
