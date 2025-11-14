@@ -1903,174 +1903,188 @@ label[required]::after {
 
 /* ========================================
    Footer - Elegant Version (和 × 上品 × 静か)
-   全ページ共通・ヒーローと統一世界観
+   営業時間・定休日完全削除済み
    
-   【レイアウト】
-   PC: 左（ロゴ＋住所TEL）｜中央（横並びナビ）｜右（コピーライト右寄せ）
-   SP: 上（ロゴ）→中段（住所TEL）→下（縦並びナビ）→最下段（コピーライト中央）
+   【構成】
+   左: ロゴ + 住所 + TEL
+   中央: グローバルナビ（横並び）
+   右: コピーライト
+   
+   【絶対禁止】
+   - writing-mode による縦書き
+   - 文字の1文字ずつ改行
+   - 営業時間・定休日の復活
    ======================================== */
 
 .footer-elegant {
-  background-color: #f5f1e8; /* ページ全体よりわずかにトーン落とした淡いクリーム */
-  border-top: 1px solid rgba(200, 179, 122, 0.2); /* 細い薄金のボーダー */
-  padding: 5.5rem 0 4.5rem; /* 上下に十分な余白（PCで88px/72px） */
+  background-color: #faf7f2; /* ごく淡いクリーム系 */
+  border-top: 1px solid rgba(200, 179, 122, 0.25); /* 細い薄いボーダー */
+  padding: 5rem 0 4rem; /* 上下に十分な余白 */
 }
 
-/* ===== PC Layout: 3-Column Grid ===== */
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr; /* 左（1）｜中央（2）｜右（1） */
-  gap: 4rem; /* ブロック間の余白を広めに */
-  align-items: start;
-}
-
-/* ===== 左ブロック: Logo + Address/Tel ===== */
-.footer-left {
+/* ===== PC Layout: Flexbox 3ブロック ===== */
+.footer-content-wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+/* ===== 左ブロック: ロゴ + 住所 + TEL ===== */
+.footer-block-left {
+  flex: 0 0 auto;
+  min-width: 240px;
 }
 
 .footer-logo {
-  margin-bottom: 2.5rem; /* ロゴ周りの余白をしっかり確保 */
+  margin-bottom: 1.5rem;
 }
 
 .footer-logo-text {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2rem; /* 32px */
   font-weight: 400;
-  letter-spacing: 0.02em; /* ロゴらしい少し広めの字間 */
-  color: #4a4238; /* 深めの墨色 */
+  letter-spacing: 0.02em;
+  color: #3c3733; /* 落ち着いた濃いグレー */
+  margin: 0;
 }
 
-.footer-contact-info {
-  line-height: 1.8; /* 行間を広めに */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .footer-address {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 0.875rem; /* 14px */
-  font-weight: 300;
-  color: #3c3733; /* 深めの墨色 */
-  line-height: 1.75; /* 読みやすく */
+  font-weight: 400;
+  color: #3c3733;
+  line-height: 1.7;
+  margin: 0;
 }
 
 .footer-tel {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 0.875rem; /* 14px */
-  font-weight: 300;
+  font-weight: 400;
   color: #3c3733;
-  margin-top: 0.75rem; /* TELと住所の間隔 */
+  margin: 0;
 }
 
-/* ===== 中央ブロック: 水平ナビ（PC） ===== */
-.footer-nav {
+/* ===== 中央ブロック: グローバルナビ（横並び） ===== */
+.footer-block-center {
+  flex: 1 1 auto;
   display: flex;
-  align-items: center; /* 垂直方向中央 */
-  justify-content: center; /* 水平方向中央 */
+  justify-content: center;
+  align-items: center;
 }
 
-.footer-nav-list {
+.footer-nav-horizontal {
   display: flex;
-  flex-wrap: nowrap; /* PC では折り返さない */
+  flex-wrap: wrap; /* 画面幅が狭い時は折り返す */
+  justify-content: center;
   align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 0; /* gap は使わず、セパレーターで制御 */
+  gap: 0; /* gap は使わず、セパレーターとpaddingで制御 */
 }
 
-.footer-nav-list li {
-  display: inline-flex;
-  align-items: center;
+.footer-nav-horizontal li {
+  display: inline-block; /* 絶対にblock化しない */
 }
 
 .footer-nav-link {
+  display: inline-block; /* 絶対にblock化しない */
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 0.8125rem; /* 13px - 小さめで上品に */
-  font-weight: 300;
-  letter-spacing: 0.1em; /* 文字間を広げて上品に */
-  color: #3c3733; /* 深めの墨色 */
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  color: #3c3733;
   text-decoration: none;
-  transition: color 0.25s ease;
-  padding: 0 0.5rem; /* 左右に少し余白 */
-  white-space: nowrap; /* 折り返さない */
+  padding: 0.25rem 0.75rem; /* 上下・左右の余白 */
+  white-space: nowrap; /* 絶対に折り返さない */
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+  border-bottom: 1px solid transparent;
 }
 
 .footer-nav-link:hover {
-  color: #6b6158; /* ほんの少し濃くするだけ（下線・派手な色は使わない） */
+  color: #5a524a; /* 少しだけ濃く */
+  border-bottom: 1px solid rgba(60, 55, 51, 0.3); /* 細い下線 */
 }
 
-/* ナビのセパレーター（／） */
-.footer-nav-separator {
+/* ナビのセパレーター */
+.footer-nav-sep {
+  display: inline-block; /* 絶対にblock化しない */
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 0.75rem; /* 12px */
   font-weight: 300;
-  color: rgba(60, 55, 51, 0.3); /* 非常に薄く */
-  margin: 0 0.25rem; /* 左右に狭い余白 */
+  color: rgba(60, 55, 51, 0.25);
+  padding: 0 0.25rem;
+  user-select: none;
 }
 
 /* ===== 右ブロック: コピーライト ===== */
-.footer-right {
+.footer-block-right {
+  flex: 0 0 auto;
+  min-width: 180px;
   display: flex;
-  justify-content: flex-end; /* 右寄せ（PC） */
+  justify-content: flex-end;
   align-items: flex-start;
 }
 
 .footer-copyright {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 0.75rem; /* 12px - 一段小さく */
+  font-size: 0.75rem; /* 12px */
   font-weight: 300;
-  color: #8c857c; /* 薄めのグレー */
+  color: #8c857c;
   text-align: right;
-  line-height: 1.6;
+  margin: 0;
+  line-height: 1.5;
 }
 
-/* ===== Responsive: タブレット〜スマホ（1024px以下） ===== */
+/* ===== Responsive: タブレット（1024px以下） ===== */
 @media (max-width: 1024px) {
-  .footer-elegant {
-    padding: 5rem 0 4rem; /* モバイルは少し詰める */
-  }
-  
-  .footer-grid {
-    grid-template-columns: 1fr; /* 縦並び */
+  .footer-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 3rem;
   }
   
-  /* 左ブロック: ロゴを中央揃え */
-  .footer-left {
+  .footer-block-left {
+    min-width: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
   }
   
-  .footer-logo {
-    margin-bottom: 1.5rem;
+  .footer-contact {
+    align-items: center;
   }
   
-  .footer-logo-text {
-    font-size: 1.75rem; /* 28px */
+  .footer-block-center {
+    width: 100%;
   }
   
-  .footer-contact-info {
-    text-align: center;
+  /* スマホではナビを縦並びに */
+  .footer-nav-horizontal {
+    flex-direction: column;
+    gap: 0.875rem;
   }
   
-  /* 中央ブロック: ナビを縦並びに */
-  .footer-nav-list {
-    flex-direction: column; /* 縦並び */
-    gap: 0.875rem; /* 14px */
-  }
-  
-  .footer-nav-separator {
+  .footer-nav-sep {
     display: none; /* セパレーター非表示 */
   }
   
   .footer-nav-link {
-    font-size: 0.875rem; /* 14px */
-    padding: 0;
+    font-size: 0.9375rem; /* 15px - タップしやすく */
+    padding: 0.5rem 1rem;
   }
   
-  /* 右ブロック: コピーライトを中央揃え */
-  .footer-right {
+  .footer-block-right {
+    width: 100%;
     justify-content: center;
   }
   
@@ -2082,15 +2096,15 @@ label[required]::after {
 /* ===== Responsive: 小型スマホ（640px以下） ===== */
 @media (max-width: 640px) {
   .footer-elegant {
-    padding: 4rem 0 3rem; /* さらに余白を詰める */
+    padding: 4rem 0 3rem;
   }
   
-  .footer-grid {
+  .footer-content-wrapper {
     gap: 2.5rem;
   }
   
   .footer-logo-text {
-    font-size: 1.5rem; /* 24px */
+    font-size: 1.75rem; /* 28px */
   }
   
   .footer-address,
@@ -2099,7 +2113,7 @@ label[required]::after {
   }
   
   .footer-nav-link {
-    font-size: 0.8125rem; /* 13px */
+    font-size: 0.875rem; /* 14px */
   }
 }
   
