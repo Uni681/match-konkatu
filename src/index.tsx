@@ -376,9 +376,9 @@ app.get('/blog/:slug', (c) => {
   }
   
   const content = `
-    <article class="container mx-auto px-4 py-12">
+    <article class="container mx-auto px-4 md:px-6 py-8 md:py-16">
       <nav class="mb-8" aria-label="パンくずリスト">
-        <ol class="flex space-x-2 text-sm text-gray-600">
+        <ol class="flex flex-wrap space-x-2 text-sm text-gray-600">
           ${breadcrumbs.map((crumb, index) => `
             <li class="flex items-center">
               ${index > 0 ? '<i class="fas fa-chevron-right mx-2 text-xs"></i>' : ''}
@@ -392,25 +392,25 @@ app.get('/blog/:slug', (c) => {
       </nav>
       
       <header class="text-center mb-12">
-        <div class="mb-4">
-          <span class="inline-block bg-primary-100 text-primary-700 px-4 py-2 rounded-full font-medium">
+        <div class="mb-6">
+          <span class="inline-block bg-gradient-to-r from-[#c9a961] to-[#b39451] text-white px-6 py-2 rounded-full font-medium text-sm">
             ${post.category}
           </span>
         </div>
         
-        <h1 class="font-mincho text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h1 class="font-mincho text-2xl md:text-4xl font-bold text-gray-900 mb-6 px-4">
           ${post.title}
         </h1>
         
         <div class="text-gray-600 mb-8">
-          <time datetime="${post.date}">
+          <time datetime="${post.date}" class="text-sm md:text-base">
             <i class="fas fa-calendar mr-2"></i>
-            ${new Date(post.date).toLocaleDateString('ja-JP')}
+            ${new Date(post.date).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
           </time>
           ${post.tags && post.tags.length > 0 ? `
-            <div class="mt-4">
+            <div class="mt-6 flex flex-wrap gap-2 justify-center">
               ${post.tags.map(tag => `
-                <span class="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2">
+                <span class="inline-block bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm hover:bg-gray-200 transition-colors">
                   #${tag}
                 </span>
               `).join('')}
@@ -419,34 +419,34 @@ app.get('/blog/:slug', (c) => {
         </div>
         
         ${post.featured_image ? `
-          <div class="mb-8">
-            <img src="${post.featured_image}" alt="${post.title}" class="w-full max-w-3xl mx-auto rounded-xl shadow-lg">
+          <div class="mb-12">
+            <img src="${post.featured_image}" alt="${post.title}" class="w-full max-w-4xl mx-auto rounded-2xl shadow-lg" style="max-height: 500px; object-fit: cover;">
           </div>
         ` : ''}
       </header>
       
-      <div class="max-w-4xl mx-auto prose prose-lg prose-primary">
+      <div class="max-w-4xl mx-auto prose prose-lg prose-primary mb-16" style="font-size: 1.125rem; line-height: 1.9;">
         ${raw(post.content)}
       </div>
       
       <!-- Share buttons -->
-      <div class="max-w-4xl mx-auto mt-12 pt-8 border-t border-gray-200">
-        <h3 class="font-semibold text-lg mb-4">この記事をシェア</h3>
-        <div class="flex space-x-4">
+      <div class="max-w-4xl mx-auto mt-16 pt-8 border-t-2 border-gray-200">
+        <h3 class="font-semibold text-lg md:text-xl mb-6 text-center md:text-left">この記事をシェアする</h3>
+        <div class="flex flex-wrap gap-3 justify-center md:justify-start">
           <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(c.req.url)}&text=${encodeURIComponent(post.title)}" 
              target="_blank" 
-             class="flex items-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
+             class="flex items-center px-6 py-3 bg-[#1DA1F2] text-white rounded-lg hover:bg-[#1a8cd8] transition-all shadow-md">
             <i class="fab fa-twitter mr-2"></i>
             Twitter
           </a>
           <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(c.req.url)}" 
              target="_blank"
-             class="flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+             class="flex items-center px-6 py-3 bg-[#1877F2] text-white rounded-lg hover:bg-[#166fe5] transition-all shadow-md">
             <i class="fab fa-facebook mr-2"></i>
             Facebook
           </a>
-          <button onclick="navigator.clipboard.writeText('${c.req.url}')" 
-                  class="flex items-center px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors">
+          <button onclick="navigator.clipboard.writeText('${c.req.url}'); alert('URLをコピーしました');" 
+                  class="flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-all shadow-md">
             <i class="fas fa-link mr-2"></i>
             URLコピー
           </button>
@@ -454,19 +454,42 @@ app.get('/blog/:slug', (c) => {
       </div>
       
       <!-- Back to blog -->
-      <div class="max-w-4xl mx-auto mt-8 text-center">
-        <a href="/blog" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium">
+      <div class="max-w-4xl mx-auto mt-12 text-center">
+        <a href="/blog" class="inline-flex items-center text-[#c9a961] hover:text-[#b39451] font-medium text-lg transition-colors">
           <i class="fas fa-arrow-left mr-2"></i>
           ブログ一覧に戻る
         </a>
       </div>
     </article>
     
-    ${CTA({ 
-      title: "婚活でお悩みですか？",
-      subtitle: "記事を読んで気になることがあれば、お気軽にご相談ください。",
-      variant: 'default' 
-    })}
+    <!-- Blog CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-[#f8f6f3] to-[#faf8f5]">
+      <div class="container mx-auto px-4 md:px-6 max-w-4xl text-center">
+        <h2 class="font-mincho text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          婚活でお悩みですか？
+        </h2>
+        <p class="text-lg md:text-xl text-gray-700 mb-4 leading-relaxed">
+          気軽に話せる30分の無料相談をご用意しています。
+        </p>
+        <p class="text-base md:text-lg text-gray-600 mb-10">
+          「何から始めればいいか分からない」という段階でも歓迎です。
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="/contact" class="btn btn-primary text-lg px-8 py-4 w-full sm:w-auto hover:scale-105 transition-transform shadow-lg">
+            <i class="fas fa-calendar-check mr-2"></i>
+            無料相談を申し込む
+          </a>
+          <a href="#" class="btn btn-outline text-lg px-8 py-4 w-full sm:w-auto hover:scale-105 transition-transform border-2 border-[#c9a961] text-[#c9a961] hover:bg-[#c9a961] hover:text-white">
+            <i class="fab fa-line mr-2"></i>
+            LINE相談
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    ${SNSSection()}
+    ${ContactSection()}
   `
   
   return c.html(Layout({

@@ -39,8 +39,8 @@ export function BlogListPage(posts: any[], currentPage: number = 1, totalPages: 
       </section>
 
       <!-- Blog List Section -->
-      <section class="blog-list-section py-20 bg-white">
-        <div class="container mx-auto px-6 max-w-7xl">
+      <section class="blog-list-section py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 md:px-6 max-w-7xl">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             ${raw(paginatedPosts.map(post => `
               <article class="blog-card">
