@@ -1919,25 +1919,24 @@ label[required]::after {
 .footer-elegant {
   background-color: rgba(255, 255, 255, 0.95); /* ヘッダーと同じ */
   border-top: 1px solid rgba(200, 179, 122, 0.2); /* 細い薄いボーダー */
-  padding: 3rem 0 1.5rem; /* 下パディング縮小（コピーライト用） */
+  padding: 2rem 0 1rem; /* もっと狭く！！！（32px / 16px） */
 }
 
-/* ===== PC Layout: Flexbox 3ブロック ===== */
+/* ===== PC Layout: Grid 3カラム ===== */
 .footer-content-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 均等3分割 */
+  align-items: center; /* 垂直方向中央 */
+  gap: 2rem; /* もっと狭く */
 }
 
 /* ===== 左ブロック: ロゴ + 住所 + TEL ===== */
 .footer-block-left {
-  flex: 0 0 auto;
-  min-width: 240px;
+  /* Grid カラムで自動調整 */
 }
 
 .footer-logo {
-  margin-bottom: 1rem; /* 少し狭く */
+  margin-bottom: 0.5rem; /* もっと狭く */
 }
 
 .footer-logo-image {
@@ -1949,7 +1948,7 @@ label[required]::after {
 .footer-contact {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem; /* もっと狭く */
 }
 
 .footer-address {
@@ -1969,9 +1968,8 @@ label[required]::after {
   margin: 0;
 }
 
-/* ===== 中央ブロック: グローバルナビ（上下左右中央） ===== */
+/* ===== 中央ブロック: グローバルナビ（完全中央） ===== */
 .footer-block-center {
-  flex: 1 1 auto;
   display: flex;
   justify-content: center; /* 水平方向中央 */
   align-items: center; /* 垂直方向中央 */
@@ -2023,13 +2021,12 @@ label[required]::after {
 
 /* ===== 右ブロック: 空 ===== */
 .footer-block-right {
-  flex: 0 0 auto;
-  min-width: 180px;
+  /* Grid カラムで自動調整 */
 }
 
 /* ===== コピーライト: 最下に、さりげなく ===== */
 .footer-copyright-bottom {
-  margin-top: 2rem; /* 上に余白 */
+  margin-top: 1rem; /* もっと狭く */
   text-align: center; /* 中央揃え */
 }
 
@@ -2045,15 +2042,11 @@ label[required]::after {
 /* ===== Responsive: タブレット（1024px以下） ===== */
 @media (max-width: 1024px) {
   .footer-content-wrapper {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 3rem;
+    grid-template-columns: 1fr; /* 1カラムに */
+    gap: 1.5rem; /* もっと狭く */
   }
   
   .footer-block-left {
-    min-width: auto;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2064,13 +2057,13 @@ label[required]::after {
   }
   
   .footer-block-center {
-    width: 100%;
+    justify-content: center;
   }
   
   /* スマホではナビを縦並びに */
   .footer-nav-horizontal {
     flex-direction: column;
-    gap: 0.875rem;
+    gap: 0.5rem; /* もっと狭く */
   }
   
   .footer-nav-sep {
@@ -2082,19 +2075,17 @@ label[required]::after {
     padding: 0.5rem 1rem;
   }
   
-  .footer-block-right {
-    width: 100%;
-  }
+
 }
 
 /* ===== Responsive: 小型スマホ（640px以下） ===== */
 @media (max-width: 640px) {
   .footer-elegant {
-    padding: 2.5rem 0 2rem; /* スマホも狭く（40px / 32px） */
+    padding: 1.5rem 0 0.75rem; /* もっと狭く！！！（24px / 12px） */
   }
   
   .footer-content-wrapper {
-    gap: 2rem; /* 狭く */
+    gap: 1rem; /* もっと狭く */
   }
   
   .footer-logo-image {
@@ -2102,7 +2093,7 @@ label[required]::after {
   }
   
   .footer-copyright-bottom {
-    margin-top: 1.5rem; /* スマホでは少し狭く */
+    margin-top: 0.75rem; /* もっと狭く */
   }
   
   .footer-address,
