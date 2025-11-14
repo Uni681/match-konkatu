@@ -2427,24 +2427,28 @@ label[required]::after {
    About ページ専用スタイル
    =============================== */
 
-/* About ヒーローセクション */
+/* ==============================================
+   About ヒーローセクション
+   トップページと世界観統一（和・上品・静か）
+   ============================================== */
+
 .about-hero-section {
-  background: linear-gradient(135deg, #faf9f7 0%, #f5f1ea 100%);
+  background: linear-gradient(to bottom, #fdfcfa 0%, #faf9f7 100%);
   position: relative;
+  min-height: 380px; /* PC: 380px（ゆったり） */
+  display: flex;
+  align-items: center;
+  padding: 5rem 0; /* 上下に余白 */
 }
 
 .about-hero-background {
   width: 100%;
   height: 100%;
-  /* 中央は白、周辺に和柄装飾 */
+  /* 中央はふんわり白、周辺に淡い和柄 */
   background: 
-    /* 四隅の和柄装飾 */
-    radial-gradient(circle at 0% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
-    radial-gradient(circle at 100% 0%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
-    radial-gradient(circle at 0% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
-    radial-gradient(circle at 100% 100%, rgba(245, 241, 234, 0.95) 0%, transparent 25%),
-    /* 中央は白 */
-    #FEFDFB;
+    /* 中央から外側への強いグラデーション */
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95) 0%, rgba(250, 249, 247, 0.7) 40%, rgba(245, 241, 234, 0.5) 70%, rgba(245, 241, 234, 0.3) 100%),
+    #fdfcfa;
   position: relative;
 }
 
@@ -2452,65 +2456,63 @@ label[required]::after {
   content: '';
   position: absolute;
   inset: 0;
-  /* 四隅に麻の葉パターン */
+  /* 麻の葉パターン - コントラスト弱く */
   background-image: 
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23BFA45A' fill-opacity='0.15'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8b37a' fill-opacity='0.08'%3E%3Cpath d='M30 0l15 26-15 26-15-26z'/%3E%3Cpath d='M0 30l26 15-26 15V30z'/%3E%3Cpath d='M60 30l-26 15 26 15V30z'/%3E%3Cpath d='M30 60l-15-26 15-26 15 26z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-size: 80px 80px;
-  /* 四隅だけに表示 */
+  /* 左右端でしっかり見え、中央はふんわり薄く */
+  opacity: 0.6; /* 全体の不透明度を下げる */
   -webkit-mask-image: 
-    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
-    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
-    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
-    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
-  -webkit-mask-composite: source-over;
+    radial-gradient(ellipse at center, transparent 0%, transparent 30%, black 60%, black 100%);
   mask-image: 
-    radial-gradient(circle at 0% 0%, black 0%, black 20%, transparent 35%),
-    radial-gradient(circle at 100% 0%, black 0%, black 20%, transparent 35%),
-    radial-gradient(circle at 0% 100%, black 0%, black 20%, transparent 35%),
-    radial-gradient(circle at 100% 100%, black 0%, black 20%, transparent 35%);
-  mask-composite: add;
+    radial-gradient(ellipse at center, transparent 0%, transparent 30%, black 60%, black 100%);
   pointer-events: none;
 }
 
+/* 金箔装飾は削除（シンプルに） */
 .gold-foil-decoration {
-  width: 100%;
-  height: 100%;
-  /* 金箔効果を周辺だけに */
-  background-image: 
-    radial-gradient(circle at 5% 15%, rgba(212, 175, 55, 0.3) 2px, transparent 2px),
-    radial-gradient(circle at 95% 85%, rgba(212, 175, 55, 0.25) 1.5px, transparent 1.5px),
-    radial-gradient(circle at 10% 85%, rgba(212, 175, 55, 0.3) 2px, transparent 2px),
-    radial-gradient(circle at 90% 20%, rgba(212, 175, 55, 0.2) 1.5px, transparent 1.5px);
-  background-size: 200px 200px, 220px 220px, 180px 180px, 240px 240px;
-  animation: goldFloating 12s ease-in-out infinite;
+  display: none; /* アニメーションなし、静かに */
 }
 
-@keyframes goldFloating {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-3px) rotate(0.5deg); }
-  66% { transform: translateY(-2px) rotate(-0.5deg); }
-}
-
+/* ABOUT（英字見出し） */
 .about-hero-english {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 3rem;
-  font-weight: 200;
-  letter-spacing: 0.2em;
-  color: rgba(191, 164, 90, 0.2);
+  font-size: 1.125rem; /* 18px - やや大きめ */
+  font-weight: 300;
+  letter-spacing: 0.35em; /* 広めの字間 */
+  color: #c8b37a; /* 薄いゴールド */
   text-transform: uppercase;
   line-height: 1.2;
   user-select: none;
   pointer-events: none;
+  opacity: 0.85; /* ほんのり控えめ */
 }
 
+/* メインタイトル */
 .about-hero-title {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: #BFA45A;
-  line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
+  font-size: 2.5rem; /* 40px */
+  font-weight: 400; /* 軽めのウェイト */
+  color: #3c3733; /* 深めの墨色 */
+  line-height: 1.4;
   text-align: center;
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.06); /* ほんのり影 */
+  position: relative;
+  padding-bottom: 1.5rem; /* 下に余白（ライン用） */
+}
+
+/* タイトル下の細いライン */
+.about-hero-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c8b37a, transparent);
+  opacity: 0.5;
 }
 
 .about-hero-description {
@@ -2530,13 +2532,31 @@ label[required]::after {
   margin-bottom: 0;
 }
 
+/* ===== スマホ版（768px以下） ===== */
 @media (max-width: 768px) {
+  .about-hero-section {
+    min-height: 280px; /* スマホ: 280px（少しコンパクト） */
+    padding: 3.5rem 0; /* 上下余白は少し詰める */
+  }
+  
+  .about-hero-background::before {
+    opacity: 0.4; /* スマホではさらに薄く */
+    background-size: 60px 60px; /* パターン少し小さく */
+  }
+  
   .about-hero-english {
-    font-size: 2rem;
+    font-size: 0.875rem; /* 14px */
+    letter-spacing: 0.3em;
   }
   
   .about-hero-title {
-    font-size: 2rem;
+    font-size: 1.75rem; /* 28px */
+    letter-spacing: 0.08em;
+    padding-bottom: 1rem;
+  }
+  
+  .about-hero-title::after {
+    width: 60px; /* ライン短く */
   }
 }
 
