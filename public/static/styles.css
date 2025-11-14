@@ -1904,128 +1904,142 @@ label[required]::after {
 /* ========================================
    Footer - Elegant Version (和 × 上品 × 静か)
    全ページ共通・ヒーローと統一世界観
+   
+   【レイアウト】
+   PC: 左（ロゴ＋住所TEL）｜中央（横並びナビ）｜右（コピーライト右寄せ）
+   SP: 上（ロゴ）→中段（住所TEL）→下（縦並びナビ）→最下段（コピーライト中央）
    ======================================== */
 
 .footer-elegant {
-  background-color: #f5f1e8; /* Slightly darker than page: pale cream/beige */
-  border-top: 1px solid rgba(200, 179, 122, 0.2); /* Thin muted gold border */
-  padding: 5rem 0 4rem; /* Generous vertical spacing */
+  background-color: #f5f1e8; /* ページ全体よりわずかにトーン落とした淡いクリーム */
+  border-top: 1px solid rgba(200, 179, 122, 0.2); /* 細い薄金のボーダー */
+  padding: 5.5rem 0 4.5rem; /* 上下に十分な余白（PCで88px/72px） */
 }
 
-/* 3-Column Grid Layout (PC) */
+/* ===== PC Layout: 3-Column Grid ===== */
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr; /* Left | Center (wider) | Right */
-  gap: 3rem;
+  grid-template-columns: 1fr 2fr 1fr; /* 左（1）｜中央（2）｜右（1） */
+  gap: 4rem; /* ブロック間の余白を広めに */
   align-items: start;
 }
 
-/* ===== Left Block: Logo + Address/Tel ===== */
+/* ===== 左ブロック: Logo + Address/Tel ===== */
 .footer-left {
   display: flex;
   flex-direction: column;
 }
 
-/* Logo: Brand presence with generous spacing */
 .footer-logo {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem; /* ロゴ周りの余白をしっかり確保 */
 }
 
 .footer-logo-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
+  font-size: 2rem; /* 32px */
   font-weight: 400;
-  letter-spacing: -0.5px; /* Tight for logo feel */
-  color: #4a4238; /* Ink color */
+  letter-spacing: 0.02em; /* ロゴらしい少し広めの字間 */
+  color: #4a4238; /* 深めの墨色 */
 }
 
-/* Contact Info: Address and Tel */
 .footer-contact-info {
-  line-height: 1.75;
+  line-height: 1.8; /* 行間を広めに */
 }
 
 .footer-address {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 0.875rem; /* 14px */
   font-weight: 300;
-  color: #3c3733; /* Deep ink color */
-  line-height: 1.7;
+  color: #3c3733; /* 深めの墨色 */
+  line-height: 1.75; /* 読みやすく */
 }
 
 .footer-tel {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.875rem; /* 14px */
   font-weight: 300;
   color: #3c3733;
+  margin-top: 0.75rem; /* TELと住所の間隔 */
 }
 
-/* ===== Center: Site Navigation ===== */
+/* ===== 中央ブロック: 水平ナビ（PC） ===== */
 .footer-nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* 垂直方向中央 */
+  justify-content: center; /* 水平方向中央 */
 }
 
 .footer-nav-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem 2rem; /* Vertical 8px, Horizontal 32px */
+  flex-wrap: nowrap; /* PC では折り返さない */
+  align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
+  gap: 0; /* gap は使わず、セパレーターで制御 */
+}
+
+.footer-nav-list li {
+  display: inline-flex;
+  align-items: center;
 }
 
 .footer-nav-link {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 0.8125rem; /* 13px - small and elegant */
+  font-size: 0.8125rem; /* 13px - 小さめで上品に */
   font-weight: 300;
-  letter-spacing: 0.08em; /* Slightly wider spacing */
-  color: #3c3733;
+  letter-spacing: 0.1em; /* 文字間を広げて上品に */
+  color: #3c3733; /* 深めの墨色 */
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
+  padding: 0 0.5rem; /* 左右に少し余白 */
+  white-space: nowrap; /* 折り返さない */
 }
 
 .footer-nav-link:hover {
-  color: #847765; /* Slightly darker, not bright gold */
+  color: #6b6158; /* ほんの少し濃くするだけ（下線・派手な色は使わない） */
 }
 
-.footer-nav-link-small {
-  font-size: 0.75rem; /* 12px - even smaller for privacy policy */
-  color: #8c857c; /* Lighter muted color */
+/* ナビのセパレーター（／） */
+.footer-nav-separator {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.75rem; /* 12px */
+  font-weight: 300;
+  color: rgba(60, 55, 51, 0.3); /* 非常に薄く */
+  margin: 0 0.25rem; /* 左右に狭い余白 */
 }
 
-.footer-policy-link {
-  text-align: center;
-}
-
-/* ===== Right: Copyright ===== */
+/* ===== 右ブロック: コピーライト ===== */
 .footer-right {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* 右寄せ（PC） */
   align-items: flex-start;
 }
 
 .footer-copyright {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 0.75rem; /* 12px - one step smaller */
+  font-size: 0.75rem; /* 12px - 一段小さく */
   font-weight: 300;
-  color: #8c857c; /* Lighter muted color */
+  color: #8c857c; /* 薄めのグレー */
   text-align: right;
   line-height: 1.6;
 }
 
-/* ===== Responsive: Mobile Layout ===== */
+/* ===== Responsive: タブレット〜スマホ（1024px以下） ===== */
 @media (max-width: 1024px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
+  .footer-elegant {
+    padding: 5rem 0 4rem; /* モバイルは少し詰める */
   }
   
+  .footer-grid {
+    grid-template-columns: 1fr; /* 縦並び */
+    gap: 3rem;
+  }
+  
+  /* 左ブロック: ロゴを中央揃え */
   .footer-left {
     align-items: center;
+    text-align: center;
   }
   
   .footer-logo {
@@ -2033,22 +2047,29 @@ label[required]::after {
   }
   
   .footer-logo-text {
-    font-size: 1.75rem;
+    font-size: 1.75rem; /* 28px */
   }
   
   .footer-contact-info {
     text-align: center;
   }
   
+  /* 中央ブロック: ナビを縦並びに */
   .footer-nav-list {
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-direction: column; /* 縦並び */
+    gap: 0.875rem; /* 14px */
+  }
+  
+  .footer-nav-separator {
+    display: none; /* セパレーター非表示 */
   }
   
   .footer-nav-link {
-    font-size: 0.875rem; /* 14px on mobile */
+    font-size: 0.875rem; /* 14px */
+    padding: 0;
   }
   
+  /* 右ブロック: コピーライトを中央揃え */
   .footer-right {
     justify-content: center;
   }
@@ -2058,9 +2079,10 @@ label[required]::after {
   }
 }
 
+/* ===== Responsive: 小型スマホ（640px以下） ===== */
 @media (max-width: 640px) {
   .footer-elegant {
-    padding: 4rem 0 3rem; /* Less padding on small screens */
+    padding: 4rem 0 3rem; /* さらに余白を詰める */
   }
   
   .footer-grid {
@@ -2068,15 +2090,18 @@ label[required]::after {
   }
   
   .footer-logo-text {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* 24px */
   }
   
   .footer-address,
   .footer-tel {
     font-size: 0.8125rem; /* 13px */
   }
-}
+  
+  .footer-nav-link {
+    font-size: 0.8125rem; /* 13px */
   }
+}
   
   .about-us-card-arrow i {
     font-size: 0.875rem;

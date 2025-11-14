@@ -30,21 +30,21 @@ export function Footer() {
             </div>
           </div>
           
-          <!-- Center: Site Navigation -->
+          <!-- Center: Site Navigation (Horizontal) -->
           <nav class="footer-nav">
             <ul class="footer-nav-list">
               <li><a href="/" class="footer-nav-link">ホーム</a></li>
+              <li class="footer-nav-separator">／</li>
               <li><a href="/about" class="footer-nav-link">当結婚相談所について</a></li>
+              <li class="footer-nav-separator">／</li>
               <li><a href="/service" class="footer-nav-link">サービス・料金</a></li>
+              <li class="footer-nav-separator">／</li>
               <li><a href="/flow" class="footer-nav-link">ご成婚までのながれ</a></li>
+              <li class="footer-nav-separator">／</li>
               <li><a href="/faq" class="footer-nav-link">よくあるご質問</a></li>
+              <li class="footer-nav-separator">／</li>
               <li><a href="/contact" class="footer-nav-link">お問い合わせ</a></li>
             </ul>
-            
-            <!-- Privacy Policy Link (subtle) -->
-            <div class="footer-policy-link mt-6">
-              <a href="/policy" class="footer-nav-link footer-nav-link-small">プライバシーポリシー</a>
-            </div>
           </nav>
           
           <!-- Right: Copyright -->
