@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { serveStatic } from 'hono/cloudflare-workers'
 import { raw } from 'hono/html'
+import { getCookie, setCookie, deleteCookie } from 'hono/cookie'
 import type { Bindings } from './types'
 
 // Components
@@ -55,6 +56,10 @@ import { FlowPage } from './pages/flow'
 import { FAQPage } from './pages/faq'
 import { ContactPage } from './pages/contact'
 import { BlogListPage } from './pages/blog'
+import { AdminLoginPage } from './pages/admin/login'
+import { AdminDashboardPage } from './pages/admin/dashboard'
+import { AdminContactsPage, AdminContactDetailPage } from './pages/admin/contacts'
+import { AdminBlogListPage, AdminBlogEditorPage } from './pages/admin/blog'
 
 // Build time content
 const { home, pages, posts, settings } = buildTimeContent;
@@ -67,7 +72,6 @@ app.use('/api/*', cors())
 // 静的ファイルの配信
 app.use('/static/*', serveStatic({ root: './public' }))
 app.use('/img/*', serveStatic({ root: './public' }))
-app.use('/admin/*', serveStatic({ root: './public' }))
 
 // robots.txt（完全版）
 app.get('/robots.txt', (c) => {
@@ -754,6 +758,337 @@ app.post('/api/contact', async (c) => {
     return c.json({ 
       error: 'サーバーエラーが発生しました。しばらく時間をおいて再度お試しください。' 
     }, 500)
+  }
+})
+
+// =====================================
+// 管理画面ルーティング
+// =====================================
+
+// 認証ミドルウェア
+const adminAuth = async (c: any, next: any) => {
+  const sessionToken = getCookie(c, 'admin_session')
+  
+  // 簡易認証（本番環境ではより堅牢な認証を推奨）
+  const validToken = c.env?.ADMIN_SESSION_SECRET || 'match-admin-2024'
+  
+  if (sessionToken === validToken) {
+    await next()
+  } else {
+    return c.redirect('/admin/login')
+  }
+}
+
+// ログインページ（GET）
+app.get('/admin/login', (c) => {
+  const sessionToken = getCookie(c, 'admin_session')
+  const validToken = c.env?.ADMIN_SESSION_SECRET || 'match-admin-2024'
+  
+  // すでにログイン済みの場合はダッシュボードへ
+  if (sessionToken === validToken) {
+    return c.redirect('/admin/dashboard')
+  }
+  
+  return c.html(AdminLoginPage())
+})
+
+// ログイン処理（POST）
+app.post('/admin/login', async (c) => {
+  try {
+    const formData = await c.req.formData()
+    const username = formData.get('username') as string
+    const password = formData.get('password') as string
+    
+    // 認証情報チェック（環境変数から取得、なければデフォルト）
+    const validUsername = c.env?.ADMIN_USERNAME || 'admin'
+    const validPassword = c.env?.ADMIN_PASSWORD || 'match2024'
+    
+    if (username === validUsername && password === validPassword) {
+      // セッショントークンを設定
+      const sessionToken = c.env?.ADMIN_SESSION_SECRET || 'match-admin-2024'
+      setCookie(c, 'admin_session', sessionToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'Strict',
+        maxAge: 60 * 60 * 24 * 7 // 7日間
+      })
+      
+      return c.redirect('/admin/dashboard')
+    } else {
+      return c.html(AdminLoginPage('ユーザー名またはパスワードが正しくありません'))
+    }
+  } catch (error) {
+    console.error('Login error:', error)
+    return c.html(AdminLoginPage('ログインエラーが発生しました'))
+  }
+})
+
+// ログアウト処理
+app.post('/admin/logout', (c) => {
+  deleteCookie(c, 'admin_session')
+  return c.redirect('/admin/login')
+})
+
+// ダッシュボード
+app.get('/admin/dashboard', adminAuth, async (c) => {
+  try {
+    let contactsCount = 0
+    let newContactsCount = 0
+    
+    if (c.env?.DB) {
+      const contactsResult = await c.env.DB.prepare('SELECT COUNT(*) as count FROM contacts').first()
+      contactsCount = contactsResult?.count || 0
+      
+      const newContactsResult = await c.env.DB.prepare("SELECT COUNT(*) as count FROM contacts WHERE status = 'new'").first()
+      newContactsCount = newContactsResult?.count || 0
+    }
+    
+    const postsCount = posts.length
+    
+    return c.html(AdminDashboardPage({
+      contacts: contactsCount,
+      posts: postsCount,
+      newContacts: newContactsCount
+    }))
+  } catch (error) {
+    console.error('Dashboard error:', error)
+    return c.html(AdminDashboardPage({ contacts: 0, posts: 0, newContacts: 0 }))
+  }
+})
+
+// お問い合わせ一覧
+app.get('/admin/contacts', adminAuth, async (c) => {
+  try {
+    let contactsList: any[] = []
+    
+    if (c.env?.DB) {
+      const result = await c.env.DB.prepare(`
+        SELECT id, name, email, phone, message, created_at, status, spam_score
+        FROM contacts
+        ORDER BY created_at DESC
+        LIMIT 100
+      `).all()
+      
+      contactsList = result.results || []
+    }
+    
+    return c.html(AdminContactsPage(contactsList))
+  } catch (error) {
+    console.error('Contacts list error:', error)
+    return c.html(AdminContactsPage([]))
+  }
+})
+
+// お問い合わせ詳細
+app.get('/admin/contacts/:id', adminAuth, async (c) => {
+  try {
+    const id = c.req.param('id')
+    
+    if (!c.env?.DB) {
+      return c.text('データベースが設定されていません', 500)
+    }
+    
+    const contact = await c.env.DB.prepare(`
+      SELECT * FROM contacts WHERE id = ?
+    `).bind(id).first()
+    
+    if (!contact) {
+      return c.text('お問い合わせが見つかりません', 404)
+    }
+    
+    return c.html(AdminContactDetailPage(contact))
+  } catch (error) {
+    console.error('Contact detail error:', error)
+    return c.text('エラーが発生しました', 500)
+  }
+})
+
+// お問い合わせステータス更新
+app.post('/admin/contacts/:id/status', adminAuth, async (c) => {
+  try {
+    const id = c.req.param('id')
+    const formData = await c.req.formData()
+    const status = formData.get('status') as string
+    
+    if (!c.env?.DB) {
+      return c.text('データベースが設定されていません', 500)
+    }
+    
+    await c.env.DB.prepare(`
+      UPDATE contacts 
+      SET status = ?, updated_at = ?
+      WHERE id = ?
+    `).bind(status, new Date().toISOString(), id).run()
+    
+    return c.redirect(`/admin/contacts/${id}`)
+  } catch (error) {
+    console.error('Status update error:', error)
+    return c.text('エラーが発生しました', 500)
+  }
+})
+
+// ブログ一覧
+app.get('/admin/blog', adminAuth, (c) => {
+  return c.html(AdminBlogListPage(posts))
+})
+
+// ブログ新規作成ページ
+app.get('/admin/blog/new', adminAuth, (c) => {
+  return c.html(AdminBlogEditorPage())
+})
+
+// ブログ編集ページ
+app.get('/admin/blog/edit/:slug', adminAuth, (c) => {
+  const slug = c.req.param('slug')
+  const post = posts.find(p => p.slug === slug)
+  
+  if (!post) {
+    return c.text('記事が見つかりません', 404)
+  }
+  
+  return c.html(AdminBlogEditorPage(post))
+})
+
+// ブログ新規作成（POST）
+app.post('/admin/blog/new', adminAuth, async (c) => {
+  try {
+    const formData = await c.req.formData()
+    
+    const title = formData.get('title') as string
+    const slug = formData.get('slug') as string
+    const description = formData.get('description') as string
+    const content = formData.get('content') as string
+    const date = formData.get('date') as string
+    const category = formData.get('category') as string
+    const featuredImage = formData.get('featured_image') as string || ''
+    const tagsStr = formData.get('tags') as string || ''
+    const tags = tagsStr.split(',').map(t => t.trim()).filter(t => t)
+    const featured = formData.get('featured') === 'true'
+    const draft = formData.get('draft') === 'true'
+    
+    const frontmatter = `---
+title: "${title}"
+seo_title: "${title}｜MATCH"
+description: "${description}"
+category: "${category}"
+tags: ${JSON.stringify(tags)}
+date: "${date}:00+09:00"
+featured_image: "${featuredImage}"
+featured_image_alt: "${title}"
+featured: ${featured}
+draft: ${draft}
+---
+
+${content}`
+    
+    const fileDate = date.substring(0, 10)
+    const fileName = `${fileDate}-${slug}.md`
+    
+    return c.html(`
+      <!DOCTYPE html>
+      <html lang="ja">
+      <head>
+        <meta charset="UTF-8">
+        <title>記事作成完了</title>
+        <style>
+          body { font-family: sans-serif; padding: 40px; max-width: 1200px; margin: 0 auto; }
+          pre { background: #f5f5f5; padding: 20px; border-radius: 8px; overflow-x: auto; }
+          .btn { display: inline-block; padding: 12px 24px; background: #c9a961; color: white; text-decoration: none; border-radius: 8px; }
+        </style>
+      </head>
+      <body>
+        <h1>✅ 記事作成完了</h1>
+        <p>以下のファイルを <strong>content/posts/</strong> に保存してください：</p>
+        <h2>${fileName}</h2>
+        <pre>${frontmatter}</pre>
+        <p><a href="/admin/blog" class="btn">ブログ一覧に戻る</a></p>
+      </body>
+      </html>
+    `)
+  } catch (error) {
+    console.error('Blog create error:', error)
+    return c.text('エラーが発生しました', 500)
+  }
+})
+
+// ブログ編集（POST）
+app.post('/admin/blog/edit/:slug', adminAuth, async (c) => {
+  try {
+    const slug = c.req.param('slug')
+    const formData = await c.req.formData()
+    
+    const title = formData.get('title') as string
+    const description = formData.get('description') as string
+    const content = formData.get('content') as string
+    const date = formData.get('date') as string
+    const category = formData.get('category') as string
+    const featuredImage = formData.get('featured_image') as string || ''
+    const tagsStr = formData.get('tags') as string || ''
+    const tags = tagsStr.split(',').map(t => t.trim()).filter(t => t)
+    const featured = formData.get('featured') === 'true'
+    const draft = formData.get('draft') === 'true'
+    
+    const frontmatter = `---
+title: "${title}"
+seo_title: "${title}｜MATCH"
+description: "${description}"
+category: "${category}"
+tags: ${JSON.stringify(tags)}
+date: "${date}:00+09:00"
+featured_image: "${featuredImage}"
+featured_image_alt: "${title}"
+featured: ${featured}
+draft: ${draft}
+---
+
+${content}`
+    
+    const post = posts.find(p => p.slug === slug)
+    const fileName = post?.fileName || `${slug}.md`
+    
+    return c.html(`
+      <!DOCTYPE html>
+      <html lang="ja">
+      <head>
+        <meta charset="UTF-8">
+        <title>記事更新完了</title>
+        <style>
+          body { font-family: sans-serif; padding: 40px; max-width: 1200px; margin: 0 auto; }
+          pre { background: #f5f5f5; padding: 20px; border-radius: 8px; overflow-x: auto; }
+          .btn { display: inline-block; padding: 12px 24px; background: #c9a961; color: white; text-decoration: none; border-radius: 8px; }
+        </style>
+      </head>
+      <body>
+        <h1>✅ 記事更新完了</h1>
+        <p>以下の内容で <strong>content/posts/${fileName}</strong> を更新してください：</p>
+        <pre>${frontmatter}</pre>
+        <p><a href="/admin/blog" class="btn">ブログ一覧に戻る</a></p>
+      </body>
+      </html>
+    `)
+  } catch (error) {
+    console.error('Blog update error:', error)
+    return c.text('エラーが発生しました', 500)
+  }
+})
+
+// ブログ削除API
+app.delete('/admin/api/blog/:slug', adminAuth, async (c) => {
+  try {
+    const slug = c.req.param('slug')
+    const post = posts.find(p => p.slug === slug)
+    
+    if (!post) {
+      return c.json({ error: '記事が見つかりません' }, 404)
+    }
+    
+    return c.json({ 
+      success: true, 
+      message: `content/posts/ から ${post.fileName || slug + '.md'} を削除してください` 
+    })
+  } catch (error) {
+    console.error('Blog delete error:', error)
+    return c.json({ error: 'エラーが発生しました' }, 500)
   }
 })
 
