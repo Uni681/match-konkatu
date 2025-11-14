@@ -29,12 +29,12 @@ export const NewsSection = ({ posts }: NewsSectionProps) => {
     .slice(0, 3);
   
   return html`
-<section class="news-section-bg py-20">
+<section class="news-section-elegant py-28">
   <div class="container mx-auto px-6 max-w-6xl">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-      <!-- 縦書き見出し（PC）/ 横書き見出し（スマホ） -->
-      <div class="md:col-span-3 flex md:justify-center">
-        <h2 class="vertical-title">
+      <!-- 縦書き見出し（PC）/ 横書き見出し（SP） -->
+      <div class="md:col-span-3 flex md:justify-end md:pr-8">
+        <h2 class="news-section-title-elegant">
           最新情報
         </h2>
       </div>
@@ -43,32 +43,33 @@ export const NewsSection = ({ posts }: NewsSectionProps) => {
       <div class="md:col-span-9">
         <div class="space-y-0">
           ${raw(latestPosts.map((post, index) => `
-            <article class="news-item">
-              <a href="/blog/${post.slug}" class="news-item-title">
+            <article class="news-item-elegant ${index < latestPosts.length - 1 ? 'news-item-border' : ''}">
+              <a href="/blog/${post.slug}" class="news-item-title-elegant">
                 ${post.title}
               </a>
-              <time class="news-item-date" datetime="${post.date}">
-                ${new Date(post.date).toLocaleDateString('ja-JP', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </time>
-              ${post.category ? `
-                <span class="news-item-category">
-                  ${post.category}
-                </span>
-              ` : ''}
+              <div class="news-item-meta">
+                <time class="news-item-date-elegant" datetime="${post.date}">
+                  ${new Date(post.date).toLocaleDateString('ja-JP', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+                ${post.category ? `
+                  <span class="news-item-category-elegant">
+                    ${post.category}
+                  </span>
+                ` : ''}
+              </div>
             </article>
           `).join(''))}
         </div>
-        
       </div>
     </div>
     
-    <!-- 記事一覧ボタン（全幅中央配置） -->
-    <div class="w-full text-center mt-8">
-      <a href="/blog" class="news-button">
+    <!-- 記事一覧ボタン（中央配置） -->
+    <div class="w-full text-center mt-16">
+      <a href="/blog" class="news-cta-button">
         記事一覧はこちら
       </a>
     </div>

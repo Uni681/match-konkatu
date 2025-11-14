@@ -1196,30 +1196,22 @@ label[required]::after {
    当相談所について詳しく知るセクション
    ========================= */
 
+/* ========================================
+   About Us Links Section - Elegant Version (当相談所について詳しく知る)
+   和 × 上品 × 柔らかい × 静か
+   ======================================== */
 .about-us-links-section {
   background: #fafaf9;
+  padding: 7rem 0; /* py-28 equivalent */
   position: relative;
 }
 
-.about-us-links-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 25% 75%, rgba(179, 142, 93, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 75% 25%, rgba(179, 142, 93, 0.02) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-/* 縦書きタイトル */
+/* 縦書きタイトル - 薄金・細線・カードに寄せる */
 .about-us-vertical-title {
-  font-family: var(--font-family-heading);
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #B38E5D;
+  font-weight: 400; /* Lighter weight */
+  color: #c8b37a; /* Muted gold */
   writing-mode: vertical-rl;
   text-orientation: mixed;
   line-height: 1.8;
@@ -1227,6 +1219,7 @@ label[required]::after {
   height: fit-content;
   padding: 1rem 0;
   position: relative;
+  margin-right: 2rem; /* Closer to cards: 25-40px → 32px */
 }
 
 @media (max-width: 1024px) {
@@ -1236,8 +1229,9 @@ label[required]::after {
     font-size: 1.75rem;
     text-align: center;
     margin-bottom: 2rem;
+    margin-right: 0;
     padding-bottom: 1rem;
-    border-bottom: 2px solid #B38E5D;
+    border-bottom: 1px solid rgba(200, 179, 122, 0.3); /* Thinner border */
     width: 100%;
   }
 }
@@ -1248,8 +1242,8 @@ label[required]::after {
   right: -10px;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, transparent 0%, #B38E5D 20%, #B38E5D 80%, transparent 100%);
+  width: 1px; /* Thinner line */
+  background: linear-gradient(to bottom, transparent 0%, #c8b37a 20%, #c8b37a 80%, transparent 100%);
 }
 
 @media (max-width: 1024px) {
@@ -1258,29 +1252,25 @@ label[required]::after {
   }
 }
 
-/* リンクカード */
+/* リンクカード - 上品・控えめ */
 .about-us-link-card {
   display: block;
   position: relative;
   height: 200px;
-  border-radius: 16px;
+  border-radius: 12px; /* Reduced from 16px */
   overflow: hidden;
   text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.08),
-    0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Much lighter shadow */
 }
 
 .about-us-link-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.15),
-    0 4px 20px rgba(179, 142, 93, 0.2);
+  transform: translateY(-3px); /* Minimal movement, reduced from -8px */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06); /* Subtle hover shadow */
   text-decoration: none;
 }
 
-/* カード背景画像 */
+/* カード背景画像 - 統一フィルター適用 */
 .about-us-card-background {
   position: absolute;
   top: 0;
@@ -1290,14 +1280,15 @@ label[required]::after {
   background-size: 120%;
   background-position: center;
   background-repeat: no-repeat;
-  transition: transform 0.4s ease;
+  transition: transform 0.3s ease;
+  filter: saturate(0.7) brightness(1.05); /* Unified warm tone filter */
 }
 
 .about-us-link-card:hover .about-us-card-background {
-  transform: scale(1.05);
+  transform: scale(1.02); /* Minimal scale, reduced from 1.05 */
 }
 
-/* カードオーバーレイ */
+/* カードオーバーレイ - 淡いベージュ系 */
 .about-us-card-overlay {
   position: absolute;
   top: 0;
@@ -1305,20 +1296,20 @@ label[required]::after {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.1) 50%,
-    rgba(255, 255, 255, 0.1) 100%
+    to bottom,
+    rgba(250, 248, 244, 0.15) 0%,
+    rgba(245, 241, 234, 0.25) 50%,
+    rgba(60, 47, 39, 0.45) 100%
   );
-  transition: background 0.4s ease;
+  transition: background 0.3s ease;
 }
 
 .about-us-link-card:hover .about-us-card-overlay {
   background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.05) 50%,
-    rgba(255, 255, 255, 0.2) 100%
+    to bottom,
+    rgba(250, 248, 244, 0.12) 0%,
+    rgba(245, 241, 234, 0.22) 50%,
+    rgba(60, 47, 39, 0.40) 100%
   );
 }
 
@@ -1331,8 +1322,8 @@ label[required]::after {
   padding: 2rem;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
+    rgba(60, 47, 39, 0.65) 0%,
+    rgba(60, 47, 39, 0.25) 60%,
     transparent 100%
   );
   color: white;
@@ -1340,13 +1331,14 @@ label[required]::after {
 }
 
 .about-us-card-title {
-  font-family: var(--font-family-heading);
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
   font-size: 1.375rem;
-  font-weight: 600;
-  color: #F4E4BC;
+  font-weight: 500; /* Lighter weight, reduced from 600 */
+  color: #fafaf9; /* Soft white instead of bright gold */
   margin-bottom: 0.5rem;
-  line-height: 1.3;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.35; /* Tighter line height */
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {
@@ -1357,11 +1349,12 @@ label[required]::after {
 
 .about-us-card-subtitle {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-family: var(--font-family-primary);
-  line-height: 1.5;
+  font-weight: 300;
+  color: rgba(250, 250, 249, 0.85);
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1.6; /* More breathing room */
   margin-bottom: 1rem;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 @media (min-width: 768px) {
@@ -1370,41 +1363,43 @@ label[required]::after {
   }
 }
 
-/* カード矢印 */
+/* カード矢印 - 主張を弱める */
 .about-us-card-arrow {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  width: 40px;
-  height: 40px;
-  background: rgba(244, 228, 188, 0.9);
+  width: 32px; /* Reduced 20% from 40px */
+  height: 32px;
+  background: rgba(255, 255, 255, 0.85); /* White instead of gold */
+  border: 1px solid rgba(200, 179, 122, 0.3); /* Muted gold border */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  box-shadow: none; /* No shadow */
 }
 
 .about-us-card-arrow i {
-  color: #B38E5D;
-  font-size: 1rem;
+  color: #c8b37a; /* Muted gold */
+  font-size: 0.875rem; /* Smaller icon */
   transition: transform 0.3s ease;
 }
 
 .about-us-link-card:hover .about-us-card-arrow {
-  background: #F4E4BC;
-  transform: scale(1.1);
+  background: rgba(200, 179, 122, 0.15);
+  border-color: rgba(200, 179, 122, 0.45);
+  transform: scale(1.05); /* Minimal scale */
 }
 
 .about-us-link-card:hover .about-us-card-arrow i {
-  transform: translateX(2px);
+  transform: translateX(1px); /* Minimal movement */
 }
 
 /* レスポンシブ調整 */
 @media (max-width: 768px) {
   .about-us-links-section {
-    padding: 3rem 0;
+    padding: 5rem 0; /* Slightly less on mobile */
   }
   
   .about-us-link-card {
@@ -1425,10 +1420,14 @@ label[required]::after {
   }
   
   .about-us-card-arrow {
-    width: 35px;
-    height: 35px;
+    width: 28px; /* Proportionally smaller */
+    height: 28px;
     top: 1rem;
     right: 1rem;
+  }
+  
+  .about-us-card-arrow i {
+    font-size: 0.75rem;
   }
 }
 
@@ -1436,89 +1435,101 @@ label[required]::after {
    新しいセクションのスタイル
    =============================== */
 
-/* OPEN CAMPAIGNセクション */
+/* ========================================
+   OPEN CAMPAIGN Section - Elegant Version
+   和 × 上品 × 柔らかい × 静か
+   ======================================== */
 .campaign-section {
   position: relative;
-  background: linear-gradient(135deg, #FAF8F4 0%, #F5F1EA 100%);
+  background: #fafaf9;
   min-height: 500px;
+  padding: 8.5rem 0; /* Increased vertical spacing: +80px */
+}
+
+/* Background image filter enhancement - moved to component level */
+.campaign-section .campaign-background {
+  filter: blur(1.5px) brightness(1.15) saturate(0.75); /* Blurred, brighter, less saturated */
 }
 
 .campaign-title-english {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: 0.4em;
-  color: #5D432F;
+  font-size: 1.5rem; /* Increased from 1.25rem for prominence */
+  font-weight: 400; /* Lighter weight */
+  letter-spacing: 0.5em; /* Increased tracking +20% */
+  color: #c8b37a; /* Muted gold instead of dark brown */
   text-transform: uppercase;
   margin-bottom: 2rem;
 }
 
+@media (min-width: 768px) {
+  .campaign-title-english {
+    font-size: 1.75rem; /* Larger on desktop */
+  }
+}
+
 .campaign-main-copy {
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
   font-size: 2rem;
-  font-weight: 600;
-  color: #3D271B;
-  line-height: 1.4;
+  font-weight: 500; /* Lighter weight, reduced from 600 */
+  color: #4a4238; /* Ink color instead of dark brown */
+  line-height: 1.45; /* Slightly more breathing room */
   margin-bottom: 1rem;
 }
 
+/* Two-line copy hierarchy */
+.campaign-copy-line1 {
+  font-size: 0.9em; /* Smaller: "先着男女お1人様限定！" */
+  font-weight: 400;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.campaign-copy-line2 {
+  font-size: 1em; /* Larger: "入会金、登録料..." */
+  font-weight: 500;
+  display: block;
+}
+
 .campaign-highlight {
-  color: #8B5A3C;
-  font-weight: 700;
+  color: #c8b37a; /* Muted gold */
+  font-weight: 500; /* Not too heavy */
 }
 
 .campaign-notice {
-  font-size: 0.875rem;
-  color: #72533B;
+  font-size: 0.85rem; /* Smaller notice text */
+  font-weight: 300;
+  color: #6b6158; /* Muted color */
+  margin-top: 1.25rem; /* Increased spacing from copy */
   margin-bottom: 3rem;
-  font-weight: 500;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .campaign-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #BFA45A 0%, #d4b76a 100%);
-  color: white;
-  font-size: 1.125rem;
-  font-weight: 600;
+  padding: 0.8rem 2.25rem; /* Reduced 12% from 1rem 2.5rem */
+  background: transparent;
+  color: #4a4238; /* Ink color */
+  font-size: 0.95rem; /* Smaller font */
+  font-weight: 400; /* Lighter weight */
   text-decoration: none;
-  border-radius: 50px;
-  box-shadow: 
-    0 4px 20px rgba(191, 164, 90, 0.3),
-    0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 35px; /* Reduced from 50px */
+  border: 1.2px solid rgba(74, 66, 56, 0.35); /* Thin border */
+  box-shadow: none; /* No shadow */
+  transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
-  border: none;
   cursor: pointer;
-  font-family: var(--font-family-primary);
-}
-
-.campaign-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #a58947 0%, #BFA45A 100%);
-  transition: left 0.3s ease;
-  z-index: -1;
-}
-
-.campaign-btn:hover::before {
-  left: 0;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .campaign-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 
-    0 8px 32px rgba(191, 164, 90, 0.4),
-    0 4px 16px rgba(0, 0, 0, 0.15);
-  color: white;
+  border-color: rgba(74, 66, 56, 0.5);
+  background: rgba(200, 179, 122, 0.05);
+  color: #4a4238;
   text-decoration: none;
+  box-shadow: none; /* Keep no shadow */
 }
 
 .campaign-btn:active {
@@ -1526,13 +1537,22 @@ label[required]::after {
 }
 
 @media (max-width: 768px) {
+  .campaign-section {
+    padding: 6rem 0; /* Proportionally less on mobile */
+  }
+  
   .campaign-main-copy {
     font-size: 1.5rem;
   }
   
   .campaign-title-english {
-    font-size: 1rem;
-    letter-spacing: 0.3em;
+    font-size: 1.125rem;
+    letter-spacing: 0.4em;
+  }
+  
+  .campaign-btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.875rem;
   }
 }
 

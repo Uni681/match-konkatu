@@ -2,24 +2,23 @@ import { html, raw } from 'hono/html';
 
 export const StorySection = () => {
   return html`
-<section class="section-bg-japanese py-20">
+<section class="story-section-elegant py-28">
   <div class="container mx-auto px-6 max-w-4xl text-center">
-    <!-- シンプルヘッダー -->
-    <div class="mb-12">
-      <h2 class="text-4xl md:text-5xl font-light text-gray-800 mb-6 font-mincho">
+    <!-- 上品な見出し -->
+    <div class="mb-16">
+      <h2 class="story-section-title">
         親子で支える温かい結婚相談所
       </h2>
-      <p class="text-xl text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+      <p class="story-section-copy">
         異なる世代の視点と経験を活かし、<br>
         お一人おひとりに寄り添ったサポートを提供しています。
       </p>
     </div>
 
-    <!-- シンプルボタン -->
-    <div class="mt-12">
-      <a href="/about" class="inline-flex items-center px-8 py-4 bg-gray-800 hover:bg-gray-900 text-white hover:text-white rounded-lg font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl group">
+    <!-- 控えめCTA -->
+    <div class="mt-14">
+      <a href="/about" class="story-cta-button">
         当結婚相談所について
-        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
       </a>
     </div>
   </div>
