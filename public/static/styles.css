@@ -1975,15 +1975,30 @@ label[required]::after {
   align-items: center; /* 垂直方向中央 */
 }
 
+.footer-nav-wrapper {
+  display: flex;
+  flex-direction: column; /* 上下に並べる */
+  gap: 0.5rem; /* 上段と下段の間隔 */
+  align-items: center; /* 中央揃え */
+}
+
 .footer-nav-horizontal {
   display: flex;
-  flex-wrap: wrap; /* 画面幅が狭い時は折り返す */
+  flex-wrap: nowrap; /* 折り返さない */
   justify-content: center;
   align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
   gap: 0; /* gap は使わず、セパレーターとpaddingで制御 */
+}
+
+.footer-nav-row-top {
+  /* 上段4つ */
+}
+
+.footer-nav-row-bottom {
+  /* 下段2つ */
 }
 
 .footer-nav-horizontal li {

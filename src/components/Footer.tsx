@@ -22,9 +22,14 @@ export function Footer() {
             </div>
           </div>
           
-          <!-- 中央ブロック: グローバルナビ（上下左右中央） -->
+          <!-- 中央ブロック: グローバルナビ（上4つ・下2つ） -->
           <nav class="footer-block-center">
-            <ul class="footer-nav-horizontal"><li><a href="/" class="footer-nav-link">ホーム</a></li><li class="footer-nav-sep">/</li><li><a href="/about" class="footer-nav-link">当結婚相談所について</a></li><li class="footer-nav-sep">/</li><li><a href="/service" class="footer-nav-link">サービス・料金</a></li><li class="footer-nav-sep">/</li><li><a href="/flow" class="footer-nav-link">ご成婚までのながれ</a></li><li class="footer-nav-sep">/</li><li><a href="/faq" class="footer-nav-link">よくあるご質問</a></li><li class="footer-nav-sep">/</li><li><a href="/contact" class="footer-nav-link">お問い合わせ</a></li></ul>
+            <div class="footer-nav-wrapper">
+              <!-- 上段：4つ -->
+              <ul class="footer-nav-horizontal footer-nav-row-top"><li><a href="/" class="footer-nav-link">ホーム</a></li><li class="footer-nav-sep">/</li><li><a href="/about" class="footer-nav-link">当結婚相談所について</a></li><li class="footer-nav-sep">/</li><li><a href="/service" class="footer-nav-link">サービス・料金</a></li><li class="footer-nav-sep">/</li><li><a href="/flow" class="footer-nav-link">ご成婚までのながれ</a></li></ul>
+              <!-- 下段：2つ -->
+              <ul class="footer-nav-horizontal footer-nav-row-bottom"><li><a href="/faq" class="footer-nav-link">よくあるご質問</a></li><li class="footer-nav-sep">/</li><li><a href="/contact" class="footer-nav-link">お問い合わせ</a></li></ul>
+            </div>
           </nav>
           
           <!-- 右ブロック: 空 -->
