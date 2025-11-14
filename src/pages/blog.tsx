@@ -1,5 +1,6 @@
 import { html, raw } from 'hono/html'
 import Layout from '../components/Layout'
+import { Hero } from '../components/Hero'
 import { SNSSection } from '../components/SNSSection'
 import { ContactSection } from '../components/ContactSection'
 import { AccessMapSection } from '../components/AccessMapSection'
@@ -13,42 +14,18 @@ export function BlogListPage(posts: any[], currentPage: number = 1, totalPages: 
     title: 'ブログ | MATCH（マッチ）本気の婚活',
     description: '婚活に役立つノウハウやイベント情報をお届けします。結婚相談所MATCHの最新情報や婚活アドバイスをご紹介。',
     children: html`
-      <!-- Blog Hero Section -->
-      <section class="blog-hero-section relative py-32 overflow-hidden flex items-center min-h-[60vh]">
-        <!-- 和柄背景 -->
-        <div class="absolute inset-0 z-0">
-          <div class="blog-hero-background"></div>
-        </div>
-        
-        <!-- 金箔散らし装飾 -->
-        <div class="absolute inset-0 z-10">
-          <div class="gold-foil-decoration"></div>
-        </div>
-        
-        <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
-          <!-- 英字見出し（背景扱い） -->
-          <div class="blog-hero-english mb-4">
-            BLOG
-          </div>
-          
-          <!-- メイン見出し -->
-          <h1 class="blog-hero-title mb-8">
-            ブログ
-          </h1>
-          
-          <!-- 説明文 -->
-          <div class="blog-hero-description">
-            <p>婚活に役立つノウハウやイベント情報をお届けします。</p>
-            <p>結婚相談所MATCHの最新情報や婚活アドバイスをご紹介。</p>
-          </div>
-        </div>
-      </section>
+      <!-- Hero Section -->
+      ${Hero({
+        englishTitle: 'BLOG',
+        title: 'ブログ',
+        description: '婚活に役立つノウハウやイベント情報をお届けします。<br>結婚相談所MATCHの最新情報や婚活アドバイスをご紹介。'
+      })}
 
       <!-- Blog List Section -->
       <section class="blog-list-section py-20 bg-white">
         <div class="container mx-auto px-6 max-w-7xl">
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            ${paginatedPosts.map(post => `
+            ${raw(paginatedPosts.map(post => `
               <article class="blog-card">
                 ${post.featured_image ? `
                   <div class="blog-card-image">
@@ -78,11 +55,11 @@ export function BlogListPage(posts: any[], currentPage: number = 1, totalPages: 
                   </div>
                 </div>
               </article>
-            `).join('')}
+            `).join(''))}
           </div>
           
           <!-- Pagination -->
-          ${totalPages > 1 ? `
+          ${totalPages > 1 ? raw(`
             <nav class="blog-pagination" aria-label="ページネーション">
               <div class="pagination-buttons">
                 ${currentPage > 1 ? `
@@ -111,7 +88,7 @@ export function BlogListPage(posts: any[], currentPage: number = 1, totalPages: 
                 ` : ''}
               </div>
             </nav>
-          ` : ''}
+          `) : ''}
         </div>
       </section>
 
