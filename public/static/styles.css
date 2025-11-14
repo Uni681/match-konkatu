@@ -1459,51 +1459,66 @@ label[required]::after {
   }
 }
 
-/* SNSセクション v2 - シンプル・モダン */
+/* ========================================
+   SNS Section - Elegant Version (全ページ共通)
+   和 × 上品 × 柔らかい × 静か
+   ======================================== */
 .sns-section {
-  background: linear-gradient(135deg, #FAF7F4 0%, #F5F1EA 50%, #E8DDD0 100%);
+  background: #fafaf9;
+  padding: 8rem 0; /* Increased vertical spacing: +50px */
 }
 
+/* SNS Section Title Enhancement */
+.sns-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.3em; /* Increased tracking */
+  color: #c8b37a; /* Muted gold */
+  text-transform: uppercase;
+  margin-bottom: 1rem; /* Increased spacing from subtitle */
+}
+
+.sns-section-subtitle {
+  margin-bottom: 3rem; /* Increased spacing: +10px */
+}
+
+/* Card: Unified beige/cream background */
 .sns-card-v2 {
-  background: white;
-  border-radius: 20px;
+  background: #faf8f4; /* Pale cream unified background */
+  border-radius: 12px; /* Reduced from 20px */
   padding: 3rem 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Very light shadow */
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 1.5rem;
-  border: 2px solid transparent;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .sns-card-v2:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px); /* Minimal movement */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
 }
 
-.line-card-v2 {
-  background: linear-gradient(135deg, #E6F9EE 0%, #F0FFF4 100%);
-  border-color: rgba(6, 95, 70, 0.1);
-}
-
-.line-card-v2:hover {
-  border-color: #06BF63;
-}
-
+/* Remove specific LINE/Instagram card colors */
+.line-card-v2,
 .instagram-card-v2 {
-  background: linear-gradient(135deg, #FFF0F4 0%, #FFF5F0 100%);
-  border-color: rgba(191, 164, 90, 0.1);
+  background: #faf8f4; /* Same unified background */
+  border-color: rgba(0, 0, 0, 0.06);
 }
 
+.line-card-v2:hover,
 .instagram-card-v2:hover {
-  border-color: #BFA45A;
+  border-color: rgba(200, 179, 122, 0.25); /* Muted gold border on hover */
 }
 
+/* Icon: Subdued and elegant */
 .sns-icon-wrapper {
-  width: 90px;
-  height: 90px;
+  width: 76px; /* Reduced 15% from 90px */
+  height: 76px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1512,91 +1527,132 @@ label[required]::after {
   transition: all 0.3s ease;
 }
 
+/* LINE icon: White background with muted gold border */
 .line-icon {
-  background: linear-gradient(135deg, #06BF63 0%, #00A859 100%);
-  color: white;
-  box-shadow: 0 4px 20px rgba(6, 191, 99, 0.3);
+  background: white;
+  color: #c8b37a; /* Muted gold */
+  border: 1.5px solid rgba(200, 179, 122, 0.35);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .line-card-v2:hover .line-icon {
-  transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(6, 191, 99, 0.4);
+  transform: scale(1.03); /* Minimal scale */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  border-color: rgba(200, 179, 122, 0.5);
 }
 
+/* Instagram icon: Muted single color (ink or muted gold) */
 .instagram-icon {
-  background: linear-gradient(135deg, #E4405F 0%, #C13584 50%, #833AB4 100%);
+  background: #4a4238; /* Ink color instead of gradient */
   color: white;
-  box-shadow: 0 4px 20px rgba(228, 64, 95, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .instagram-card-v2:hover .instagram-icon {
-  transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(228, 64, 95, 0.4);
+  transform: scale(1.03); /* Minimal scale */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  background: #c8b37a; /* Muted gold on hover */
 }
 
+/* Title: Elegant typography */
 .sns-card-v2-title {
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Shippori Mincho B1', 'Noto Serif JP', serif;
   font-size: 1.75rem;
-  font-weight: 600;
-  color: #3D271B;
+  font-weight: 400; /* Lighter weight */
+  color: #4a4238; /* Ink color */
   margin: 0;
+  margin-top: 0.5rem; /* Increased spacing from icon: +8px */
+  line-height: 1.3;
+  letter-spacing: 0.04em;
 }
 
+/* Description: More breathing room */
 .sns-card-v2-description {
-  color: #5A3926;
-  line-height: 1.8;
+  color: #6b6158; /* Muted color */
+  font-weight: 300;
+  line-height: 1.6; /* Reduced from 1.8 for elegance */
   font-size: 0.95rem;
+  font-family: 'Noto Sans JP', sans-serif;
   max-width: 320px;
+  margin-top: 0.25rem; /* Increased spacing from title */
 }
 
+/* Button: Elegant border style */
 .sns-btn-v2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2.5rem;
-  font-weight: 600;
-  border-radius: 50px;
-  font-size: 1rem;
+  padding: 0.85rem 2.25rem; /* Reduced 12% */
+  font-weight: 400; /* Lighter weight */
+  border-radius: 35px; /* Reduced from 50px */
+  font-size: 0.9rem; /* Smaller font */
   text-decoration: none;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: none; /* No shadow */
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
+/* LINE button: White with muted gold border */
 .line-btn-v2 {
-  background: linear-gradient(135deg, #06BF63 0%, #00A859 100%);
-  color: white;
+  background: transparent;
+  color: #4a4238; /* Ink color */
+  border: 1.2px solid rgba(74, 66, 56, 0.35);
+}
+
+.line-btn-v2 i {
+  color: #c8b37a; /* Muted gold icon */
 }
 
 .line-btn-v2:hover {
-  background: linear-gradient(135deg, #05AB58 0%, #00964E 100%);
-  color: white;
+  background: rgba(200, 179, 122, 0.05);
+  color: #4a4238;
+  border-color: rgba(74, 66, 56, 0.5);
   text-decoration: none;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(6, 191, 99, 0.3);
+  box-shadow: none;
 }
 
+.line-btn-v2:hover i {
+  color: #c8b37a;
+}
+
+/* Instagram button: Same elegant style */
 .instagram-btn-v2 {
-  background: linear-gradient(135deg, #E4405F 0%, #C13584 50%, #833AB4 100%);
-  color: white;
+  background: transparent;
+  color: #4a4238;
+  border: 1.2px solid rgba(74, 66, 56, 0.35);
+}
+
+.instagram-btn-v2 i {
+  color: #c8b37a; /* Muted gold icon */
 }
 
 .instagram-btn-v2:hover {
-  background: linear-gradient(135deg, #D03555 0%, #AD2F75 50%, #7231A0 100%);
-  color: white !important;
+  background: rgba(200, 179, 122, 0.05);
+  color: #4a4238 !important;
+  border-color: rgba(74, 66, 56, 0.5);
   text-decoration: none;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(228, 64, 95, 0.3);
+  box-shadow: none;
+}
+
+.instagram-btn-v2:hover i {
+  color: #c8b37a;
 }
 
 @media (max-width: 1024px) {
+  .sns-section {
+    padding: 6rem 0;
+  }
+  
   .sns-card-v2 {
     padding: 2.5rem 1.5rem;
   }
   
   .sns-icon-wrapper {
-    width: 80px;
-    height: 80px;
+    width: 68px; /* Proportionally smaller */
+    height: 68px;
   }
   
   .sns-card-v2-title {
@@ -1605,17 +1661,21 @@ label[required]::after {
 }
 
 @media (max-width: 640px) {
+  .sns-section {
+    padding: 5rem 0;
+  }
+  
   .sns-card-v2 {
     padding: 2rem 1.25rem;
   }
   
   .sns-icon-wrapper {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
   
   .sns-icon-wrapper i {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
   
   .sns-card-v2-title {
@@ -1623,8 +1683,8 @@ label[required]::after {
   }
   
   .sns-btn-v2 {
-    padding: 0.875rem 2rem;
-    font-size: 0.95rem;
+    padding: 0.75rem 2rem;
+    font-size: 0.875rem;
   }
 }
 

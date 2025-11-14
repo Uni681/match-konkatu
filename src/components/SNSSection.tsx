@@ -2,13 +2,13 @@ import { html } from 'hono/html'
 
 export function SNSSection() {
   return html`
-    <section class="sns-section py-20">
+    <section class="sns-section">
       <div class="container mx-auto px-6 max-w-6xl">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-light mb-4 font-mincho" style="color: #BFA45A;">
+          <h2 class="sns-section-title text-3xl md:text-4xl mb-4">
             SNS
           </h2>
-          <p class="text-gray-600">
+          <p class="sns-section-subtitle text-gray-600" style="color: #6b6158;">
             最新情報やご相談はSNSでも受け付けております
           </p>
         </div>
