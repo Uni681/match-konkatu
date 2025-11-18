@@ -1,0 +1,12 @@
+name = "match-wedding-agency"
+compatibility_date = "2024-09-04"
+pages_build_output_dir = "dist"
+
+# Enable Node.js compatibility for fs, path, etc.
+compatibility_flags = ["nodejs_compat"]
+
+# Note: D1 databases can be added later when needed
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "match-konkatsu-db"
+# database_id = "your-database-id-here"
