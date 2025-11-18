@@ -5,7 +5,7 @@ export const StorySection = () => {
 <section class="story-section-elegant py-28">
   <div class="container mx-auto px-6 max-w-4xl text-center">
     <!-- 上品な見出し -->
-    <div class="mb-16">
+    <div class="mb-16 fade-slide-up">
       <h2 class="story-section-title">
         親子で支える温かい結婚相談所
       </h2>
@@ -16,7 +16,7 @@ export const StorySection = () => {
     </div>
 
     <!-- 控えめCTA -->
-    <div class="mt-14">
+    <div class="mt-14 fade-slide-up">
       <a href="/about" class="story-cta-button">
         当結婚相談所について
       </a>

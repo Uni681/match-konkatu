@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>モバイルメニューテスト</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    
+    /* Test Header */
+    .test-header {
+      background: white;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .menu-toggle-btn {
+      background: transparent;
+      border: 2px solid #333;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 20px;
+      border-radius: 4px;
+    }
+    
+    /* ==================== DRAWER STYLES ==================== */
+    
+    /* Overlay */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.15);
+      z-index: 90;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+    
+    .drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Drawer Menu */
+    .drawer-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 80%;
+      max-width: 320px;
+      background: #FFFFFF;
+      z-index: 95;
+      transform: translateX(100%);
+      transition: transform 0.28s ease;
+      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.08);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .drawer-menu.active {
+      transform: translateX(0);
+    }
+    
+    /* Drawer Content */
+    .drawer-content {
+      width: 100%;
+      min-height: 100vh;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      background: #FFFFFF;
+      box-sizing: border-box;
+    }
+    
+    /* Header */
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(201, 185, 152, 0.2);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+    
+    .drawer-title {
+      font-family: Georgia, serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: #2C2C2C;
+      text-transform: uppercase;
+    }
+    
+    .drawer-close-btn {
+      padding: 4px;
+      background: transparent;
+      border: none;
+      color: #2C2C2C;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      line-height: 1;
+    }
+    
+    .drawer-close-btn:hover {
+      color: #C9B898;
+    }
+    
+    /* Navigation */
+    .drawer-nav {
+      flex: 1 1 auto;
+      display: block;
+      overflow: visible;
+      width: 100%;
+      min-height: 300px;
+    }
+    
+    /* Menu Items */
+    .drawer-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      margin: 0;
+      color: #2C2C2C;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      line-height: 1.5;
+      border-bottom: 1px solid rgba(201, 185, 152, 0.15);
+      transition: all 0.2s ease;
+      background: #FFFFFF;
+      width: 100%;
+      opacity: 1;
+      visibility: visible;
+      height: auto;
+      min-height: 48px;
+      box-sizing: border-box;
+    }
+    
+    .drawer-item:hover {
+      color: #C9B898;
+      padding-left: 8px;
+    }
+    
+    .drawer-item:hover .drawer-arrow {
+      transform: translateX(4px);
+      color: #C9B898;
+    }
+    
+    /* Menu Item Text */
+    .drawer-item span {
+      display: inline-block;
+      color: #2C2C2C;
+      font-weight: 500;
+      font-size: 15px;
+      flex: 1;
+      opacity: 1;
+      visibility: visible;
+      line-height: 1.5;
+      text-align: left;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Arrow Icon */
+    .drawer-arrow {
+      display: inline-block;
+      font-size: 12px;
+      color: #C9B898;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      opacity: 1;
+      visibility: visible;
+      width: 12px;
+      height: 12px;
+      margin-left: 8px;
+    }
+    
+    /* Footer CTA */
+    .drawer-footer {
+      padding-top: 20px;
+      border-top: 1px solid rgba(201, 185, 152, 0.2);
+      margin-top: 20px;
+      flex-shrink: 0;
+    }
+    
+    .drawer-line-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 12px 20px;
+      background: transparent;
+      border: 1.5px solid #C9B898;
+      border-radius: 32px;
+      color: #C9B898;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    
+    .drawer-line-btn:hover {
+      background: #C9B898;
+      color: #FFFFFF;
+    }
+    
+    .drawer-line-btn i {
+      font-size: 16px;
+      margin-right: 8px;
+    }
+    
+    /* Prevent body scroll when drawer is open */
+    body.drawer-open {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Test Header -->
+  <div class="test-header">
+    <div class="logo">MATCH</div>
+    <button id="mobile-menu-toggle" class="menu-toggle-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+  
+  <div style="margin-top: 40px; padding: 20px; background: white; border-radius: 8px;">
+    <h2>モバイルメニューテスト</h2>
+    <p>右上のハンバーガーアイコンをクリックしてメニューを開いてください。</p>
+    <p style="margin-top: 10px; color: #666;">ブラウザのコンソール（F12）でログも確認できます。</p>
+  </div>
+  
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="drawer-overlay"></div>
+  
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu" class="drawer-menu">
+    <div class="drawer-content">
+      <!-- Menu Header -->
+      <div class="drawer-header">
+        <span class="drawer-title">MENU</span>
+        <button id="mobile-menu-close" class="drawer-close-btn" aria-label="メニューを閉じる">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <!-- Menu Navigation -->
+      <nav class="drawer-nav">
+        <a href="/" class="drawer-item">
+          <span>ホーム</span>
+          <i class="fas fa-chevron-right drawer-arrow"></i>
+        </a>
+        <a href="/about" class="drawer-item">
+          <span>私たちについて</span>
+          <i class="fas fa-chevron-right drawer-arrow"></i>
+        </a>
+        <a href="/blog" class="drawer-item">
+          <span>ご成婚の声</span>
+          <i class="fas fa-chevron-right drawer-arrow"></i>
+        </a>
+        <a href="/flow" class="drawer-item">
+          <span>サポートの流れ</span>
+          <i class="fas fa-chevron-right drawer-arrow"></i>
+        </a>
+        <a href="/service" class="drawer-item">
+          <span>料金プラン</span>
+          <i class="fas fa-chevron-right drawer-arrow"></i>
+        </a>
+        <a href="/blog" class="drawer-item">
+          <span>婚活ブログ</span>
+          <i class="fas fa-chevron-right drawer-arrow"></i>
+        </a>
+        <a href="/contact" class="drawer-item">
+          <span>ご相談・お問い合わせ</span>
+          <i class="fas fa-chevron-right drawer-arrow"></i>
+        </a>
+        <a href="/policy" class="drawer-item">
+          <span>プライバシーについて</span>
+          <i class="fas fa-chevron-right drawer-arrow"></i>
+        </a>
+      </nav>
+      
+      <!-- Menu Footer CTA -->
+      <div class="drawer-footer">
+        <a href="https://lin.ee/hxJlbwI" target="_blank" rel="noopener noreferrer" class="drawer-line-btn">
+          <i class="fab fa-line"></i>
+          LINEで相談する
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    (function() {
+      'use strict';
+      
+      console.log('Script loaded');
+      
+      // Execute immediately when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+      
+      function init() {
+        console.log('Initializing drawer menu');
+        
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const menuClose = document.getElementById('mobile-menu-close');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        
+        if (!menuToggle || !menuClose || !menu || !overlay) {
+          console.error('Drawer menu elements not found', {
+            menuToggle: !!menuToggle,
+            menuClose: !!menuClose,
+            menu: !!menu,
+            overlay: !!overlay
+          });
+          return;
+        }
+        
+        console.log('All drawer menu elements found');
+        
+        function openDrawer() {
+          console.log('Opening drawer');
+          menu.classList.add('active');
+          overlay.classList.add('active');
+          document.body.classList.add('drawer-open');
+          menuToggle.setAttribute('aria-expanded', 'true');
+        }
+        
+        function closeDrawer() {
+          console.log('Closing drawer');
+          menu.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.classList.remove('drawer-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+        
+        // Toggle menu
+        menuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const isActive = menu.classList.contains('active');
+          console.log('Menu toggle clicked, current state:', isActive ? 'open' : 'closed');
+          
+          if (isActive) {
+            closeDrawer();
+          } else {
+            openDrawer();
+          }
+        });
+        
+        // Close button
+        menuClose.addEventListener('click', function(e) {
+          e.preventDefault();
+          closeDrawer();
+        });
+        
+        // Overlay click
+        overlay.addEventListener('click', closeDrawer);
+        
+        // Close drawer when clicking a link
+        const menuLinks = menu.querySelectorAll('a');
+        console.log('Found menu links:', menuLinks.length);
+        menuLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent navigation for demo
+            console.log('Menu link clicked:', this.textContent.trim());
+            closeDrawer();
+          });
+        });
+        
+        // Close drawer on escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menu.classList.contains('active')) {
+            closeDrawer();
+          }
+        });
+        
+        console.log('Drawer menu fully initialized');
+      }
+    })();
+  </script>
+  
+</body>
+</html>

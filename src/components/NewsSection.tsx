@@ -31,7 +31,7 @@ export const NewsSection = ({ posts }: NewsSectionProps) => {
   return html`
 <section class="news-section-elegant py-28">
   <div class="container mx-auto px-6 max-w-6xl">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 fade-slide-up">
       <!-- 縦書き見出し（PC）/ 横書き見出し（SP） -->
       <div class="md:col-span-3 flex md:justify-end md:pr-8">
         <h2 class="news-section-title-elegant">
@@ -68,7 +68,7 @@ export const NewsSection = ({ posts }: NewsSectionProps) => {
     </div>
     
     <!-- 記事一覧ボタン（中央配置） -->
-    <div class="w-full text-center mt-16">
+    <div class="w-full text-center mt-16 fade-slide-up">
       <a href="/blog" class="news-cta-button">
         記事一覧はこちら
       </a>

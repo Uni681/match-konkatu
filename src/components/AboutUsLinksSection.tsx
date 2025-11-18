@@ -25,7 +25,7 @@ export const AboutUsLinksSection = () => {
   return html`
 <section class="about-us-links-section py-20">
   <div class="container mx-auto px-6 max-w-7xl">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 fade-slide-up">
       <!-- 縦書き見出し -->
       <div class="lg:col-span-3 flex lg:justify-center">
         <h2 class="about-us-vertical-title">

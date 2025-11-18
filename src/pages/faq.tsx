@@ -10,10 +10,10 @@ export function FAQPage() {
     description: '結婚相談所MATCHに寄せられるよくあるご質問にお答えします。料金、サービス内容、活動方法など、お気軽にお問い合わせください。',
     children: html`
       <!-- FAQ Hero Section -->
-      <section class="faq-hero-section relative overflow-hidden flex items-center justify-center min-h-[60vh]">
+      <section class="flow-hero-section relative overflow-hidden flex items-center justify-center min-h-[60vh]">
         <!-- 和柄背景 -->
         <div class="absolute inset-0 z-0">
-          <div class="faq-hero-background"></div>
+          <div class="flow-hero-background"></div>
         </div>
         
         <!-- 金箔散らし装飾 -->
@@ -24,12 +24,12 @@ export function FAQPage() {
         <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
           <div class="py-16">
             <!-- 英字見出し（背景扱い） -->
-            <div class="faq-hero-english mb-6">
+            <div class="flow-hero-english mb-6">
               FAQ
             </div>
             
             <!-- メイン見出し -->
-            <h1 class="faq-hero-title">
+            <h1 class="flow-hero-title">
               よくあるご質問
             </h1>
           </div>

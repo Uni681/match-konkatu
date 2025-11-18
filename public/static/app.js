@@ -33,6 +33,12 @@
     // アニメーションの初期化
     initializeAnimations();
     
+    // ヒーローエリアの初期アニメーション
+    initializeHeroAnimations();
+    
+    // モバイルタッチフィードバック
+    initializeMobileTouchFeedback();
+    
     console.log('MATCH婚活サイト初期化完了');
   }
 
@@ -298,25 +304,138 @@
   }
 
   /**
-   * スクロールアニメーション
+   * スクロールアニメーション - 和 × やわらかさ × 誠実
+   * 控えめで上品な.fade-slide-upアニメーション
    */
   function initializeAnimations() {
+    // モーション削減設定をチェック
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+      // モーション削減が有効な場合は即座に表示
+      document.querySelectorAll('.fade-slide-up').forEach(element => {
+        element.classList.add('in-view');
+      });
+      return;
+    }
+    
     if ('IntersectionObserver' in window) {
       const animationObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
+            // スクロールで表示されたら .in-view を付与
+            entry.target.classList.add('in-view');
+            
+            // 数字カウントアップ処理
+            const countUpElements = entry.target.querySelectorAll('.count-up-number');
+            countUpElements.forEach(el => {
+              if (!el.dataset.counted) {
+                countUpNumber(el);
+                el.dataset.counted = 'true';
+              }
+            });
+            
+            // 一度表示したら監視を解除（再度非表示にしない）
+            animationObserver.unobserve(entry.target);
           }
         });
       }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.1,           // 10%見えたら発火
+        rootMargin: '0px 0px -80px 0px'  // 下から80px手前で発火
       });
       
-      document.querySelectorAll('.animate-on-scroll').forEach(element => {
+      // .fade-slide-up クラスを持つ全要素を監視
+      document.querySelectorAll('.fade-slide-up').forEach(element => {
         animationObserver.observe(element);
       });
+    } else {
+      // IntersectionObserverがサポートされていない場合は即座に表示
+      document.querySelectorAll('.fade-slide-up').forEach(element => {
+        element.classList.add('in-view');
+      });
     }
+  }
+  
+  /**
+   * 数字カウントアップアニメーション
+   * 0から目標値まで0.8秒でカウントアップ（カンマ区切り）
+   */
+  function countUpNumber(element) {
+    const targetText = element.textContent.trim();
+    const targetNumber = parseInt(targetText.replace(/,/g, ''), 10);
+    
+    if (isNaN(targetNumber)) return;
+    
+    const duration = 800; // 0.8秒
+    const startTime = performance.now();
+    
+    function updateCount(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // イージング関数（ease-out）
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const currentNumber = Math.floor(targetNumber * easeOut);
+      
+      // カンマ区切りでフォーマット
+      element.textContent = currentNumber.toLocaleString('ja-JP');
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      } else {
+        element.textContent = targetNumber.toLocaleString('ja-JP');
+      }
+    }
+    
+    requestAnimationFrame(updateCount);
+  }
+  
+  /**
+   * ヒーローエリアの初期アニメーション
+   * ページ読み込み時に自動で .in-view を付与
+   */
+  function initializeHeroAnimations() {
+    // ヒーローエリア内の .fade-slide-up 要素を即座に表示
+    const heroElements = document.querySelectorAll('.hero-elegant .fade-slide-up, .hero-content-wrapper .fade-slide-up');
+    
+    // 少し遅延させてから表示（背景のズームアニメーションと合わせる）
+    setTimeout(() => {
+      heroElements.forEach(element => {
+        element.classList.add('in-view');
+      });
+    }, 300);
+  }
+  
+  /**
+   * モバイル専用：タッチフィードバック強化
+   */
+  function initializeMobileTouchFeedback() {
+    // タッチデバイスかどうかを判定
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (!isTouchDevice) return;
+    
+    // カード要素にタッチフィードバックを追加
+    const touchableCards = document.querySelectorAll(
+      '.reasons-card, .feature-card, .service-card, .plan-card, ' +
+      '.new-plan-card, .counselor-card, .ibj-stats-card, ' +
+      '.cta-btn, .hero-cta-button, .story-cta-button, ' +
+      '.news-cta-button, .ibj-cta-button'
+    );
+    
+    touchableCards.forEach(card => {
+      // タッチ開始時
+      card.addEventListener('touchstart', function() {
+        this.style.transition = 'transform 0.2s ease-out, box-shadow 0.2s ease-out';
+      }, { passive: true });
+      
+      // タッチ終了時
+      card.addEventListener('touchend', function() {
+        this.style.transition = 'transform 0.4s ease-out, box-shadow 0.4s ease-out';
+      }, { passive: true });
+    });
+    
+    console.log('モバイルタッチフィードバック初期化完了');
   }
 
   /**

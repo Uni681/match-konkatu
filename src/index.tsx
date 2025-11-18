@@ -14,7 +14,6 @@ import { Testimonials } from './components/Testimonials'
 import { FAQ } from './components/FAQ'
 import { CTA } from './components/CTA'
 import StorySection from './components/StorySection'
-import MobileFixedCTA from './components/MobileFixedCTA'
 import ReasonsSection from './components/ReasonsSection'
 import IBJStatsSection from './components/IBJStatsSection'
 import AboutUsLinksSection from './components/AboutUsLinksSection'
@@ -244,8 +243,6 @@ app.get('/', (c) => {
   
   const contactAccessHtml = ContactAccessSection()
   
-  const mobileCtaHtml = MobileFixedCTA()
-  
   const content = `
     ${heroHtml}
     ${storyHtml}
@@ -256,7 +253,6 @@ app.get('/', (c) => {
     ${badgesHtml}
     ${snsHtml}
     ${contactAccessHtml}
-    ${mobileCtaHtml}
   `
   
   return c.html(Layout({
@@ -463,28 +459,31 @@ app.get('/blog/:slug', (c) => {
       </div>
     </article>
     
-    <!-- Blog CTA Section -->
-    <section class="py-20 bg-gradient-to-br from-[#f8f6f3] to-[#faf8f5]">
-      <div class="container mx-auto px-4 md:px-6 max-w-4xl text-center">
-        <h2 class="font-mincho text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-          婚活でお悩みですか？
-        </h2>
-        <p class="text-lg md:text-xl text-gray-700 mb-4 leading-relaxed">
-          気軽に話せる30分の無料相談をご用意しています。
-        </p>
-        <p class="text-base md:text-lg text-gray-600 mb-10">
-          「何から始めればいいか分からない」という段階でも歓迎です。
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="/contact" class="btn btn-primary text-lg px-8 py-4 w-full sm:w-auto hover:scale-105 transition-transform shadow-lg">
-            <i class="fas fa-calendar-check mr-2"></i>
-            無料相談を申し込む
-          </a>
-          <a href="#" class="btn btn-outline text-lg px-8 py-4 w-full sm:w-auto hover:scale-105 transition-transform border-2 border-[#c9a961] text-[#c9a961] hover:bg-[#c9a961] hover:text-white">
-            <i class="fab fa-line mr-2"></i>
-            LINE相談
-          </a>
+    <!-- Blog CTA Section - Relax Tone -->
+    <section class="section-relax">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="relax-card">
+          <h2 class="relax-title">
+            ひと休みしていきませんか？
+          </h2>
+          <div class="relax-text">
+            <p>・結婚したい気持ちが、あるようなないような</p>
+            <p>・アプリを入れては消している</p>
+            <p>・なんなら今日もその話をしている（脳内で）</p>
+            <p><br></p>
+            <p>そんな人、ここにもいます。（私たち）</p>
+            <p><br></p>
+            <p>気を張らずに、ゆるっと状況をお話ししましょう。</p>
+          </div>
+          
+          <div class="relax-buttons">
+            <a href="/contact" class="btn-relax-main">
+              ちょっと聞いてほしい（無料）
+            </a>
+            <a href="#" class="btn-relax-line">
+              LINEで相談してみる
+            </a>
+          </div>
         </div>
       </div>
     </section>

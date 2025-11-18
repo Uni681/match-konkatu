@@ -14,10 +14,10 @@ export function BlogListPage(posts: any[], currentPage: number = 1, totalPages: 
     description: '婚活に役立つノウハウやイベント情報をお届けします。結婚相談所MATCHの最新情報や婚活アドバイスをご紹介。',
     children: html`
       <!-- Blog Hero Section -->
-      <section class="about-hero-section relative overflow-hidden">
+      <section class="flow-hero-section relative overflow-hidden flex items-center justify-center min-h-[60vh]">
         <!-- 和柄背景 -->
         <div class="absolute inset-0 z-0">
-          <div class="about-hero-background"></div>
+          <div class="flow-hero-background"></div>
         </div>
         
         <!-- 金箔散らし装飾 -->
@@ -25,22 +25,32 @@ export function BlogListPage(posts: any[], currentPage: number = 1, totalPages: 
           <div class="gold-foil-decoration"></div>
         </div>
         
-        <div class="relative z-20 about-hero-content">
-          <!-- 英字見出し（背景扱い） -->
-          <div class="about-hero-english">
-            BLOG
+        <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
+          <div class="py-16">
+            <!-- 英字見出し（背景扱い） -->
+            <div class="flow-hero-english mb-6">
+              BLOG
+            </div>
+            
+            <!-- メイン見出し -->
+            <h1 class="flow-hero-title">
+              ブログ
+            </h1>
           </div>
-          
-          <!-- メイン見出し -->
-          <h1 class="about-hero-title">
-            ブログ
-          </h1>
         </div>
       </section>
 
       <!-- Blog List Section -->
       <section class="blog-list-section py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4 md:px-6 max-w-7xl">
+          <!-- Section Description -->
+          <div class="text-center mb-16">
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              婚活に役立つノウハウやイベント情報をお届けします。<br class="hidden md:block">
+              結婚相談所MATCHの最新情報や婚活アドバイスをご紹介。
+            </p>
+          </div>
+          
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             ${raw(paginatedPosts.map(post => `
               <article class="blog-card">

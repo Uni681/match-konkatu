@@ -10,10 +10,10 @@ export function ServicePage() {
     description: '結婚相談所MATCHのサービス内容と料金プランをご紹介します。お客様のニーズに合わせた3つのプランをご用意しております。',
     children: html`
       <!-- Service Hero Section -->
-      <section class="service-hero-section relative overflow-hidden flex items-center justify-center min-h-[60vh]">
+      <section class="flow-hero-section relative overflow-hidden flex items-center justify-center min-h-[60vh]">
         <!-- 和柄背景 -->
         <div class="absolute inset-0 z-0">
-          <div class="service-hero-background"></div>
+          <div class="flow-hero-background"></div>
         </div>
         
         <!-- 金箔散らし装飾 -->
@@ -24,12 +24,12 @@ export function ServicePage() {
         <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
           <div class="py-16">
             <!-- 英字見出し（背景扱い） -->
-            <div class="service-hero-english mb-6">
+            <div class="flow-hero-english mb-6">
               SERVICE & PRICING
             </div>
             
             <!-- メイン見出し -->
-            <h1 class="service-hero-title">
+            <h1 class="flow-hero-title">
               サービス・料金
             </h1>
           </div>

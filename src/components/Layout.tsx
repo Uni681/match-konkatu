@@ -82,8 +82,8 @@ export const Layout = ({
   
   <!-- Additional SEO Meta Tags -->
   <meta name="format-detection" content="telephone=no">
-  <meta name="theme-color" content="#8B4513">
-  <meta name="msapplication-TileColor" content="#8B4513">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
   <meta name="msapplication-config" content="/browserconfig.xml">
   
   <!-- Favicon -->
@@ -137,12 +137,12 @@ export const Layout = ({
             'english': ['Cormorant Garamond', 'serif']
           }
         }
+      },
+      corePlugins: {
+        preflight: true,
       }
     }
   </script>
-  
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="/static/styles.css">
   
   <!-- Structured Data (JSON-LD) -->
   ${structuredData ? 
@@ -160,6 +160,9 @@ export const Layout = ({
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+  
+  <!-- Custom Styles (MUST be last to override Tailwind) -->
+  <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body class="font-sans text-gray-800 bg-white">
   <!-- Minimal Header -->
@@ -208,25 +211,43 @@ export const Layout = ({
         <!-- Mobile Menu Toggle -->
         <button 
           id="mobile-menu-toggle" 
-          class="md:hidden p-2 text-gray-700 hover:text-gray-900"
+          class="md:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
           aria-expanded="false"
           aria-controls="mobile-menu"
           aria-label="メニューを開く"
         >
-          <i class="fas fa-bars text-xl"></i>
+          <i id="menu-icon" class="fas fa-bars text-xl"></i>
         </button>
       </div>
       
+      <!-- Mobile Menu Overlay -->
+      <div id="mobile-menu-overlay"></div>
+      
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="md:hidden hidden bg-white rounded-lg shadow-lg mt-2">
-        <nav class="p-4 space-y-2">
-          <a href="/" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">ホーム</a>
-          <a href="/about" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">当結婚相談所について</a>
-          <a href="/service" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">サービス・料金</a>
-          <a href="/flow" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">ご成婚までのながれ</a>
-          <a href="/faq" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">よくあるご質問</a>
-          <a href="/contact" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded transition-colors">お問い合わせ</a>
+      <div id="mobile-menu">
+        <div class="menu-header">
+          <span class="menu-title">MENU</span>
+          <button id="mobile-menu-close" class="close-btn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <nav class="menu-nav">
+          <a href="/"><span>ホーム</span><i class="fas fa-chevron-right"></i></a>
+          <a href="/about"><span>私たちについて</span><i class="fas fa-chevron-right"></i></a>
+          <a href="/blog"><span>ご成婚の声</span><i class="fas fa-chevron-right"></i></a>
+          <a href="/flow"><span>サポートの流れ</span><i class="fas fa-chevron-right"></i></a>
+          <a href="/service"><span>料金プラン</span><i class="fas fa-chevron-right"></i></a>
+          <a href="/blog"><span>婚活ブログ</span><i class="fas fa-chevron-right"></i></a>
+          <a href="/contact"><span>ご相談・お問い合わせ</span><i class="fas fa-chevron-right"></i></a>
+          <a href="/policy"><span>プライバシーについて</span><i class="fas fa-chevron-right"></i></a>
         </nav>
+        
+        <div class="menu-footer">
+          <a href="https://lin.ee/hxJlbwI" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-line"></i>LINEで相談する
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -261,29 +282,144 @@ export const Layout = ({
   <!-- Footer (Elegant Version - Component) -->
   ${raw(Footer())}
 
-  <!-- Performance Optimization -->
+  <!-- Performance & Drawer Menu Script (Combined) -->
   <script>
-    // Critical performance optimizations (inline for faster execution)
     (function() {
-      // Prevent layout shift for images
-      document.addEventListener('DOMContentLoaded', function() {
+      'use strict';
+      
+      // Execute immediately when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+      
+      function init() {
+        // Performance optimizations
+        initPerformanceOptimizations();
+        
+        // Drawer menu
+        initDrawerMenu();
+      }
+      
+      function initPerformanceOptimizations() {
+        // Prevent layout shift for images
         const images = document.querySelectorAll('img:not([width]):not([height])');
         images.forEach(img => {
           const aspectRatio = img.dataset.aspectRatio || '16/9';
           img.style.aspectRatio = aspectRatio;
           img.style.objectFit = 'cover';
         });
-      });
+        
+        // Font loading optimization
+        if ('fonts' in document) {
+          document.fonts.ready.then(() => {
+            document.body.classList.add('fonts-loaded');
+          });
+        }
+      }
       
-      // Font loading optimization
-      if ('fonts' in document) {
-        document.fonts.ready.then(() => {
-          document.body.classList.add('fonts-loaded');
+      function initDrawerMenu() {
+        const toggle = document.getElementById('mobile-menu-toggle');
+        const close = document.getElementById('mobile-menu-close');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        
+        if (!toggle || !close || !menu || !overlay) {
+          console.error('Menu elements not found');
+          return;
+        }
+        
+        // Prevent double initialization
+        if (toggle.dataset.initialized === 'true') {
+          console.log('Menu already initialized, skipping');
+          return;
+        }
+        toggle.dataset.initialized = 'true';
+        
+        console.log('Mobile menu initialized');
+        
+        // ステータスバーの色を管理する関数
+        function updateThemeColor(color) {
+          const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+          if (themeColorMeta) {
+            themeColorMeta.setAttribute('content', color);
+          }
+        }
+        
+        function open(e) {
+          if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+          
+          const isOpen = menu.classList.contains('show');
+          console.log('Open function called, menu is', isOpen ? 'open' : 'closed');
+          
+          if (!isOpen) {
+            menu.classList.add('show');
+            overlay.classList.add('show');
+            document.body.classList.add('menu-open');
+            // ステータスバーを白のまま維持
+            updateThemeColor('#FFFFFF');
+            console.log('Menu opened');
+          }
+        }
+        
+        function closeMenu(e) {
+          if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+          
+          menu.classList.remove('show');
+          overlay.classList.remove('show');
+          document.body.classList.remove('menu-open');
+          // ステータスバーを白のまま維持
+          updateThemeColor('#FFFFFF');
+          console.log('Menu closed');
+        }
+        
+        // Toggle button - use capture phase to prevent bubbling issues
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Toggle clicked');
+          
+          // Use setTimeout to ensure overlay click doesn't interfere
+          setTimeout(function() {
+            open(e);
+          }, 10);
+        }, true);
+        
+        // Close button
+        close.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          closeMenu(e);
+        }, false);
+        
+        // Overlay click - only when menu is shown
+        overlay.addEventListener('click', function(e) {
+          if (menu.classList.contains('show')) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeMenu(e);
+          }
+        }, false);
+        
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menu.classList.contains('show')) {
+            closeMenu();
+          }
         });
+        
+        console.log('Event listeners attached');
       }
     })();
   </script>
-
+  
   <!-- Performance and App Scripts -->
   <script src="/static/performance.js" defer></script>
   <script src="/static/app.js" defer></script>

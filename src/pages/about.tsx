@@ -11,10 +11,10 @@ export function AboutPage() {
     description: 'MATCH（マッチ）本気の婚活の理念、カウンセラー紹介、事業所概要をご紹介します。親子で運営する温かい結婚相談所として、皆様の人生の新たなスタートをサポートいたします。',
     children: html`
       <!-- About Hero Section -->
-      <section class="about-hero-section relative overflow-hidden">
+      <section class="flow-hero-section relative overflow-hidden flex items-center justify-center min-h-[60vh]">
         <!-- 和柄背景 -->
         <div class="absolute inset-0 z-0">
-          <div class="about-hero-background"></div>
+          <div class="flow-hero-background"></div>
         </div>
         
         <!-- 金箔散らし装飾 -->
@@ -22,16 +22,18 @@ export function AboutPage() {
           <div class="gold-foil-decoration"></div>
         </div>
         
-        <div class="relative z-20 about-hero-content">
-          <!-- 英字見出し（背景扱い） -->
-          <div class="about-hero-english">
-            ABOUT
+        <div class="relative z-20 container mx-auto px-6 text-center max-w-4xl">
+          <div class="py-16">
+            <!-- 英字見出し（背景扱い） -->
+            <div class="flow-hero-english mb-6">
+              ABOUT
+            </div>
+            
+            <!-- メイン見出し -->
+            <h1 class="flow-hero-title">
+              私たちについて
+            </h1>
           </div>
-          
-          <!-- メイン見出し -->
-          <h1 class="about-hero-title">
-            当結婚相談所について
-          </h1>
         </div>
       </section>
 
@@ -39,13 +41,13 @@ export function AboutPage() {
       <section class="counselor-message-section py-24">
         <div class="container mx-auto px-6 max-w-6xl">
           <!-- セクションタイトル -->
-          <div class="text-center mb-20">
+          <div class="text-center mb-20 fade-slide-up">
             <div class="message-section-english">MESSAGE</div>
             <h2 class="message-section-title">メッセージ</h2>
           </div>
 
           <!-- 代表カウンセラー -->
-          <div class="counselor-card-wrapper counselor-card-first">
+          <div class="counselor-card-wrapper counselor-card-first fade-slide-up">
             <div class="counselor-card-inner">
               <!-- 写真 -->
               <div class="counselor-photo-box">
@@ -53,7 +55,7 @@ export function AboutPage() {
                   <img 
                     src="https://page.gensparksite.com/v1/base64_upload/ba6c5e05ec2ac303ac972fd5a42b82ff" 
                     alt="代表カウンセラー 山口允樹" 
-                    class="counselor-photo"
+                    class="counselor-photo counselor-photo-yamaguchi"
                     width="400"
                     height="400"
                     loading="lazy"
@@ -78,7 +80,7 @@ export function AboutPage() {
           </div>
 
           <!-- カウンセラー -->
-          <div class="counselor-card-wrapper">
+          <div class="counselor-card-wrapper fade-slide-up">
             <div class="counselor-card-inner">
               <!-- 写真 -->
               <div class="counselor-photo-box">
@@ -86,7 +88,7 @@ export function AboutPage() {
                   <img 
                     src="https://page.gensparksite.com/v1/base64_upload/6124091029817e3b047fa28872b60dcd" 
                     alt="カウンセラー 飯島菜々" 
-                    class="counselor-photo"
+                    class="counselor-photo counselor-photo-iijima"
                     width="400"
                     height="400"
                     loading="lazy"
@@ -117,7 +119,7 @@ export function AboutPage() {
         <div class="philosophy-container">
           <div class="philosophy-inner">
             <!-- テキストエリア -->
-            <div class="philosophy-text-area">
+            <div class="philosophy-text-area fade-slide-up">
               <h2 class="philosophy-title">
                 大切にしている想い
               </h2>
@@ -138,7 +140,7 @@ export function AboutPage() {
             </div>
             
             <!-- 写真エリア -->
-            <div class="philosophy-photo-area">
+            <div class="philosophy-photo-area fade-slide-up">
               <div class="philosophy-photo-frame">
                 <img 
                   src="https://page.gensparksite.com/v1/base64_upload/971eb324e80dbcd26a94751513768cbb" 

@@ -23,7 +23,7 @@ export const ReasonsSection = () => {
 <section class="reasons-section py-20">
   <div class="container mx-auto px-6 max-w-7xl">
     <!-- セクション見出し -->
-    <div class="text-center mb-16">
+    <div class="text-center mb-16 fade-slide-up">
       <h2 class="reasons-section-title mb-6">
         MATCHが選ばれる３つの理由
       </h2>
@@ -35,7 +35,7 @@ export const ReasonsSection = () => {
     <!-- 理由カード（3カラム） -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
       ${raw(reasons.map((reason, index) => `
-        <div class="reasons-card">
+        <div class="reasons-card fade-slide-up">
           <!-- アイコン -->
           <div class="reasons-icon-wrapper">
             <i class="${reason.icon} reasons-icon"></i>

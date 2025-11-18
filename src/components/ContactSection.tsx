@@ -34,12 +34,12 @@ export function ContactSection() {
           <!-- 右側：大きなCTAボタンを縦並び -->
           <div class="contact-buttons-container">
             <a href="tel:045-534-8922" class="contact-cta-btn phone-btn bg-transparent text-white border-white hover:bg-white hover:text-gray-900">
-              <i class="fas fa-phone mr-3"></i>
+              <i class="fa-solid fa-phone mr-3"></i>
               045-534-8922
             </a>
             
             <a href="/contact" class="contact-cta-btn form-btn bg-transparent text-white border-white hover:bg-white hover:text-gray-900">
-              <i class="fas fa-envelope mr-3"></i>
+              <i class="fa-solid fa-envelope mr-3"></i>
               お問い合わせフォーム
             </a>
           </div>
